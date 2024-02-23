@@ -1,0 +1,1532 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt;</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/FATHOM/Generate_footprints';</script>
+    <link rel="canonical" href="https://worldbank.github.io/template/notebooks/FATHOM/Generate_footprints.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="Feb 23, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/gallery.html">Projects using the <span style="color:#3EACAD">template</span></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://datapartnership.org">Development Data Partnership</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://wbdatalab.org">World Bank Data Lab</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.worldbank.org/en/about/unit/unit-dec">World Bank DEC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.worldbank.org/en/research/dime">World Bank DIME</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/worldbank/template" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/worldbank/template/edit/main/notebooks/FATHOM/Generate_footprints.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/worldbank/template/issues/new?title=Issue%20on%20page%20%2Fnotebooks/FATHOM/Generate_footprints.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/FATHOM/Generate_footprints.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">boto3</span>
+<span class="kn">import</span> <span class="nn">rasterio</span>
+
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">box</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/wb411133/.conda/envs/ee/lib/python3.9/site-packages/geopandas/_compat.py:106: UserWarning: The Shapely GEOS version (3.9.1-CAPI-1.14.2) is incompatible with the GEOS version PyGEOS was compiled with (3.10.4-CAPI-1.16.2). Conversions between both will be slow.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">in_file_list</span> <span class="o">=</span> <span class="s1">&#39;/home/wb411133/temp/fathom_files.csv&#39;</span>
+
+<span class="n">s3_bucket</span> <span class="o">=</span> <span class="s1">&#39;wbg-geography01&#39;</span>
+<span class="n">s3_prefix</span> <span class="o">=</span> <span class="s1">&#39;FATHOM/v2023/&#39;</span>
+<span class="n">s3_folder</span> <span class="o">=</span> <span class="s1">&#39;GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0&#39;</span>
+
+<span class="n">in_files</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">in_file_list</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">my_bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="n">s3_bucket</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read and process from disk</span>
+<span class="n">all_extents</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">in_folder</span> <span class="o">=</span> <span class="s1">&#39;/home/wb411133/temp/FATHOM/FATHOM_TESTING&#39;</span>
+<span class="k">for</span> <span class="n">tile_file</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">in_folder</span><span class="p">)):</span>
+    <span class="n">inR</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">in_folder</span><span class="p">,</span> <span class="n">tile_file</span><span class="p">))</span>
+    <span class="n">shp</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="o">*</span><span class="n">inR</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+    <span class="n">all_extents</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">tile_file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">shp</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "227787f265d140ec8ce2f03f242fc754", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fluvial_tiles</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">all_extents</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]),</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">&#39;geometry&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a column to extents file indicating if a coastal cell is present</span>
+<span class="n">cur_out_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s3_prefix</span><span class="p">,</span> <span class="s1">&#39;GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0&#39;</span><span class="p">)</span>
+<span class="c1"># Get a list of all tiles in a coastal folder</span>
+<span class="n">all_files</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">my_bucket</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Prefix</span><span class="o">=</span><span class="n">cur_out_folder</span><span class="p">)):</span>
+    <span class="n">all_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+
+<span class="c1"># Add a boolean flag in the fluvial catalog if there is a corresponding coastal tile</span>
+<span class="n">fluvial_tiles</span><span class="p">[</span><span class="s1">&#39;COASTAL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()):</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">all_files</span><span class="p">:</span>
+        <span class="n">fluvial_tiles</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;COASTAL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        
+<span class="c1"># There are ~300 coastal tiles that don&#39;t have a corresponding fluvial tile</span>
+<span class="n">coastal_missing</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">all_files</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xx</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">coastal_missing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e944c232e61a45a5934e1b2a690ac63c", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "1bf2901c4b144fa3b609ca8b9b26315e", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>369
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># USE AWS CLI to download the missing tiles </span>
+<span class="k">for</span> <span class="n">c_tile</span> <span class="ow">in</span> <span class="n">coastal_missing</span><span class="p">:</span>
+    <span class="n">aws_command</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/</span><span class="si">{</span><span class="n">c_tile</span><span class="si">}</span><span class="s1">.tif .&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">aws_command</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n05w088.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n06w163.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n10w110.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n15e146.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n29e140.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n31e139.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n50e144.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n59w044.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n59w045.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n59w046.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n60w043.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n60w044.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n60w045.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n60w046.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n60w047.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n60w048.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n60w049.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n61w043.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n61w044.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n61w046.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n61w047.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n61w048.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n61w049.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n61w050.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n62w042.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n62w043.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n62w044.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n62w049.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n62w050.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n62w051.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n63w041.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n63w042.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n63w043.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n63w050.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n63w051.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n63w052.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n64w040.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n64w041.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n64w042.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n64w050.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n64w051.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n64w052.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n64w053.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n65w036.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n65w037.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n65w038.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n65w039.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n65w040.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n65w041.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n65w042.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n65w051.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n65w052.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n65w053.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n65w054.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n66w034.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n66w035.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n66w036.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n66w037.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n66w038.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n66w039.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n66w051.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n66w052.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n66w053.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n66w054.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n67w033.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n67w034.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n67w035.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n67w051.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n67w052.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n67w053.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n67w054.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68e040.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68w026.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68w027.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68w028.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68w029.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68w030.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68w031.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68w032.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68w033.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68w051.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68w052.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68w053.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n68w054.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n69w023.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n69w024.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n69w025.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n69w026.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n69w028.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n69w029.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n69w050.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n69w051.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n69w052.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n69w053.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n69w054.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n69w055.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w009.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w010.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w023.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w024.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w025.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w026.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w027.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w028.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w029.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w051.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w052.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w053.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w054.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w055.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n70w056.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w008.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w009.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w023.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w024.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w025.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w026.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w027.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w028.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w029.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w051.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w052.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w053.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w054.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w055.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n71w056.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w023.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w024.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w025.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w026.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w027.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w028.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w029.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w053.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w054.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w055.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w056.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n72w057.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n73w021.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n73w022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n73w023.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n73w024.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n73w025.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n73w026.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n73w027.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n73w028.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n73w055.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n73w056.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n73w057.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n73w058.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n74w018.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n74w019.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n74w020.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n74w021.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n74w022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n74w023.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n74w056.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n74w057.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n74w058.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n74w059.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w018.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w019.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w020.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w021.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w023.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w058.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w059.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w060.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w061.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w065.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w066.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w067.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n75w068.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76e015.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76e016.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76e017.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76e021.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76e022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76e024.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76e025.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w019.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w020.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w021.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w023.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w060.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w061.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w062.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w063.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w064.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w065.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w066.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w067.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w068.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w069.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w070.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w071.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n76w072.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77e013.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77e014.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77e015.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77e016.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77e017.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77e018.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77e020.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77e021.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77e022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77e023.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77e024.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77e025.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77w018.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77w019.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77w020.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77w021.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77w022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77w066.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77w067.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77w068.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77w069.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77w070.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77w071.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n77w072.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e010.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e011.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e012.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e013.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e014.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e015.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e016.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e017.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e018.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e019.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e020.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e021.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e023.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e026.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e027.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e028.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e029.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78e030.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78w018.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78w019.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78w020.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78w021.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78w022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78w070.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78w071.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n78w072.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e010.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e011.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e012.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e013.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e014.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e015.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e016.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e017.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e018.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e019.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e020.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e021.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e023.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e024.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e025.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e026.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e027.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79e030.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79w018.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79w019.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79w020.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79w021.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n79w022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e014.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e016.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e017.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e018.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e019.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e020.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e021.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e022.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e023.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e024.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e025.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e026.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e027.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e028.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e031.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e032.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e033.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e051.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e052.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e053.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e054.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e055.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e090.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e091.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e092.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e093.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e094.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e095.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e096.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e097.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e098.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80e099.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80w061.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80w062.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80w063.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80w081.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80w082.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80w083.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80w084.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80w085.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80w099.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80w100.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n80w101.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81e051.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81e054.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81e055.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81e090.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81e091.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81e093.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81e094.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81e095.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81e096.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81w060.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81w061.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81w062.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81w063.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81w081.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81w082.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81w083.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81w084.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n81w085.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n82w060.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n82w061.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n82w062.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n82w063.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n82w081.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n82w082.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n82w083.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n82w084.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n82w085.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s04e055.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s09w015.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s11w036.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s20e063.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s22e039.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s25w125.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s27w106.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s30e168.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s41w010.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s41w011.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s50e178.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s51e165.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s51e166.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s53e168.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s53e169.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s55e158.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s56e158.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s57w028.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s58w027.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s59w027.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s60w027.tif .
+ 
+aws s3 cp s3://wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/s60w028.tif .
+ 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop through downloaded files to get extents</span>
+<span class="n">missing_tiles_folder</span> <span class="o">=</span> <span class="s1">&#39;/home/wb411133/temp/FATHOM/COASTAL_MISSING&#39;</span>
+<span class="n">all_extents</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">tile_file</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">missing_tiles_folder</span><span class="p">)):</span>
+    <span class="n">inR</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing_tiles_folder</span><span class="p">,</span> <span class="n">tile_file</span><span class="p">))</span>
+    <span class="n">shp</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="o">*</span><span class="n">inR</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+    <span class="n">all_extents</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">tile_file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">shp</span><span class="p">])</span>
+<span class="n">coastal_missing_extents</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">all_extents</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]),</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">&#39;geometry&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c70c22d9993740ac89f4d3c82a167a30", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add corresponding flags to final version</span>
+<span class="n">fluvial_tiles</span><span class="p">[</span><span class="s1">&#39;FLUVIAL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">coastal_missing_extents</span><span class="p">[</span><span class="s1">&#39;FLUVIAL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">coastal_missing_extents</span><span class="p">[</span><span class="s1">&#39;COASTAL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">combo_extents</span> <span class="o">=</span> <span class="n">fluvial_tiles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coastal_missing_extents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combo_extents</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>geometry</th>
+      <th>FLUVIAL</th>
+      <th>COASTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>n00e135</td>
+      <td>POLYGON ((135.99986 0.00014, 135.99986 1.00014...</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>n00w065</td>
+      <td>POLYGON ((-64.00014 0.00014, -64.00014 1.00014...</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>n00e007</td>
+      <td>POLYGON ((7.99986 0.00014, 7.99986 1.00014, 6....</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>n00e006</td>
+      <td>POLYGON ((6.99986 0.00014, 6.99986 1.00014, 5....</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>n00w082</td>
+      <td>POLYGON ((-81.00014 0.00014, -81.00014 1.00014...</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combo_extents</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>geometry</th>
+      <th>FLUVIAL</th>
+      <th>COASTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>352</th>
+      <td>s57w028</td>
+      <td>POLYGON ((-27.00014 -56.99986, -27.00014 -55.9...</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>353</th>
+      <td>s58w027</td>
+      <td>POLYGON ((-26.00014 -57.99986, -26.00014 -56.9...</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>354</th>
+      <td>s59w027</td>
+      <td>POLYGON ((-26.00014 -58.99986, -26.00014 -57.9...</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>355</th>
+      <td>s60w027</td>
+      <td>POLYGON ((-26.00014 -59.99986, -26.00014 -58.9...</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>356</th>
+      <td>s60w028</td>
+      <td>POLYGON ((-27.00014 -59.99986, -27.00014 -58.9...</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combo_extents</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;/home/wb411133/temp/fathom_tile_extents.geojson&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;GeoJSON&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "ee"
+        },
+        kernelOptions: {
+            name: "ee",
+            path: "./notebooks/FATHOM"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ee'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Development Data Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Feb 23, 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+ Country borders or names do not necessarily reflect the World Bank Group’s official position. All maps are for illustrative purposes and do not imply the expression of any opinion on the part of the World Bank, concerning the legal status of any country or territory or concerning the delimitation of frontiers or boundaries
+</div>
+<div>
+    <b>All content (unless otherwise specified) is subject to the <a href="https://www.mozilla.org/en-US/MPL">Mozilla Public License.</a></b>
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

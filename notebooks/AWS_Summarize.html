@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>3. Securely Using API Keys</title>
+    <title>Summarize files and folders in AWS</title>
   
   
   
@@ -60,13 +60,11 @@
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/nasa-apod';</script>
-    <link rel="canonical" href="https://worldbank.github.io/template/notebooks/nasa-apod.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/AWS_Summarize';</script>
+    <link rel="canonical" href="https://worldbank.github.io/template/notebooks/AWS_Summarize.html" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Including Bibliography" href="bibliography.html" />
-    <link rel="prev" title="2. Python Package Example" href="world-bank-package.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
     <meta name="docbuild:last-update" content="Feb 23, 2024"/>
@@ -129,6 +127,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -174,14 +174,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="world-bank-api.html">1. World Bank Indicators API Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="world-bank-package.html">2. Python Package Example</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Securely Using API Keys</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography.html">4. Including Bibliography</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Gallery</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../docs/gallery.html">Projects using the <span style="color:#3EACAD">template</span></a></li>
 </ul>
@@ -262,7 +255,7 @@
       
       
       
-      <li><a href="https://github.com/worldbank/template/edit/main/notebooks/nasa-apod.ipynb" target="_blank"
+      <li><a href="https://github.com/worldbank/template/edit/main/notebooks/AWS_Summarize.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -279,7 +272,7 @@
       
       
       
-      <li><a href="https://github.com/worldbank/template/issues/new?title=Issue%20on%20page%20%2Fnotebooks/nasa-apod.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/worldbank/template/issues/new?title=Issue%20on%20page%20%2Fnotebooks/AWS_Summarize.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -309,7 +302,7 @@
       
       
       
-      <li><a href="../_sources/notebooks/nasa-apod.ipynb" target="_blank"
+      <li><a href="../_sources/notebooks/AWS_Summarize.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -380,9 +373,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -393,20 +384,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Securely Using API Keys</h1>
+    <h1>Summarize files and folders in AWS</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">3.1. Environment Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#astronomy-picture-of-the-day">3.2. Astronomy Picture of the Day</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -416,100 +398,252 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="securely-using-api-keys">
-<h1><span class="section-number">3. </span>Securely Using API Keys<a class="headerlink" href="#securely-using-api-keys" title="Permalink to this heading">#</a></h1>
-<blockquote>
-<div><p>The following are (opinionated) best practices to store and use API keys in your source code. If you disagree, please consider <a class="reference external" href="https://github.com/worldbank/template/issues/new/choose">contributing</a>.</p>
-</div></blockquote>
-<section id="environment-variables">
-<h2><span class="section-number">3.1. </span>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this heading">#</a></h2>
-<p>An <a class="reference external" href="https://en.wikipedia.org/wiki/Environment_variable">environment variable</a> is a dynamic-named value that can be used to store information on a computer. For instance, an environment variable can be used to store settings and/or privileged information (e.g. API keys) on your local computer or server.</p>
-<p>To set a environment variable to a new value, in <strong>Unix-like</strong> systems, you must pass a <code class="docutils literal notranslate"><span class="pre">name</span></code> and a <code class="docutils literal notranslate"><span class="pre">value</span></code> pair as shown below in the terminal.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">SECRET_API_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;MY-SECRET_API_KEY&gt;
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> is accessible by the <code class="docutils literal notranslate"><span class="pre">name</span></code> without being exposed throughout the system. In particular, in <a class="reference external" href="https://python.org">Python</a>, the value can be retrieve as follows.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">secret_api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SECRET_API_KEY&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Alternatively, it is customary to use a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file to organize and load environments variables as needed. Packages such as <a class="reference external" href="https://www.npmjs.com/package/dotenv">dotenv</a> and <a class="reference external" href="https://pypi.org/project/python-dotenv/">python-dotenv</a> will automatically  load environments variables for you from the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>.env
-</pre></div>
-</div>
-<p>With <a class="reference external" href="https://python.org">Python</a>,</p>
-<div class="cell tag_remove_output docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="summarize-files-and-folders-in-aws">
+<h1>Summarize files and folders in AWS<a class="headerlink" href="#summarize-files-and-folders-in-aws" title="Permalink to this heading">#</a></h1>
+<p>This notebook provides an example of how to list files in an AWS bucket (including a prefix search) and group according to folder definitions</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">importlib</span>
+<span class="kn">import</span> <span class="nn">rasterio</span><span class="o">,</span> <span class="nn">geojson</span><span class="o">,</span> <span class="nn">h3</span><span class="o">,</span> <span class="nn">boto3</span>
 
-<span class="n">load_dotenv</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>With <a class="reference external" href="https://jupyter.org">Jupyter</a>,</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> dotenv
-<span class="o">%</span><span class="k">dotenv</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The <span style="color:#3EACAD">template</span>  includes <code class="docutils literal notranslate"><span class="pre">.env.example</span></code> as an example; to use, simply rename it to <code class="docutils literal notranslate"><span class="pre">.env</span></code> and add your settings and secrets to it. Please note that <code class="docutils literal notranslate"><span class="pre">.env</span></code> <strong>must</strong> never be committed/versioned (for example, to GitHub) and <strong>should</strong> be ignored on <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>While environments variables are a convenient way to minimize the security risk, it is important to emphasize secrets are still stored in plaintext in your computer. It is strongly recommended to use instead a secret manager, such as <a class="reference external" href="https://aws.amazon.com/secrets-manager/">AWS Secrets Manager</a> or <a class="reference external" href="https://developer.1password.com/docs/cli/secret-references">1Password</a>.</p>
-</div>
-</section>
-<section id="astronomy-picture-of-the-day">
-<h2><span class="section-number">3.2. </span>Astronomy Picture of the Day<a class="headerlink" href="#astronomy-picture-of-the-day" title="Permalink to this heading">#</a></h2>
-<p>One of the most popular APIs is NASA’s <a class="reference external" href="https://apod.nasa.gov/apod/astropix.html">Astronomy Picture of the Day</a>. Let’s see in the following example how to use the NASA API with a secret API key.</p>
-<div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 
-<span class="kn">import</span> <span class="nn">httpx</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<p>First, you will have to <a class="reference external" href="https://api.nasa.gov">generate your API key</a> and set up the environment variable <code class="docutils literal notranslate"><span class="pre">NASA_API_KEY</span></code> with its value. Now you are ready to use it in your code. For instance, in this example, we assign it to <code class="docutils literal notranslate"><span class="pre">api_key</span></code>. Please note that the value is never exposed and the notebook can be securely shared with anyone.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;NASA_API_KEY&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">botocore.config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">botocore</span> <span class="kn">import</span> <span class="n">UNSIGNED</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now, we are ready to make the request to the NASA API. According to the <a class="reference external" href="https://github.com/nasa/apod-api#docs">documentation</a>, the <code class="docutils literal notranslate"><span class="pre">api_key</span></code> is passed a parameter to the GET request.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-        <span class="s2">&quot;https://api.nasa.gov/planetary/apod&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;api_key&quot;</span><span class="p">:</span> <span class="n">api_key</span><span class="p">}</span>
-    <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Voilà!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;hdurl&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s1">&#39;wbg-geography01&#39;</span> 
+<span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;sylvera&#39;</span>
+<span class="n">region</span> <span class="o">=</span> <span class="s1">&#39;us-east-1&#39;</span>
+<span class="n">s3client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="n">region</span><span class="p">)</span>
+
+<span class="c1"># Loop through the S3 bucket and get all the file keys</span>
+<span class="n">more_results</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">del</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="n">loops</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">all_res</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="n">more_results</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Completed loop: </span><span class="si">{</span><span class="n">loops</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">loops</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">objects</span> <span class="o">=</span> <span class="n">s3client</span><span class="o">.</span><span class="n">list_objects_v2</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="n">bucket</span><span class="p">,</span> <span class="n">ContinuationToken</span><span class="o">=</span><span class="n">token</span><span class="p">,</span> <span class="n">Prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">objects</span> <span class="o">=</span> <span class="n">s3client</span><span class="o">.</span><span class="n">list_objects_v2</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="n">bucket</span><span class="p">)</span>
+    <span class="n">more_results</span> <span class="o">=</span> <span class="n">objects</span><span class="p">[</span><span class="s1">&#39;IsTruncated&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">more_results</span><span class="p">:</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">objects</span><span class="p">[</span><span class="s1">&#39;NextContinuationToken&#39;</span><span class="p">]</span>
+    <span class="n">loops</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Contents&#39;</span><span class="p">]:</span>
+        <span class="n">all_res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><img src="https://apod.nasa.gov/apod/image/2302/jonesemberson1.jpg"/></div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Completed loop: 0
+Completed loop: 1
+Completed loop: 2
+Completed loop: 3
+Completed loop: 4
+Completed loop: 5
+Completed loop: 6
+Completed loop: 7
+Completed loop: 8
+Completed loop: 9
+Completed loop: 10
+Completed loop: 11
+Completed loop: 12
+Completed loop: 13
+Completed loop: 14
+Completed loop: 15
+Completed loop: 16
+Completed loop: 17
+Completed loop: 18
+Completed loop: 19
+Completed loop: 20
+Completed loop: 21
+Completed loop: 22
+Completed loop: 23
+Completed loop: 24
+Completed loop: 25
+Completed loop: 26
+Completed loop: 27
+Completed loop: 28
+Completed loop: 29
+Completed loop: 30
+Completed loop: 31
+Completed loop: 32
+Completed loop: 33
+Completed loop: 34
+Completed loop: 35
+Completed loop: 36
+Completed loop: 37
+Completed loop: 38
+Completed loop: 39
+Completed loop: 40
+Completed loop: 41
+Completed loop: 42
+Completed loop: 43
+Completed loop: 44
+Completed loop: 45
+Completed loop: 46
+Completed loop: 47
+Completed loop: 48
+Completed loop: 49
+Completed loop: 50
+Completed loop: 51
+Completed loop: 52
+Completed loop: 53
+Completed loop: 54
+Completed loop: 55
+Completed loop: 56
+Completed loop: 57
+Completed loop: 58
+Completed loop: 59
+Completed loop: 60
+Completed loop: 61
+Completed loop: 62
+Completed loop: 63
+Completed loop: 64
+Completed loop: 65
+</pre></div>
 </div>
-</section>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inD</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">all_res</span><span class="p">)</span>
+<span class="n">inD</span><span class="p">[</span><span class="s1">&#39;folder&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inD</span><span class="p">[</span><span class="s1">&#39;Key&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Key</th>
+      <th>LastModified</th>
+      <th>ETag</th>
+      <th>Size</th>
+      <th>StorageClass</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>.DS_Store</td>
+      <td>2020-09-24 18:15:42+00:00</td>
+      <td>"098b7ee247e2688d3c110358e95be940"</td>
+      <td>24580</td>
+      <td>STANDARD</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AIS/</td>
+      <td>2021-06-17 16:09:49+00:00</td>
+      <td>"bd752504006b667e1139c9383472e928"</td>
+      <td>0</td>
+      <td>INTELLIGENT_TIERING</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AIS_outputs/205762000.geojson</td>
+      <td>2021-11-30 23:13:40+00:00</td>
+      <td>"36406a0f5b1d20b5f734ef775feb8b39"</td>
+      <td>630475</td>
+      <td>STANDARD</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AIS_outputs/219833000.geojson</td>
+      <td>2021-11-30 23:13:40+00:00</td>
+      <td>"e049985ba5d6327f1aafb33e8e92707a"</td>
+      <td>355694</td>
+      <td>STANDARD</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AIS_outputs/229380000.geojson</td>
+      <td>2021-11-30 23:13:40+00:00</td>
+      <td>"fb6c2da55db0cf1e7022d7d04c8de236"</td>
+      <td>539934</td>
+      <td>STANDARD</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>65246</th>
+      <td>sylvera/MSL/0007MZ/UAV-LS/GIL06/L3A/0007MZ_GIL...</td>
+      <td>2022-12-27 12:13:45+00:00</td>
+      <td>"cc1d2ab954a43f1fda2902eb547703aa-4"</td>
+      <td>28143740</td>
+      <td>STANDARD</td>
+    </tr>
+    <tr>
+      <th>65247</th>
+      <td>sylvera/MSL/0007MZ/UAV-LS/GIL06/L3A/0007MZ_GIL...</td>
+      <td>2022-12-27 12:13:44+00:00</td>
+      <td>"9fbaf7579c5c7ec7cc263bc161da743c-2"</td>
+      <td>14073598</td>
+      <td>STANDARD</td>
+    </tr>
+    <tr>
+      <th>65248</th>
+      <td>sylvera/MSL/0007MZ/UAV-LS/GIL06/L3A/0007MZ_GIL...</td>
+      <td>2022-12-27 12:13:46+00:00</td>
+      <td>"9dfcc537eabdc7c09ea4fd687c024787"</td>
+      <td>1972843</td>
+      <td>STANDARD</td>
+    </tr>
+    <tr>
+      <th>65249</th>
+      <td>sylvera/MSL/0007MZ/UAV-LS/GIL06/L3B/0007MZ_GIL...</td>
+      <td>2022-12-27 13:16:38+00:00</td>
+      <td>"0c2ad1ebb1ed02bf783a042d6bcc3308-84"</td>
+      <td>703036683</td>
+      <td>STANDARD</td>
+    </tr>
+    <tr>
+      <th>65250</th>
+      <td>sylvera/MSL/0007MZ/UAV-LS/GIL06/L4/0007MZ_GIL0...</td>
+      <td>2022-12-27 18:16:51+00:00</td>
+      <td>"44a8c09c25d43c499568b28b85b1c0fe"</td>
+      <td>564814</td>
+      <td>STANDARD</td>
+    </tr>
+  </tbody>
+</table>
+<p>65251 rows × 5 columns</p>
+</div></div></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -521,16 +655,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "ee"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ee",
             path: "./notebooks"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ee'</script>
 
                 </article>
               
@@ -542,24 +676,6 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="world-bank-package.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Python Package Example</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="bibliography.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Including Bibliography</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -567,21 +683,7 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">3.1. Environment Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#astronomy-picture-of-the-day">3.2. Astronomy Picture of the Day</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
