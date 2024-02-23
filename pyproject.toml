@@ -3,12 +3,16 @@ requires = ["hatchling>=1.21.0", "hatch-vcs>=0.3.0"]
 build-backend = "hatchling.build"
 
 [project]
-name = "template"
-description = "A template Python package from the World Bank Data Lab"
+name = "GOSTrocks"
+description = "Miscellaneous geospatial functions concerning vector, raster, and network analysis"
 readme = { file = "README.md", content-type = "text/markdown" }
 license = { file = "LICENSE" }
-keywords = ["template", "reproducibility"]
-authors = [{ name = "Development Data Group", email = "datalab@worldbank.org" }]
+keywords = ["gostrocks", "raster", "GOST"]
+
+authors = [
+	{ name = "Benjamin P. Stewart", email = "ben.gis.stewart@gmail.com" },
+	{ name = "Andres Chamorro", email = "afche18@gmail.com" }
+]
 classifiers = [
 	"Programming Language :: Python :: 3",
 	"Programming Language :: Python :: 3.7",
@@ -22,10 +26,13 @@ classifiers = [
 	"Intended Audience :: Developers",
 	"Topic :: Scientific/Engineering",
 ]
-dynamic = ["version"]
+dynamic = ["dependencies", "version"]
 
 requires-python = ">=3.7"
-dependencies = ["requests>=2.28.1", "pandas>=2", "pycountry>=22.3.5"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
 [project.optional-dependencies]
 docs = [
 	"docutils==0.17.1",    # https://jupyterbook.org/en/stable/content/citations.html?highlight=docutils#citations-and-bibliographies
@@ -33,9 +40,9 @@ docs = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/worldbank/template"
-"Bug Reports" = "https://github.com/worldbank/template/issues"
-"Source" = "https://github.com/worldbank/template"
+"Homepage" = "https://github.com/worldbank/GOSTrocks"
+"Bug Reports" = "https://github.com/worldbank/GOSTrocks/issues"
+"Source" = "https://github.com/worldbank/GOSTrocks"
 
 [tool.codespell]
 skip = 'docs/_build,docs/references.bib,*.png,*.gz,*.whl'
@@ -44,6 +51,9 @@ ignore-words-list = "gost,"
 
 [tool.hatch.version]
 source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/GOSTrocks/_version.py"
 
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
