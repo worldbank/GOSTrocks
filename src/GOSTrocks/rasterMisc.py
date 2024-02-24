@@ -173,7 +173,8 @@ def clipRaster(inR, inD, outFile=None, crop=True):
             dest.write(out_img)
     return([out_img, out_meta])
 
-def rasterizeDataFrame(inD, outFile='', idField='', templateRaster='', templateMeta = '', nCells=0, res=0, mergeAlg="REPLACE", re_proj=False):
+def rasterizeDataFrame(inD, outFile, idField='', templateRaster='', templateMeta = '',
+                       nCells=0, res=0, mergeAlg="REPLACE", re_proj=False, nodata=np.nan):
     """ Convert input geopandas dataframe into a raster file
 
     :param inD: input data frame to rasterize
@@ -249,16 +250,17 @@ def rasterizeDataFrame(inD, outFile='', idField='', templateRaster='', templateM
         else:
             crs = inD.crs
         cMeta = {'count':1, 'crs': crs, 'dtype':inD['VALUE'].dtype, 'driver':'GTiff',
-                 'transform':nTransform, 'height':height, 'width':width}
+                 'transform':nTransform, 'height':height, 'width':width, 'nodata':nodata}
     shapes = ((row.geometry,row.VALUE) for idx, row in inD.iterrows())
-    burned = features.rasterize(shapes=shapes, out_shape=(cMeta['height'], cMeta['width']), transform=nTransform, dtype=cMeta['dtype'], merge_alg=mAlg)
-    try:
-        with rasterio.open(outFile, 'w', **cMeta) as out:
-            out.write_band(1, burned)
-        return({'meta':cMeta, 'vals': burned})
-    except:
-        print("Error writing raster")
-        return({'meta':cMeta, 'vals': burned})
+    burned = features.rasterize(shapes=shapes, out_shape=(cMeta['height'], cMeta['width']),
+                                transform=nTransform, dtype=cMeta['dtype'], merge_alg=mAlg, fill=nodata)
+    if outFile:
+        try:
+            with rasterio.open(outFile, 'w', **cMeta) as out:
+                out.write_band(1, burned)
+        except:
+            print("Error writing raster")
+    return({'meta':cMeta, 'vals': burned})
 
 def polygonizeArray(data, curRaster):
     """ Convert input array (data) to a geodataframe
