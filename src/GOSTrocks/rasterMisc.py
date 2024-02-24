@@ -16,9 +16,6 @@ from rasterio.merge import merge
 from rasterio.io import MemoryFile
 from contextlib import contextmanager
 
-import seaborn as sns
-sns.set(font_scale=1.5, style="whitegrid")
-
 curPath = os.path.realpath(os.path.abspath(os.path.split(inspect.getfile( inspect.currentframe() ))[0]))
 if not curPath in sys.path:
     sys.path.append(curPath)
