@@ -136,7 +136,7 @@ def project_raster(srcRst, dstCrs, output_raster=''):
 
     return([dstRst, kwargs])
          
-def clipRaster(inR, inD, outFile='', crop=True):
+def clipRaster(inR, inD, outFile=None, crop=True):
     ''' Clip input raster
     
     :param inR: rasterio object to clip
@@ -163,12 +163,12 @@ def clipRaster(inR, inD, outFile='', crop=True):
         tD = gpd.GeoDataFrame([[1]], geometry=[box(*inD.total_bounds)])
     
     coords = getFeatures(tD)
-    out_img, out_transform = mask(inR, shapes=coords, crop=True)
+    out_img, out_transform = mask(inR, shapes=coords, crop=True, all_touched=True)
     out_meta.update({"driver": "GTiff",
                      "height": out_img.shape[1],
                      "width": out_img.shape[2],
                      "transform": out_transform})
-    if outFile != '':
+    if outFile:
         with rasterio.open(outFile, "w", **out_meta) as dest:
             dest.write(out_img)
     return([out_img, out_meta])
