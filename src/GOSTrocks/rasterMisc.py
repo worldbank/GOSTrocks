@@ -16,9 +16,6 @@ from rasterio.merge import merge
 from rasterio.io import MemoryFile
 from contextlib import contextmanager
 
-import seaborn as sns
-sns.set(font_scale=1.5, style="whitegrid")
-
 curPath = os.path.realpath(os.path.abspath(os.path.split(inspect.getfile( inspect.currentframe() ))[0]))
 if not curPath in sys.path:
     sys.path.append(curPath)
@@ -139,7 +136,7 @@ def project_raster(srcRst, dstCrs, output_raster=''):
 
     return([dstRst, kwargs])
          
-def clipRaster(inR, inD, outFile='', crop=True):
+def clipRaster(inR, inD, outFile=None, crop=True):
     ''' Clip input raster
     
     :param inR: rasterio object to clip
@@ -166,17 +163,18 @@ def clipRaster(inR, inD, outFile='', crop=True):
         tD = gpd.GeoDataFrame([[1]], geometry=[box(*inD.total_bounds)])
     
     coords = getFeatures(tD)
-    out_img, out_transform = mask(inR, shapes=coords, crop=True)
+    out_img, out_transform = mask(inR, shapes=coords, crop=True, all_touched=True)
     out_meta.update({"driver": "GTiff",
                      "height": out_img.shape[1],
                      "width": out_img.shape[2],
                      "transform": out_transform})
-    if outFile != '':
+    if outFile:
         with rasterio.open(outFile, "w", **out_meta) as dest:
             dest.write(out_img)
     return([out_img, out_meta])
 
-def rasterizeDataFrame(inD, outFile='', idField='', templateRaster='', templateMeta = '', nCells=0, res=0, mergeAlg="REPLACE", re_proj=False):
+def rasterizeDataFrame(inD, outFile, idField='', templateRaster='', templateMeta = '',
+                       nCells=0, res=0, mergeAlg="REPLACE", re_proj=False, nodata=np.nan):
     """ Convert input geopandas dataframe into a raster file
 
     :param inD: input data frame to rasterize
@@ -252,16 +250,17 @@ def rasterizeDataFrame(inD, outFile='', idField='', templateRaster='', templateM
         else:
             crs = inD.crs
         cMeta = {'count':1, 'crs': crs, 'dtype':inD['VALUE'].dtype, 'driver':'GTiff',
-                 'transform':nTransform, 'height':height, 'width':width}
+                 'transform':nTransform, 'height':height, 'width':width, 'nodata':nodata}
     shapes = ((row.geometry,row.VALUE) for idx, row in inD.iterrows())
-    burned = features.rasterize(shapes=shapes, out_shape=(cMeta['height'], cMeta['width']), transform=nTransform, dtype=cMeta['dtype'], merge_alg=mAlg)
-    try:
-        with rasterio.open(outFile, 'w', **cMeta) as out:
-            out.write_band(1, burned)
-        return({'meta':cMeta, 'vals': burned})
-    except:
-        print("Error writing raster")
-        return({'meta':cMeta, 'vals': burned})
+    burned = features.rasterize(shapes=shapes, out_shape=(cMeta['height'], cMeta['width']),
+                                transform=nTransform, dtype=cMeta['dtype'], merge_alg=mAlg, fill=nodata)
+    if outFile:
+        try:
+            with rasterio.open(outFile, 'w', **cMeta) as out:
+                out.write_band(1, burned)
+        except:
+            print("Error writing raster")
+    return({'meta':cMeta, 'vals': burned})
 
 def polygonizeArray(data, curRaster):
     """ Convert input array (data) to a geodataframe

@@ -6,7 +6,7 @@ import numpy as np
 import xarray as xr
 import matplotlib.pyplot as plt
 
-from GOSTRocks.misc import tPrint
+from GOSTrocks.misc import tPrint
 
 curPath = os.path.realpath(os.path.abspath(os.path.split(inspect.getfile( inspect.currentframe() ))[0]))
 if not curPath in sys.path:

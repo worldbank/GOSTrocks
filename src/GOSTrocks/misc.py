@@ -5,9 +5,11 @@ import pandas as pd
 import numpy as np
 
 from math import ceil
-from shapely.geometry import Point, Polygon
+from shapely.geometry import Point, Polygon, box
 
-wgs84 = {'init':'epsg:4326'}
+from pyproj import CRS
+from pyproj.aoi import AreaOfInterest
+from pyproj.database import query_utm_crs_info
 
 def loggingInfo(lvl = logging.INFO):
     """ Set logging settings to info (default) and print useful information
@@ -16,7 +18,6 @@ def loggingInfo(lvl = logging.INFO):
     :type lvl: logging.INFO
     """
     logging.basicConfig(format='%(asctime)s:%(levelname)s: %(message)s', level=lvl)
-
 
 def tPrint(s):
     '''prints the time along with the message'''
@@ -212,4 +213,22 @@ def project_UTM(inD):
         letter = '7'
     outUTM = '32%s%s' % (letter, ll_utm[2])
     return(inD.to_crs({'init': 'epsg:%s' % outUTM}))
+
+def get_utm(gdf, bbox=True):
+    
+    if bbox:
+        center = box(*gdf.total_bounds).centroid
+    else:
+        center = gdf.unary_union.centroid
+    utm_crs_list = query_utm_crs_info(
+    datum_name="WGS 84",
+    area_of_interest=AreaOfInterest(
+        west_lon_degree=center.x,
+        south_lat_degree=center.y,
+        east_lon_degree=center.x,
+        north_lat_degree=center.y
+        ),
+    )
+    utm_crs = CRS.from_epsg(utm_crs_list[0].code)
+    return(utm_crs)
     

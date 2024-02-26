@@ -5,7 +5,7 @@ import osmnx as ox
 import pandas as pd
 
 from shapely.geometry import box
-from GOSTRocks import misc
+from GOSTrocks import misc
 
 # Highway features are reclassified to 4 OSMLR classes for simplification and standardization
 #   https://mapzen.com/blog/osmlr-2nd-technical-preview/
