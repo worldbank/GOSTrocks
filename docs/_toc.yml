@@ -5,4 +5,4 @@ parts:
   - caption: Examples
     numbered: True
     chapters:
-      - file: notebooks/ZON_DECAT_B_ZonalStatsNTLHarmonized.ipynb
+      - file: notebooks/GOSTrocks_Usage.ipynb
