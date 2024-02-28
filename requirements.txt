@@ -13,7 +13,7 @@ tqdm
 xarray
 osmnx
 affine
-PyOpenSSL >= 23.2  
+PyOpenSSL >= 23.2
 click
 Sphinx
 coverage
