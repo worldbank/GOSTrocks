@@ -1,0 +1,1561 @@
+{
+"coastal_defended_1in10_CURRENT_2020": {
+"description": "Global defended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in10_SSP1_2.6_2030": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in10_SSP2_4.5_2030": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in10_SSP3_7.0_2030": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in10_SSP5_8.5_2030": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in10_SSP1_2.6_2050": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in10_SSP2_4.5_2050": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in10_SSP3_7.0_2050": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in10_SSP5_8.5_2050": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in10_SSP1_2.6_2080": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in10_SSP2_4.5_2080": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in10_SSP3_7.0_2080": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in10_SSP5_8.5_2080": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_CURRENT_2020": {
+"description": "Global undefended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_SSP1_2.6_2030": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_SSP2_4.5_2030": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_SSP3_7.0_2030": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_SSP5_8.5_2030": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_SSP1_2.6_2050": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_SSP2_4.5_2050": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_SSP3_7.0_2050": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_SSP5_8.5_2050": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_SSP1_2.6_2080": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_SSP2_4.5_2080": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_SSP3_7.0_2080": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in10_SSP5_8.5_2080": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_CURRENT_2020": {
+"description": "Global defended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_SSP1_2.6_2030": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_SSP2_4.5_2030": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_SSP3_7.0_2030": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_SSP5_8.5_2030": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_SSP1_2.6_2050": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_SSP2_4.5_2050": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_SSP3_7.0_2050": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_SSP5_8.5_2050": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_SSP1_2.6_2080": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_SSP2_4.5_2080": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_SSP3_7.0_2080": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in10_SSP5_8.5_2080": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_CURRENT_2020": {
+"description": "Global undefended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_SSP1_2.6_2030": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_SSP2_4.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_SSP3_7.0_2030": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_SSP5_8.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_SSP1_2.6_2050": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_SSP2_4.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_SSP3_7.0_2050": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_SSP5_8.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_SSP1_2.6_2080": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_SSP2_4.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_SSP3_7.0_2080": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in10_SSP5_8.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_CURRENT_2020": {
+"description": "Global defended pluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_SSP1_2.6_2030": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_SSP2_4.5_2030": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_SSP3_7.0_2030": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_SSP5_8.5_2030": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_SSP1_2.6_2050": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_SSP2_4.5_2050": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_SSP3_7.0_2050": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_SSP5_8.5_2050": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_SSP1_2.6_2080": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_SSP2_4.5_2080": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_SSP3_7.0_2080": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in10_SSP5_8.5_2080": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 10 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_CURRENT_2020": {
+"description": "Global defended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_SSP1_2.6_2030": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_SSP2_4.5_2030": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_SSP3_7.0_2030": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_SSP5_8.5_2030": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_SSP1_2.6_2050": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_SSP2_4.5_2050": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_SSP3_7.0_2050": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_SSP5_8.5_2050": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_SSP1_2.6_2080": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_SSP2_4.5_2080": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_SSP3_7.0_2080": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in100_SSP5_8.5_2080": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_CURRENT_2020": {
+"description": "Global undefended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_SSP1_2.6_2030": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_SSP2_4.5_2030": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_SSP3_7.0_2030": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_SSP5_8.5_2030": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_SSP1_2.6_2050": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_SSP2_4.5_2050": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_SSP3_7.0_2050": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_SSP5_8.5_2050": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_SSP1_2.6_2080": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_SSP2_4.5_2080": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_SSP3_7.0_2080": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in100_SSP5_8.5_2080": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-COASTAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_CURRENT_2020": {
+"description": "Global defended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_SSP1_2.6_2030": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_SSP2_4.5_2030": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_SSP3_7.0_2030": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_SSP5_8.5_2030": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_SSP1_2.6_2050": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_SSP2_4.5_2050": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_SSP3_7.0_2050": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_SSP5_8.5_2050": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_SSP1_2.6_2080": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_SSP2_4.5_2080": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_SSP3_7.0_2080": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in100_SSP5_8.5_2080": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_CURRENT_2020": {
+"description": "Global undefended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_SSP1_2.6_2030": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_SSP2_4.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_SSP3_7.0_2030": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_SSP5_8.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_SSP1_2.6_2050": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_SSP2_4.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_SSP3_7.0_2050": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_SSP5_8.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_SSP1_2.6_2080": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_SSP2_4.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_SSP3_7.0_2080": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in100_SSP5_8.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_CURRENT_2020": {
+"description": "Global defended pluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_SSP1_2.6_2030": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_SSP2_4.5_2030": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_SSP3_7.0_2030": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_SSP5_8.5_2030": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_SSP1_2.6_2050": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_SSP2_4.5_2050": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_SSP3_7.0_2050": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_SSP5_8.5_2050": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_SSP1_2.6_2080": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_SSP2_4.5_2080": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_SSP3_7.0_2080": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in100_SSP5_8.5_2080": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 100 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in100-PLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_CURRENT_2020": {
+"description": "Global defended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_SSP1_2.6_2030": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_SSP2_4.5_2030": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_SSP3_7.0_2030": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_SSP5_8.5_2030": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_SSP1_2.6_2050": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_SSP2_4.5_2050": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_SSP3_7.0_2050": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_SSP5_8.5_2050": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_SSP1_2.6_2080": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_SSP2_4.5_2080": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_SSP3_7.0_2080": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in1000_SSP5_8.5_2080": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_CURRENT_2020": {
+"description": "Global undefended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_SSP1_2.6_2030": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_SSP2_4.5_2030": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_SSP3_7.0_2030": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_SSP5_8.5_2030": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_SSP1_2.6_2050": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_SSP2_4.5_2050": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_SSP3_7.0_2050": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_SSP5_8.5_2050": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_SSP1_2.6_2080": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_SSP2_4.5_2080": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_SSP3_7.0_2080": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in1000_SSP5_8.5_2080": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_CURRENT_2020": {
+"description": "Global defended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_SSP1_2.6_2030": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_SSP2_4.5_2030": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_SSP3_7.0_2030": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_SSP5_8.5_2030": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_SSP1_2.6_2050": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_SSP2_4.5_2050": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_SSP3_7.0_2050": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_SSP5_8.5_2050": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_SSP1_2.6_2080": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_SSP2_4.5_2080": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_SSP3_7.0_2080": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in1000_SSP5_8.5_2080": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_CURRENT_2020": {
+"description": "Global undefended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_SSP1_2.6_2030": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_SSP2_4.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_SSP3_7.0_2030": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_SSP5_8.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_SSP1_2.6_2050": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_SSP2_4.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_SSP3_7.0_2050": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_SSP5_8.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_SSP1_2.6_2080": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_SSP2_4.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_SSP3_7.0_2080": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in1000_SSP5_8.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_CURRENT_2020": {
+"description": "Global defended pluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_SSP1_2.6_2030": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_SSP2_4.5_2030": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_SSP3_7.0_2030": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_SSP5_8.5_2030": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_SSP1_2.6_2050": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_SSP2_4.5_2050": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_SSP3_7.0_2050": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_SSP5_8.5_2050": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_SSP1_2.6_2080": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_SSP2_4.5_2080": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_SSP3_7.0_2080": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in1000_SSP5_8.5_2080": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 1000 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-PLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_CURRENT_2020": {
+"description": "Global defended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_SSP1_2.6_2030": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_SSP2_4.5_2030": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_SSP3_7.0_2030": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_SSP5_8.5_2030": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_SSP1_2.6_2050": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_SSP2_4.5_2050": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_SSP3_7.0_2050": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_SSP5_8.5_2050": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_SSP1_2.6_2080": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_SSP2_4.5_2080": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_SSP3_7.0_2080": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in20_SSP5_8.5_2080": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_CURRENT_2020": {
+"description": "Global undefended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_SSP1_2.6_2030": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_SSP2_4.5_2030": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_SSP3_7.0_2030": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_SSP5_8.5_2030": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_SSP1_2.6_2050": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_SSP2_4.5_2050": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_SSP3_7.0_2050": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_SSP5_8.5_2050": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_SSP1_2.6_2080": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_SSP2_4.5_2080": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_SSP3_7.0_2080": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in20_SSP5_8.5_2080": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-COASTAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_CURRENT_2020": {
+"description": "Global defended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_SSP1_2.6_2030": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_SSP2_4.5_2030": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_SSP3_7.0_2030": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_SSP5_8.5_2030": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_SSP1_2.6_2050": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_SSP2_4.5_2050": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_SSP3_7.0_2050": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_SSP5_8.5_2050": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_SSP1_2.6_2080": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_SSP2_4.5_2080": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_SSP3_7.0_2080": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in20_SSP5_8.5_2080": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_CURRENT_2020": {
+"description": "Global undefended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_SSP1_2.6_2030": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_SSP2_4.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_SSP3_7.0_2030": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_SSP5_8.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_SSP1_2.6_2050": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_SSP2_4.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_SSP3_7.0_2050": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_SSP5_8.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_SSP1_2.6_2080": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_SSP2_4.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_SSP3_7.0_2080": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in20_SSP5_8.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_CURRENT_2020": {
+"description": "Global defended pluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_SSP1_2.6_2030": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_SSP2_4.5_2030": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_SSP3_7.0_2030": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_SSP5_8.5_2030": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_SSP1_2.6_2050": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_SSP2_4.5_2050": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_SSP3_7.0_2050": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_SSP5_8.5_2050": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_SSP1_2.6_2080": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_SSP2_4.5_2080": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_SSP3_7.0_2080": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in20_SSP5_8.5_2080": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 20 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in20-PLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_CURRENT_2020": {
+"description": "Global defended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_SSP1_2.6_2030": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_SSP2_4.5_2030": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_SSP3_7.0_2030": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_SSP5_8.5_2030": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_SSP1_2.6_2050": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_SSP2_4.5_2050": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_SSP3_7.0_2050": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_SSP5_8.5_2050": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_SSP1_2.6_2080": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_SSP2_4.5_2080": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_SSP3_7.0_2080": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in200_SSP5_8.5_2080": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_CURRENT_2020": {
+"description": "Global undefended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_SSP1_2.6_2030": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_SSP2_4.5_2030": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_SSP3_7.0_2030": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_SSP5_8.5_2030": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_SSP1_2.6_2050": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_SSP2_4.5_2050": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_SSP3_7.0_2050": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_SSP5_8.5_2050": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_SSP1_2.6_2080": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_SSP2_4.5_2080": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_SSP3_7.0_2080": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in200_SSP5_8.5_2080": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-COASTAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_CURRENT_2020": {
+"description": "Global defended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_SSP1_2.6_2030": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_SSP2_4.5_2030": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_SSP3_7.0_2030": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_SSP5_8.5_2030": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_SSP1_2.6_2050": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_SSP2_4.5_2050": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_SSP3_7.0_2050": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_SSP5_8.5_2050": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_SSP1_2.6_2080": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_SSP2_4.5_2080": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_SSP3_7.0_2080": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in200_SSP5_8.5_2080": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_CURRENT_2020": {
+"description": "Global undefended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_SSP1_2.6_2030": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_SSP2_4.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_SSP3_7.0_2030": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_SSP5_8.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_SSP1_2.6_2050": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_SSP2_4.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_SSP3_7.0_2050": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_SSP5_8.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_SSP1_2.6_2080": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_SSP2_4.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_SSP3_7.0_2080": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in200_SSP5_8.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_CURRENT_2020": {
+"description": "Global defended pluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_SSP1_2.6_2030": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_SSP2_4.5_2030": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_SSP3_7.0_2030": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_SSP5_8.5_2030": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_SSP1_2.6_2050": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_SSP2_4.5_2050": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_SSP3_7.0_2050": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_SSP5_8.5_2050": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_SSP1_2.6_2080": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_SSP2_4.5_2080": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_SSP3_7.0_2080": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in200_SSP5_8.5_2080": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 200 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in200-PLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_CURRENT_2020": {
+"description": "Global defended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_SSP1_2.6_2030": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_SSP2_4.5_2030": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_SSP3_7.0_2030": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_SSP5_8.5_2030": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_SSP1_2.6_2050": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_SSP2_4.5_2050": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_SSP3_7.0_2050": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_SSP5_8.5_2050": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_SSP1_2.6_2080": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_SSP2_4.5_2080": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_SSP3_7.0_2080": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in5_SSP5_8.5_2080": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_CURRENT_2020": {
+"description": "Global undefended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_SSP1_2.6_2030": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_SSP2_4.5_2030": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_SSP3_7.0_2030": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_SSP5_8.5_2030": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_SSP1_2.6_2050": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_SSP2_4.5_2050": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_SSP3_7.0_2050": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_SSP5_8.5_2050": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_SSP1_2.6_2080": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_SSP2_4.5_2080": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_SSP3_7.0_2080": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in5_SSP5_8.5_2080": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_CURRENT_2020": {
+"description": "Global defended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_SSP1_2.6_2030": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_SSP2_4.5_2030": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_SSP3_7.0_2030": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_SSP5_8.5_2030": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_SSP1_2.6_2050": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_SSP2_4.5_2050": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_SSP3_7.0_2050": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_SSP5_8.5_2050": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_SSP1_2.6_2080": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_SSP2_4.5_2080": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_SSP3_7.0_2080": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in5_SSP5_8.5_2080": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_CURRENT_2020": {
+"description": "Global undefended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_SSP1_2.6_2030": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_SSP2_4.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_SSP3_7.0_2030": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_SSP5_8.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_SSP1_2.6_2050": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_SSP2_4.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_SSP3_7.0_2050": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_SSP5_8.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_SSP1_2.6_2080": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_SSP2_4.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_SSP3_7.0_2080": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in5_SSP5_8.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_CURRENT_2020": {
+"description": "Global defended pluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_SSP1_2.6_2030": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_SSP2_4.5_2030": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_SSP3_7.0_2030": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_SSP5_8.5_2030": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_SSP1_2.6_2050": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_SSP2_4.5_2050": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_SSP3_7.0_2050": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_SSP5_8.5_2050": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_SSP1_2.6_2080": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_SSP2_4.5_2080": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_SSP3_7.0_2080": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in5_SSP5_8.5_2080": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 5 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_CURRENT_2020": {
+"description": "Global defended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_SSP1_2.6_2030": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_SSP2_4.5_2030": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_SSP3_7.0_2030": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_SSP5_8.5_2030": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_SSP1_2.6_2050": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_SSP2_4.5_2050": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_SSP3_7.0_2050": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_SSP5_8.5_2050": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_SSP1_2.6_2080": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_SSP2_4.5_2080": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_SSP3_7.0_2080": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in50_SSP5_8.5_2080": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_CURRENT_2020": {
+"description": "Global undefended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_SSP1_2.6_2030": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_SSP2_4.5_2030": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_SSP3_7.0_2030": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_SSP5_8.5_2030": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_SSP1_2.6_2050": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_SSP2_4.5_2050": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_SSP3_7.0_2050": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_SSP5_8.5_2050": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_SSP1_2.6_2080": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_SSP2_4.5_2080": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_SSP3_7.0_2080": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in50_SSP5_8.5_2080": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_CURRENT_2020": {
+"description": "Global defended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_SSP1_2.6_2030": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_SSP2_4.5_2030": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_SSP3_7.0_2030": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_SSP5_8.5_2030": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_SSP1_2.6_2050": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_SSP2_4.5_2050": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_SSP3_7.0_2050": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_SSP5_8.5_2050": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_SSP1_2.6_2080": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_SSP2_4.5_2080": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_SSP3_7.0_2080": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in50_SSP5_8.5_2080": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_CURRENT_2020": {
+"description": "Global undefended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_SSP1_2.6_2030": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_SSP2_4.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_SSP3_7.0_2030": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_SSP5_8.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_SSP1_2.6_2050": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_SSP2_4.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_SSP3_7.0_2050": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_SSP5_8.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_SSP1_2.6_2080": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_SSP2_4.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_SSP3_7.0_2080": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in50_SSP5_8.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_CURRENT_2020": {
+"description": "Global defended pluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_SSP1_2.6_2030": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_SSP2_4.5_2030": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_SSP3_7.0_2030": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_SSP5_8.5_2030": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_SSP1_2.6_2050": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_SSP2_4.5_2050": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_SSP3_7.0_2050": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_SSP5_8.5_2050": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_SSP1_2.6_2080": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_SSP2_4.5_2080": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_SSP3_7.0_2080": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in50_SSP5_8.5_2080": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 50 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_CURRENT_2020": {
+"description": "Global defended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_SSP1_2.6_2030": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_SSP2_4.5_2030": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_SSP3_7.0_2030": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_SSP5_8.5_2030": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_SSP1_2.6_2050": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_SSP2_4.5_2050": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_SSP3_7.0_2050": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_SSP5_8.5_2050": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_SSP1_2.6_2080": {
+"description": "Global defended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_SSP2_4.5_2080": {
+"description": "Global defended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_SSP3_7.0_2080": {
+"description": "Global defended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_defended_1in500_SSP5_8.5_2080": {
+"description": "Global defended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_CURRENT_2020": {
+"description": "Global undefended coastal flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_SSP1_2.6_2030": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_SSP2_4.5_2030": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_SSP3_7.0_2030": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_SSP5_8.5_2030": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_SSP1_2.6_2050": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_SSP2_4.5_2050": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_SSP3_7.0_2050": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_SSP5_8.5_2050": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_SSP1_2.6_2080": {
+"description": "Global undefended coastal flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_SSP2_4.5_2080": {
+"description": "Global undefended coastal flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_SSP3_7.0_2080": {
+"description": "Global undefended coastal flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "coastal_undefended_1in500_SSP5_8.5_2080": {
+"description": "Global undefended coastal flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-COASTAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_CURRENT_2020": {
+"description": "Global defended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_SSP1_2.6_2030": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_SSP2_4.5_2030": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_SSP3_7.0_2030": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_SSP5_8.5_2030": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_SSP1_2.6_2050": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_SSP2_4.5_2050": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_SSP3_7.0_2050": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_SSP5_8.5_2050": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_SSP1_2.6_2080": {
+"description": "Global defended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_SSP2_4.5_2080": {
+"description": "Global defended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_SSP3_7.0_2080": {
+"description": "Global defended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_defended_1in500_SSP5_8.5_2080": {
+"description": "Global defended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_CURRENT_2020": {
+"description": "Global undefended fluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_SSP1_2.6_2030": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_SSP2_4.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_SSP3_7.0_2030": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_SSP5_8.5_2030": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_SSP1_2.6_2050": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_SSP2_4.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_SSP3_7.0_2050": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_SSP5_8.5_2050": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_SSP1_2.6_2080": {
+"description": "Global undefended fluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_SSP2_4.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_SSP3_7.0_2080": {
+"description": "Global undefended fluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "fluvial_undefended_1in500_SSP5_8.5_2080": {
+"description": "Global undefended fluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-FLUVIAL-UNDEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_CURRENT_2020": {
+"description": "Global defended pluvial flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_SSP1_2.6_2030": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2030-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_SSP2_4.5_2030": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2030-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_SSP3_7.0_2030": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_SSP5_8.5_2030": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2030. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2030-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_SSP1_2.6_2050": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2050-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_SSP2_4.5_2050": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2050-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_SSP3_7.0_2050": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2050-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_SSP5_8.5_2050": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2050. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2050-SSP5_8.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_SSP1_2.6_2080": {
+"description": "Global defended pluvial flood model based on SSP1_2.6 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2080-SSP1_2.6-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_SSP2_4.5_2080": {
+"description": "Global defended pluvial flood model based on SSP2_4.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2080-SSP2_4.5-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_SSP3_7.0_2080": {
+"description": "Global defended pluvial flood model based on SSP3_7.0 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2080-SSP3_7.0-PERCENTILE50-v3.0.vrt"},
+ "pluvial_defended_1in500_SSP5_8.5_2080": {
+"description": "Global defended pluvial flood model based on SSP5_8.5 climate model for year 2080. Flood depth is measured in cm expected flood depth, based on a 1 in 500 year return period.",
+"filename": "s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2080-SSP5_8.5-PERCENTILE50-v3.0.vrt"}}
