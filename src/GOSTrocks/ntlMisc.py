@@ -14,8 +14,8 @@ curPath = os.path.realpath(
 if curPath not in sys.path:
     sys.path.append(curPath)
 
-from dataMisc import aws_search_ntl
-from misc import tPrint
+from .dataMisc import aws_search_ntl
+from .misc import tPrint
 import rasterMisc as rMisc
 
 

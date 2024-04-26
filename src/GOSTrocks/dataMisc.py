@@ -1,12 +1,37 @@
+import sys, os
 import json
 import urllib
 import boto3
+import rasterio
 
+import pandas as pd
 import geopandas as gpd
 
 from botocore.config import Config
 from botocore import UNSIGNED
 
+from . import rasterMisc as rMisc
+
+
+def download_WSF(extent, wsf_url="https://download.geoservice.dlr.de/WSF2019/files/WSF2019_cog.tif",
+                 out_file=""):
+    """_summary_
+
+    Parameters
+    ----------
+    extent : _type_
+        _description_
+    wsf_url : str, optional
+        _description_, by default "https://download.geoservice.dlr.de/WSF2019/files/WSF2019_cog.tif"
+    """
+
+    # Open the WSF COG
+    wsf_raster = rasterio.open(wsf_url)
+    data, profile = rMisc.clipRaster(raster=wsf_raster, bounds=extent)
+    if out_file != "":
+        with rasterio.open(out_file, 'w', **profile) as dst:
+            dst.write(data)
+    return(data, profile)
 
 def aws_search_ntl(
     bucket="globalnightlight",
@@ -86,3 +111,21 @@ def get_geoboundaries(
                 f"Cannot find admin dataset {cur_url}. Check out {all_url} for details on what is available"
             )
         )
+
+def get_fathom_vrts(return_df = False):       
+    """ Get a list of VRT files of Fathom data from the GOST S3 bucket. Note that the 
+        VRT files are not searched dynamically but are stored in a text file in the same
+        folder as the function. 
+
+        return_df: if True, return a pandas dataframe with the VRT files and their components, defaults to False which returns just the list of VRT files           
+    """    
+    vrt_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "fathom_vrts.txt")
+    all_vrts = []
+    with open(vrt_file, "r") as f:
+        for line in f:
+            all_vrts.append(line.strip())
+    if return_df:
+        vrt_pd = pd.DataFrame([x.split("-")[4:10] for x in all_vrts], columns=['RETURN', 'FLOOD_TYPE', 'DEFENCE', 'DEPTH', 'YEAR', 'CLIMATE_MODEL'])
+        vrt_pd['PATH'] = all_vrts
+        return vrt_pd
+    return all_vrts
