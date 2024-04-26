@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt;</title>
+    <title>Mapping Fathom flood data</title>
   
   
   
@@ -67,7 +67,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Feb 28, 2024"/>
+    <meta name="docbuild:last-update" content="Apr 26, 2024"/>
   </head>
   
   
@@ -366,9 +366,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -379,19 +377,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Mapping Fathom flood data</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -401,7 +391,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="mapping-fathom-flood-data">
+<h1>Mapping Fathom flood data<a class="headerlink" href="#mapping-fathom-flood-data" title="Permalink to this heading">#</a></h1>
+<p>The Fathom flood data are stored on an AWS bucket as tiles in virtual rasters. This code extracts values for specific scenarios, for a specific country, and plots them.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -409,120 +402,183 @@ document.write(`
 <span class="kn">import</span> <span class="nn">rasterio</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;../../src&quot;</span><span class="p">)</span>
 
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;/home/wb411133/Code/gostrocks/src&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">GOSTrocks.mapMisc</span> <span class="k">as</span> <span class="nn">mapMisc</span>
+<span class="kn">import</span> <span class="nn">GOSTrocks.dataMisc</span> <span class="k">as</span> <span class="nn">dMisc</span>
+<span class="kn">import</span> <span class="nn">GOSTrocks.rasterMisc</span> <span class="k">as</span> <span class="nn">rMisc</span>
+<span class="kn">from</span> <span class="nn">GOSTrocks.misc</span> <span class="kn">import</span> <span class="n">tPrint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iso3</span> <span class="o">=</span> <span class="s2">&quot;KEN&quot;</span>
+<span class="n">out_folder</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/home/wb411133/temp/FATHOM/</span><span class="si">{</span><span class="n">iso3</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">out_folder</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">out_folder</span><span class="p">)</span>
+    
+<span class="c1"># This demo uses the default national boundaries included with GeoPandas, but this can be changed here</span>
+<span class="n">world_filepath</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;naturalearth_lowres&#39;</span><span class="p">)</span>
+<span class="n">world</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">world_filepath</span><span class="p">)</span>
+<span class="n">inB</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">world</span><span class="p">[</span><span class="s1">&#39;iso_a3&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">iso3</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select layer to downlaod</span>
+<span class="n">flood_type</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;COASTAL&quot;</span><span class="p">,</span><span class="s2">&quot;FLUVIAL&quot;</span><span class="p">,</span><span class="s2">&quot;PLUVIAL&quot;</span><span class="p">]</span>
+<span class="n">defence</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;DEFENDED&quot;</span><span class="p">]</span>
+<span class="n">return_period</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1in50&#39;</span><span class="p">]</span>
+<span class="n">climate_model</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;PERCENTILE50&quot;</span><span class="p">]</span>
+<span class="n">year</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;2020&quot;</span><span class="p">]</span>
 
-<span class="kn">import</span> <span class="nn">GOSTRocks.mapMisc</span> <span class="k">as</span> <span class="nn">mapMisc</span>
+<span class="c1"># all_vrts is a pandas dataframe with all the vrt paths to the global datasets, with columns defining</span>
+<span class="c1"># the various models&#39; defining attributes</span>
+<span class="n">all_vrts</span> <span class="o">=</span> <span class="n">dMisc</span><span class="o">.</span><span class="n">get_fathom_vrts</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sel_images</span> <span class="o">=</span> <span class="n">all_vrts</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">all_vrts</span><span class="p">[</span><span class="s1">&#39;FLOOD_TYPE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">flood_type</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">all_vrts</span><span class="p">[</span><span class="s1">&#39;DEFENCE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">defence</span><span class="p">))</span> <span class="o">&amp;</span> 
+             <span class="p">(</span><span class="n">all_vrts</span><span class="p">[</span><span class="s1">&#39;RETURN&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">return_period</span><span class="p">))</span>  <span class="o">&amp;</span> <span class="p">(</span><span class="n">all_vrts</span><span class="p">[</span><span class="s1">&#39;CLIMATE_MODEL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">climate_model</span><span class="p">))]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_images</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/wb411133/.conda/envs/ee/lib/python3.9/site-packages/geopandas/_compat.py:106: UserWarning: The Shapely GEOS version (3.9.1-CAPI-1.14.2) is incompatible with the GEOS version PyGEOS was compiled with (3.10.4-CAPI-1.16.2). Conversions between both will be slow.
-  warnings.warn(
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RETURN</th>
+      <th>FLOOD_TYPE</th>
+      <th>DEFENCE</th>
+      <th>DEPTH</th>
+      <th>YEAR</th>
+      <th>CLIMATE_MODEL</th>
+      <th>PATH</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>390</th>
+      <td>1in50</td>
+      <td>COASTAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2020</td>
+      <td>PERCENTILE50</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+    <tr>
+      <th>416</th>
+      <td>1in50</td>
+      <td>FLUVIAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2020</td>
+      <td>PERCENTILE50</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+    <tr>
+      <th>442</th>
+      <td>1in50</td>
+      <td>PLUVIAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2020</td>
+      <td>PERCENTILE50</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">in_file_list</span> <span class="o">=</span> <span class="s2">&quot;/home/wb411133/temp/fathom_files.csv&quot;</span>
-
-<span class="n">s3_bucket</span> <span class="o">=</span> <span class="s2">&quot;wbg-geography01&quot;</span>
-<span class="n">s3_prefix</span> <span class="o">=</span> <span class="s2">&quot;FATHOM/v2023/&quot;</span>
-
-<span class="n">in_files</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">in_file_list</span><span class="p">)</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s2">&quot;s3&quot;</span><span class="p">)</span>
-<span class="n">my_bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="n">s3_bucket</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tile</span> <span class="o">=</span> <span class="s2">&quot;n01w028.tif&quot;</span>
-<span class="n">return_period</span> <span class="o">=</span> <span class="s2">&quot;1000&quot;</span>
-<span class="n">defended</span> <span class="o">=</span> <span class="s2">&quot;DEFENDED&quot;</span>
-
-<span class="n">coastal_folder</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;GLOBAL-1ARCSEC-NW_OFFSET-1in</span><span class="si">{</span><span class="n">return_period</span><span class="si">}</span><span class="s2">-COASTAL-</span><span class="si">{</span><span class="n">defended</span><span class="si">}</span><span class="s2">-DEPTH-2020-PERCENTILE50-v3.0&quot;</span>
-<span class="n">fluvial_folder</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;GLOBAL-1ARCSEC-NW_OFFSET-1in</span><span class="si">{</span><span class="n">return_period</span><span class="si">}</span><span class="s2">-FLUVIAL-</span><span class="si">{</span><span class="n">defended</span><span class="si">}</span><span class="s2">-DEPTH-2020-PERCENTILE50-v3.0&quot;</span>
-<span class="n">pluvial_folder</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;GLOBAL-1ARCSEC-NW_OFFSET-1in</span><span class="si">{</span><span class="n">return_period</span><span class="si">}</span><span class="s2">-PLUVIAL-</span><span class="si">{</span><span class="n">defended</span><span class="si">}</span><span class="s2">-DEPTH-2020-PERCENTILE50-v3.0&quot;</span>
-
-<span class="n">coastal_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;s3://&quot;</span><span class="p">,</span> <span class="n">s3_bucket</span><span class="p">,</span> <span class="n">s3_prefix</span><span class="p">,</span> <span class="n">coastal_folder</span><span class="p">,</span> <span class="n">tile</span><span class="p">)</span>
-<span class="n">fluvial_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;s3://&quot;</span><span class="p">,</span> <span class="n">s3_bucket</span><span class="p">,</span> <span class="n">s3_prefix</span><span class="p">,</span> <span class="n">fluvial_folder</span><span class="p">,</span> <span class="n">tile</span><span class="p">)</span>
-<span class="n">pluvial_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;s3://&quot;</span><span class="p">,</span> <span class="n">s3_bucket</span><span class="p">,</span> <span class="n">s3_prefix</span><span class="p">,</span> <span class="n">pluvial_folder</span><span class="p">,</span> <span class="n">tile</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fluvialR</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fluvial_file</span><span class="p">)</span>
-<span class="n">mapMisc</span><span class="o">.</span><span class="n">static_map_raster</span><span class="p">(</span>
-    <span class="n">fluvialR</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_data</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sel_images</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">fluvialR</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;PATH&#39;</span><span class="p">])</span>
+    <span class="n">rData</span><span class="p">,</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">clipRaster</span><span class="p">(</span><span class="n">fluvialR</span><span class="p">,</span> <span class="n">inB</span><span class="p">)</span>
+    <span class="n">flood_data</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;FLOOD_TYPE&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">rData</span><span class="p">,</span> <span class="n">profile</span><span class="p">]</span>
+    <span class="n">tPrint</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;PATH&#39;</span><span class="p">])</span>
+    
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">CPLE_OpenFailedError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
-<span class="nn">rasterio/_base.pyx</span> in <span class="ni">rasterio._base.DatasetBase.__init__</span><span class="nt">()</span>
-
-<span class="nn">rasterio/_shim.pyx</span> in <span class="ni">rasterio._shim.open_dataset</span><span class="nt">()</span>
-
-<span class="nn">rasterio/_err.pyx</span> in <span class="ni">rasterio._err.exc_wrap_pointer</span><span class="nt">()</span>
-
-<span class="ne">CPLE_OpenFailedError</span>: &#39;/vsis3/wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n01w028.tif&#39; does not exist in the file system, and is not recognized as a supported dataset name.
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">RasterioIOError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">47</span><span class="o">-</span><span class="mi">0</span><span class="n">ef12a04f57f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fluvialR</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fluvial_file</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">mapMisc</span><span class="o">.</span><span class="n">static_map_raster</span><span class="p">(</span><span class="n">fluvialR</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-
-<span class="nn">~/.conda/envs/ee/lib/python3.9/site-packages/rasterio/env.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">433</span> 
-<span class="g g-Whitespace">    </span><span class="mi">434</span>         <span class="k">with</span> <span class="n">env_ctor</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">435</span>             <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">436</span> 
-<span class="g g-Whitespace">    </span><span class="mi">437</span>     <span class="k">return</span> <span class="n">wrapper</span>
-
-<span class="nn">~/.conda/envs/ee/lib/python3.9/site-packages/rasterio/__init__.py</span> in <span class="ni">open</span><span class="nt">(fp, mode, driver, width, height, count, crs, transform, dtype, nodata, sharing, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span>         <span class="c1"># None.</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span>         <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;r&#39;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">220</span>             <span class="n">s</span> <span class="o">=</span> <span class="n">DatasetReader</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span> <span class="n">sharing</span><span class="o">=</span><span class="n">sharing</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">221</span>         <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;r+&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">222</span>             <span class="n">s</span> <span class="o">=</span> <span class="n">get_writer_for_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">)(</span>
-
-<span class="nn">rasterio/_base.pyx</span> in <span class="ni">rasterio._base.DatasetBase.__init__</span><span class="nt">()</span>
-
-<span class="ne">RasterioIOError</span>: &#39;/vsis3/wbg-geography01/FATHOM/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in1000-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/n01w028.tif&#39; does not exist in the file system, and is not recognized as a supported dataset name.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>08:44:55	s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt
+08:46:01	s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt
+08:47:12	s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pluvialR</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">pluvial_file</span><span class="p">)</span>
-<span class="n">mapMisc</span><span class="o">.</span><span class="n">static_map_raster</span><span class="p">(</span>
-    <span class="n">pluvialR</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rData</span><span class="p">,</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">flood_data</span><span class="p">[</span><span class="s1">&#39;FLUVIAL&#39;</span><span class="p">]</span>
+<span class="k">with</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">create_rasterio_inmemory</span><span class="p">(</span><span class="n">profile</span><span class="p">,</span> <span class="n">rData</span><span class="p">)</span> <span class="k">as</span> <span class="n">floodR</span><span class="p">:</span>
+    <span class="n">mapMisc</span><span class="o">.</span><span class="n">static_map_raster</span><span class="p">(</span>
+        <span class="n">floodR</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/51920354c9189d476e95a69931166952d882eaf8d0e4c8f5cc6bbe8d70238ae7.png" src="../../_images/51920354c9189d476e95a69931166952d882eaf8d0e4c8f5cc6bbe8d70238ae7.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coastalR</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">coastal_file</span><span class="p">)</span>
-<span class="n">mapMisc</span><span class="o">.</span><span class="n">static_map_raster</span><span class="p">(</span>
-    <span class="n">coastalR</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rData</span><span class="p">,</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">flood_data</span><span class="p">[</span><span class="s1">&#39;PLUVIAL&#39;</span><span class="p">]</span>
+<span class="k">with</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">create_rasterio_inmemory</span><span class="p">(</span><span class="n">profile</span><span class="p">,</span> <span class="n">rData</span><span class="p">)</span> <span class="k">as</span> <span class="n">floodR</span><span class="p">:</span>
+    <span class="n">mapMisc</span><span class="o">.</span><span class="n">static_map_raster</span><span class="p">(</span>
+        <span class="n">floodR</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cfb084d7058470ccaccbf98a1f32d0da4e68230b6c982f2cbf115388ef20f8fb.png" src="../../_images/cfb084d7058470ccaccbf98a1f32d0da4e68230b6c982f2cbf115388ef20f8fb.png" />
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rData</span><span class="p">,</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">flood_data</span><span class="p">[</span><span class="s1">&#39;COASTAL&#39;</span><span class="p">]</span>
+<span class="k">with</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">create_rasterio_inmemory</span><span class="p">(</span><span class="n">profile</span><span class="p">,</span> <span class="n">rData</span><span class="p">)</span> <span class="k">as</span> <span class="n">floodR</span><span class="p">:</span>
+    <span class="n">mapMisc</span><span class="o">.</span><span class="n">static_map_raster</span><span class="p">(</span>
+        <span class="n">floodR</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5fb4f87ef6dcb6fb3c3e62c89de87bd3c4d679d60bdc223cbe16349f4e67b59d.png" src="../../_images/5fb4f87ef6dcb6fb3c3e62c89de87bd3c4d679d60bdc223cbe16349f4e67b59d.png" />
+</div>
+</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -561,20 +617,7 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
@@ -597,7 +640,7 @@ By Geospatial Operations Support Team (GOST)
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Feb 28, 2024.
+  Last updated on Apr 26, 2024.
   <br/>
 </p>
   </div>

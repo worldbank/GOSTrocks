@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Select flooding layer</title>
+    <title>Extracting Data for Country by ISO3</title>
   
   
   
@@ -60,14 +60,14 @@
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/FATHOM/Extract_flood_tiles';</script>
-    <link rel="canonical" href="https://worldbank.github.io/GOSTrocks/notebooks/FATHOM/Extract_flood_tiles.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/FATHOM/CLIP_Flood_data_iso3';</script>
+    <link rel="canonical" href="https://worldbank.github.io/GOSTrocks/notebooks/FATHOM/CLIP_Flood_data_iso3.html" />
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Feb 28, 2024"/>
+    <meta name="docbuild:last-update" content="Apr 26, 2024"/>
   </head>
   
   
@@ -248,7 +248,7 @@
       
       
       
-      <li><a href="https://github.com/worldbank/GOSTrocks/edit/main/notebooks/FATHOM/Extract_flood_tiles.ipynb" target="_blank"
+      <li><a href="https://github.com/worldbank/GOSTrocks/edit/main/notebooks/FATHOM/CLIP_Flood_data_iso3.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -265,7 +265,7 @@
       
       
       
-      <li><a href="https://github.com/worldbank/GOSTrocks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/FATHOM/Extract_flood_tiles.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/worldbank/GOSTrocks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/FATHOM/CLIP_Flood_data_iso3.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -295,7 +295,7 @@
       
       
       
-      <li><a href="../../_sources/notebooks/FATHOM/Extract_flood_tiles.ipynb" target="_blank"
+      <li><a href="../../_sources/notebooks/FATHOM/CLIP_Flood_data_iso3.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,7 +377,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Select flooding layer</h1>
+    <h1>Extracting Data for Country by ISO3</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -391,152 +391,274 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="extracting-data-for-country-by-iso3">
+<h1>Extracting Data for Country by ISO3<a class="headerlink" href="#extracting-data-for-country-by-iso3" title="Permalink to this heading">#</a></h1>
+<p>The Fathom flood data are stored as individual tiles, organized into folders per model on the GOST AWS bucket. We have generated virtual rasters (.vrt) for each model, making reading and extracting easier.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">boto3</span>
+<span class="kn">import</span> <span class="nn">rasterio</span>
 
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;../../src&quot;</span><span class="p">)</span>
 
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;/home/wb411133/Code/gostrocks/src&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">GOSTrocks.dataMisc</span> <span class="k">as</span> <span class="nn">dMisc</span>
+<span class="kn">import</span> <span class="nn">GOSTrocks.rasterMisc</span> <span class="k">as</span> <span class="nn">rMisc</span>
+<span class="kn">from</span> <span class="nn">GOSTrocks.misc</span> <span class="kn">import</span> <span class="n">tPrint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;../../src&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/wb411133/.conda/envs/ee/lib/python3.9/site-packages/geopandas/_compat.py:106: UserWarning: The Shapely GEOS version (3.9.1-CAPI-1.14.2) is incompatible with the GEOS version PyGEOS was compiled with (3.10.4-CAPI-1.16.2). Conversions between both will be slow.
-  warnings.warn(
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;c:\\WBG\\Work\\Code\\GOSTrocks\\src&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s3_bucket</span> <span class="o">=</span> <span class="s2">&quot;wbg-geography01&quot;</span>
-<span class="n">s3_prefix</span> <span class="o">=</span> <span class="s2">&quot;FATHOM/v2023/&quot;</span>
-
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s2">&quot;s3&quot;</span><span class="p">)</span>
-<span class="n">s3_downloader</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s2">&quot;s3&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fathom_tile_extents</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s2">&quot;s3://wbg-geography01/FATHOM/v2023_support_files/fathom_tile_extents.geojson&quot;</span>
-<span class="p">)</span>
-<span class="n">fathom_extents</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">fathom_tile_extents</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define extent by iso3 code</span>
-<span class="n">sel_iso3</span> <span class="o">=</span> <span class="s2">&quot;MWI&quot;</span>
-<span class="n">world_filepath</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">&quot;naturalearth_lowres&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iso3</span> <span class="o">=</span> <span class="s2">&quot;KEN&quot;</span>
+<span class="n">out_folder</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/home/wb411133/temp/FATHOM/</span><span class="si">{</span><span class="n">iso3</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">out_folder</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">out_folder</span><span class="p">)</span>
+    
+<span class="c1"># This demo uses the default national boundaries included with GeoPandas, but this can be changed here</span>
+<span class="n">world_filepath</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;naturalearth_lowres&#39;</span><span class="p">)</span>
 <span class="n">world</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">world_filepath</span><span class="p">)</span>
-<span class="n">sel_bounds</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">world</span><span class="p">[</span><span class="s2">&quot;iso_a3&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">sel_iso3</span><span class="p">]</span><span class="o">.</span><span class="n">unary_union</span>
+<span class="n">inB</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">world</span><span class="p">[</span><span class="s1">&#39;iso_a3&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">iso3</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define extent by bounding box [minx, miny, maxx, maxy]</span>
-<span class="c1"># bbox = [176.058746,-10.791870,179.871353,-5.642500]</span>
-<span class="c1"># sel_bounds = box(*bbox)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select layer to downlaod</span>
+<span class="n">flood_type</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;COASTAL&quot;</span><span class="p">,</span><span class="s2">&quot;FLUVIAL&quot;</span><span class="p">,</span><span class="s2">&quot;PLUVIAL&quot;</span><span class="p">]</span>
+<span class="n">defence</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;DEFENDED&quot;</span><span class="p">]</span>
+<span class="n">return_period</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1in5&#39;</span><span class="p">,</span><span class="s1">&#39;1in10&#39;</span><span class="p">,</span><span class="s1">&#39;1in50&#39;</span><span class="p">]</span>
+<span class="n">climate_model</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;PERCENTILE50&quot;</span><span class="p">]</span>
+<span class="n">year</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;2020&quot;</span><span class="p">]</span>
+
+<span class="c1"># all_vrts is a pandas dataframe with all the vrt paths to the global datasets, with columns defining</span>
+<span class="c1"># the various models&#39; defining attributes</span>
+<span class="n">all_vrts</span> <span class="o">=</span> <span class="n">dMisc</span><span class="o">.</span><span class="n">get_fathom_vrts</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sel_images</span> <span class="o">=</span> <span class="n">all_vrts</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">all_vrts</span><span class="p">[</span><span class="s1">&#39;FLOOD_TYPE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">flood_type</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">all_vrts</span><span class="p">[</span><span class="s1">&#39;DEFENCE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">defence</span><span class="p">))</span> <span class="o">&amp;</span> 
+             <span class="p">(</span><span class="n">all_vrts</span><span class="p">[</span><span class="s1">&#39;RETURN&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">return_period</span><span class="p">))</span>  <span class="o">&amp;</span> <span class="p">(</span><span class="n">all_vrts</span><span class="p">[</span><span class="s1">&#39;CLIMATE_MODEL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">climate_model</span><span class="p">))]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select tiles that intersect the sel_bounds</span>
-<span class="n">sel_tiles</span> <span class="o">=</span> <span class="n">fathom_extents</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fathom_extents</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="n">sel_bounds</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_tiles</span><span class="o">.</span><span class="n">unary_union</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_vrts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3a8b396c2092c8b21c695ea33db350368449a7b9844c2a966495d3521ccba3b8.svg" src="../../_images/3a8b396c2092c8b21c695ea33db350368449a7b9844c2a966495d3521ccba3b8.svg" /></div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RETURN</th>
+      <th>FLOOD_TYPE</th>
+      <th>DEFENCE</th>
+      <th>DEPTH</th>
+      <th>YEAR</th>
+      <th>CLIMATE_MODEL</th>
+      <th>PATH</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1in10</td>
+      <td>COASTAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2020</td>
+      <td>PERCENTILE50</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1in10</td>
+      <td>COASTAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2030</td>
+      <td>SSP1_2.6</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1in10</td>
+      <td>COASTAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2030</td>
+      <td>SSP2_4.5</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1in10</td>
+      <td>COASTAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2030</td>
+      <td>SSP3_7.0</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1in10</td>
+      <td>COASTAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2030</td>
+      <td>SSP5_8.5</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_tiles</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_images</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(21, 4)
-</pre></div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RETURN</th>
+      <th>FLOOD_TYPE</th>
+      <th>DEFENCE</th>
+      <th>DEPTH</th>
+      <th>YEAR</th>
+      <th>CLIMATE_MODEL</th>
+      <th>PATH</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1in10</td>
+      <td>COASTAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2020</td>
+      <td>PERCENTILE50</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>1in10</td>
+      <td>FLUVIAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2020</td>
+      <td>PERCENTILE50</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>1in10</td>
+      <td>PLUVIAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2020</td>
+      <td>PERCENTILE50</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+    <tr>
+      <th>325</th>
+      <td>1in5</td>
+      <td>COASTAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2020</td>
+      <td>PERCENTILE50</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+    <tr>
+      <th>351</th>
+      <td>1in5</td>
+      <td>FLUVIAL</td>
+      <td>DEFENDED</td>
+      <td>DEPTH</td>
+      <td>2020</td>
+      <td>PERCENTILE50</td>
+      <td>s3://wbg-geography01/FATHOM/GLOBAL-1ARCSEC-NW_...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="select-flooding-layer">
-<h1>Select flooding layer<a class="headerlink" href="#select-flooding-layer" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### TODO - this section add projections options</span>
-<span class="n">return_period</span> <span class="o">=</span> <span class="s2">&quot;1000&quot;</span>
-<span class="n">defended</span> <span class="o">=</span> <span class="s2">&quot;DEFENDED&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For each image in the selected images dataframe, we clip out the area of interest</span>
+<span class="c1">#     which is defined by the ioso3 code, but could be any GeoDataFrame</span>
 
-<span class="n">coastal_folder</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;GLOBAL-1ARCSEC-NW_OFFSET-1in</span><span class="si">{</span><span class="n">return_period</span><span class="si">}</span><span class="s2">-COASTAL-</span><span class="si">{</span><span class="n">defended</span><span class="si">}</span><span class="s2">-DEPTH-2020-PERCENTILE50-v3.0&quot;</span>
-<span class="n">fluvial_folder</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;GLOBAL-1ARCSEC-NW_OFFSET-1in</span><span class="si">{</span><span class="n">return_period</span><span class="si">}</span><span class="s2">-FLUVIAL-</span><span class="si">{</span><span class="n">defended</span><span class="si">}</span><span class="s2">-DEPTH-2020-PERCENTILE50-v3.0&quot;</span>
-<span class="n">pluvial_folder</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;GLOBAL-1ARCSEC-NW_OFFSET-1in</span><span class="si">{</span><span class="n">return_period</span><span class="si">}</span><span class="s2">-PLUVIAL-</span><span class="si">{</span><span class="n">defended</span><span class="si">}</span><span class="s2">-DEPTH-2020-PERCENTILE50-v3.0&quot;</span>
-
-<span class="n">download_folder</span> <span class="o">=</span> <span class="s2">&quot;/home/wb411133/temp/FATHOM/TESTING_Download_Malawi&quot;</span>
-<span class="k">for</span> <span class="n">c_folder</span> <span class="ow">in</span> <span class="p">[</span><span class="n">coastal_folder</span><span class="p">,</span> <span class="n">fluvial_folder</span><span class="p">,</span> <span class="n">pluvial_folder</span><span class="p">]:</span>
-    <span class="n">out_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">download_folder</span><span class="p">,</span> <span class="n">c_folder</span><span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">out_folder</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">pass</span>
-
-<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sel_tiles</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">tiff</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">.tif&#39;</span>
-    <span class="k">for</span> <span class="n">c_folder</span> <span class="ow">in</span> <span class="p">[</span><span class="n">coastal_folder</span><span class="p">,</span> <span class="n">fluvial_folder</span><span class="p">,</span> <span class="n">pluvial_folder</span><span class="p">]:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">s3_downloader</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span>
-                <span class="n">s3_bucket</span><span class="p">,</span>
-                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s3_prefix</span><span class="p">,</span> <span class="n">c_folder</span><span class="p">,</span> <span class="n">tiff</span><span class="p">),</span>
-                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">download_folder</span><span class="p">,</span> <span class="n">c_folder</span><span class="p">,</span> <span class="n">tiff</span><span class="p">),</span>
-            <span class="p">)</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error downloading </span><span class="si">{</span><span class="n">tiff</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">c_folder</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sel_images</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>    
+    <span class="n">out_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_folder</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;PATH&#39;</span><span class="p">]))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">out_file</span><span class="p">):</span>
+        <span class="n">cur_r</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;PATH&#39;</span><span class="p">])</span>
+        <span class="n">rMisc</span><span class="o">.</span><span class="n">clipRaster</span><span class="p">(</span><span class="n">cur_r</span><span class="p">,</span> <span class="n">inB</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span>
+    <span class="n">tPrint</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;PATH&#39;</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error downloading s10e034.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s10e032.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s10e033.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s11e034.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s11e033.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s12e034.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s12e033.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s13e033.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s13e034.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s13e032.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s14e032.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s14e033.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s14e035.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s14e034.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s15e035.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s15e033.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s15e034.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s16e035.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s16e034.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s17e035.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
-Error downloading s17e034.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>08:31:04	GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt
+08:31:04	GLOBAL-1ARCSEC-NW_OFFSET-1in10-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt
+08:31:04	GLOBAL-1ARCSEC-NW_OFFSET-1in10-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt
+08:31:04	GLOBAL-1ARCSEC-NW_OFFSET-1in5-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt
+08:31:04	GLOBAL-1ARCSEC-NW_OFFSET-1in5-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt
+08:31:04	GLOBAL-1ARCSEC-NW_OFFSET-1in5-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt
+08:31:04	GLOBAL-1ARCSEC-NW_OFFSET-1in50-COASTAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt
+08:31:04	GLOBAL-1ARCSEC-NW_OFFSET-1in50-FLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt
+08:31:04	GLOBAL-1ARCSEC-NW_OFFSET-1in50-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt
 </pre></div>
 </div>
 </div>
@@ -552,16 +674,16 @@ Error downloading s17e034.tif for GLOBAL-1ARCSEC-NW_OFFSET-1in1000-COASTAL-DEFEN
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "ee"
+            mode: "python"
         },
         kernelOptions: {
-            name: "ee",
+            name: "python3",
             path: "./notebooks/FATHOM"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'ee'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -603,7 +725,7 @@ By Geospatial Operations Support Team (GOST)
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Feb 28, 2024.
+  Last updated on Apr 26, 2024.
   <br/>
 </p>
   </div>
