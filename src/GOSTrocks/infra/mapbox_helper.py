@@ -7,7 +7,7 @@ import pandas as pd
 import urllib.request as url
 
 ### README
-### This code has been adpated from the earlier Market Access tools written by Charles Fox.
+### This code has been adapted from the earlier Market Access tools written by Charles Fox.
 ### Some simple adjustments were made to work with the InfraSAP inputs, but I have not had enough time to re-write this as it's quite complicated.
 
 

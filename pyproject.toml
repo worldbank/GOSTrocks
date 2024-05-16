@@ -69,7 +69,7 @@ docs = [
 [tool.codespell]
 skip = 'docs/_build,docs/references.bib,*.png,*.gz,*.whl'
 ignore-regex = '^\s*"image\/png":\s.*'
-ignore-words-list = "gost,"
+ignore-words-list = "gost,caf,nam,som,lenth,"
 
 [tool.hatch.version]
 source = "vcs"

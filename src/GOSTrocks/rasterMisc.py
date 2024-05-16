@@ -164,7 +164,7 @@ def clipRaster(inR, inD, outFile=None, crop=True):
     :type inD: geopandas.GeoDataFrame
     :param outFile: string path to write output raster, default is '' which writes nothing
     :type outFile: string
-    :param crop: determine wether to clip based on bounding box (False) or unary_union (True). Default is True
+    :param crop: determine whether to clip based on bounding box (False) or unary_union (True). Default is True
     :type crop: Boolean
     :return: array of [numpy array of data, and rasterio metadata]
     :rtype: array
@@ -582,12 +582,12 @@ def standardizeInputRasters(inR1, inR2, inR1_outFile="", resampling_type="neares
     """Standardize inR1 to inR2: changes crs, extent, and resolution.
 
     :param inR1: rasterio object for raster to be modified
-    :type inR1: ratserio.DatasetReader
+    :type inR1: rasterio.DatasetReader
     :param inR2: rasterio object to be standardized to
-    :type inR12 ratserio.DatasetReader
+    :type inR12 rasterio.DatasetReader
     :param inR1_outfile: path to create output raster file of standardized inR1, default is '', which means nothing is written
     :type inR1: string
-    :param resampling_type: how to perfrom spatial resampling; options are nearest (default), cubic, or sum
+    :param resampling_type: how to perform spatial resampling; options are nearest (default), cubic, or sum
     :type resampling_type: string
     :return: array of numpy array, and rasterio metadata
     :rtype: array

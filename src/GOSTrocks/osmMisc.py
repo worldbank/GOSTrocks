@@ -242,7 +242,7 @@ def summarizeOSM(grid, verbose=True, roadsOnly=False):
         roads2 = roads2.to_crs(WEB_MERCATOR)
         roads2["intersecting_length"] = roads2.length
         FID_list.append(idx)
-        # Summarize total lenght of OSMLR classes
+        # Summarize total length of OSMLR classes
         OSMLR1_list.append(
             roads2.loc[roads2.OSMLR == "OSMLR level 1"].intersecting_length.sum()
         )

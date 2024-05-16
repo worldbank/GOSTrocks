@@ -21,7 +21,7 @@ def combine_ghsl_annual(
 
     :param ghsl_files: list of ghsl annual files to process
     :type ghsl_files: list of strings (paths to ghsl files)
-    :param built_thresh: minimum percetn built to be considered bult, defaults to 0.1 which is 10%
+    :param built_thresh: minimum percetn built to be considered built, defaults to 0.1 which is 10%
     :type built_thresh: float, optional
     :param ghsl_files_labels: list of numbers to define values in output raster, defaults to [] which means numbers will be extracted from the files.
     :type ghsl_files_labels: list of ints
