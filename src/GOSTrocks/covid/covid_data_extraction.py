@@ -16,11 +16,13 @@ try:
     from . import misc
     from . import rasterMisc as rMisc
     from . import UrbanRaster as urban
-except:
+    from . import osmMisc as osm
+except Exception:
     import vulnerability_mapping as vulmap
     import misc
     import rasterMisc as rMisc
     import UrbanRaster as urban
+    import osmMisc as osm
 """
 import vulnerability_mapping as vulmap
 import misc as misc
@@ -115,7 +117,7 @@ def create_fishnet(extents_file, out_folder, prefix, verbose=True):
     sel_cities = urban_extents.sort_values(["Pop"], ascending=False)
     try:
         sel_cities = misc.project_UTM(sel_cities)
-    except:
+    except Exception:
         sel_cities = sel_cities.to_crs({"init": "epsg:3857"})
 
     for idx, row in sel_cities.iterrows():
@@ -398,17 +400,18 @@ def summarize_DHS(template, dhs_files, country_folder, iso3):
     # Process DHS data
     inP = rasterio.open(template)
     # get a list of unique columns in the DHS data
-    total_columns = 0
+    all_columns = 0
     try:
         del all_columns
-    except:
+    except Exception:
         pass
     # get a list of all unique columns
+    all_columns = []
     for key, inD in dhs_files.items():
         cur_columns = list(inD.columns.values)
         try:
             all_columns = all_columns + cur_columns
-        except:
+        except Exception:
             all_columns = cur_columns
 
     col_count = Counter(all_columns)
@@ -446,12 +449,12 @@ def summarize_DHS(template, dhs_files, country_folder, iso3):
                             "vars": ["SUM", "MEAN"],
                             "description": f"{key}_{field}",
                         }
-                    except:
+                    except Exception:
                         misc.tPrint(f"Error processing {key} - {field}")
     return dhs_rasters
 
 
-def extract_data(inG, inG1, inG2, inL, inR):
+def extract_data(inG, inG1, inG2, inL, inR, iso3, output_folder):
     country_folder = os.path.join(output_folder, iso3)
     adm0_file = os.path.join(country_folder, "adm0.shp")
     adm1_file = os.path.join(country_folder, "adm1.shp")
@@ -467,23 +470,23 @@ def extract_data(inG, inG1, inG2, inL, inR):
         try:
             country_adm1 = inG1.loc[inG1["ISO3"] == iso3].to_crs({"init": "epsg:4326"})
             country_adm1.to_file(adm1_file)
-        except:
+        except Exception:
             misc.tPrint("%s Could not extract ADMIN 1" % iso3)
     if not os.path.exists(adm2_file):
         try:
             country_adm2 = inG2.loc[inG2["ISO3"] == iso3].to_crs({"init": "epsg:4326"})
             country_adm2.to_file(adm2_file)
-        except:
+        except Exception:
             misc.tPrint("%s Could not extract ADMIN 2" % iso3)
     if not os.path.exists(lc_file):
         rMisc.clipRaster(inL, gpd.read_file(adm0_file), lc_file)
 
-    calculate_vulnerability(iso3, country_folder, country_bounds, pop_folder, pop_files)
+    calculate_vulnerability(iso3, country_folder, country_bounds, pop_folder, pop_files)  # noqa
     misc.tPrint("***%s Calculated Vulnerability" % iso3)
     try:
         create_urban_data(iso3, country_folder, country_bounds, inR, calc_urban=False)
         misc.tPrint("***%s Calculated Urban Extents" % iso3)
-    except:
+    except Exception:
         misc.tPrint("%s errored on HD clusters" % iso3)
         try:
             create_urban_data(
@@ -494,7 +497,7 @@ def extract_data(inG, inG1, inG2, inL, inR):
                 calc_urban=True,
                 calc_hd_urban=False,
             )
-        except:
+        except Exception:
             misc.tPrint("%s errored on all clusters" % iso3)
     # extract_osm(country_bounds, country_folder)
     # misc.tPrint("***Extracted OSM")
@@ -556,12 +559,12 @@ def main():
                 )
 
     # Read in the global datasets
-    pop_files = os.listdir(pop_folder)
-    inG = gpd.read_file(global_bounds)
-    inG1 = gpd.read_file(global_adm1)
-    inG2 = gpd.read_file(global_adm2)
-    inR = rasterio.open(population_raster)
-    inL = rasterio.open(lcRaster)
+    pop_files = os.listdir(pop_folder)  # noqa
+    inG = gpd.read_file(global_bounds)  # noqa
+    inG1 = gpd.read_file(global_adm1)  # noqa
+    inG2 = gpd.read_file(global_adm2)  # noqa
+    inR = rasterio.open(population_raster)  # noqa
+    inL = rasterio.open(lcRaster)  # noqa
 
     countries = [
         "ARG",
@@ -676,14 +679,14 @@ def main():
     ]
     countries = ["EGY", "PHL", "BGD"]
     countries = set(countries)
-    nCountries = len(countries)
-    idx = 0
+    nCountries = len(countries)  # noqa
+    idx = 0  # noqa
     all_commands = []
     for iso3 in countries:
         all_commands.append([iso3, output_folder, dhs_files])
 
     with Pool(round(multiprocessing.cpu_count() * 0.8)) as p:
-        res = p.starmap(run_all, all_commands)
+        res = p.starmap(run_all, all_commands)  # noqa
 
 
 if __name__ == "__main__":

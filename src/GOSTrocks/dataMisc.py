@@ -42,13 +42,15 @@ def aws_search_ntl(
             print(f"Completed loop: {loops}")
         if loops > 0:
             objects = s3client.list_objects_v2(
-                Bucket=bucket, Prefix=prefix, ContinuationToken=token
+                Bucket=bucket,
+                Prefix=prefix,
+                ContinuationToken=token,  # noqa
             )
         else:
             objects = s3client.list_objects_v2(Bucket=bucket, Prefix=prefix)
         more_results = objects["IsTruncated"]
         if more_results:
-            token = objects["NextContinuationToken"]
+            token = objects["NextContinuationToken"]  # noqa
         loops += 1
         for res in objects["Contents"]:
             if res["Key"].endswith("avg_rade9.tif") and ("slcorr" in res["Key"]):
@@ -79,7 +81,7 @@ def get_geoboundaries(
             data = json.load(url)
             geo_data = gpd.read_file(data["gjDownloadURL"])
             return geo_data
-    except:
+    except Exception:
         all_url = geo_api.format(iso3=iso3, adm="ALL")
         raise (
             ValueError(

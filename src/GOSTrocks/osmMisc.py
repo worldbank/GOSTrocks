@@ -125,9 +125,9 @@ class osmExtraction(object):
         inPbf [string] - path to input pbf
         inShp [string or geopandas object] - path to aoi shapefile
         """
-        if type(inShp) == str:
+        if isinstance(inShp, str):
             inD = gpd.read_file(inShp)
-        elif type(inShp) == gpd.GeoDataFrame:
+        elif isinstance(inShp, gpd.GeoDataFrame):
             inD = inShp
         else:
             raise (ValueError("inShp needs to be a string or a geopandas object"))
@@ -168,7 +168,7 @@ class osmExtraction(object):
                 if int(value.split(" ")[2]) in values:
                     # highwayVals.append("highway=%s" % key)
                     highwayVals.append(key)
-            except:
+            except Exception:
                 pass
         allCommands = ",".join(highwayVals)
         baseCommand = r"{osmCmd} --read-pbf {inPbf} --tf accept-ways highway={highwayCommand} --used-node".format(
@@ -306,7 +306,7 @@ def convertOSMPBF_DataFrame(inOSM, layer):
             for tag in splitTags:
                 tSplit = tag.split("=>")
                 x[tSplit[0].replace('"', "")] = tSplit[1].replace('"', "")
-        except:
+        except Exception:
             pass
         x.pop("properties", None)
         x.pop("other_tags", None)
@@ -317,7 +317,7 @@ def convertOSMPBF_DataFrame(inOSM, layer):
     inR = gpd.GeoDataFrame(inR, geometry="geometry", crs=4326)
     try:
         inR = misc.project_UTM(inR)
-    except:
+    except Exception:
         inR = inR.to_crs(3857)
     inR["Length"] = inR["geometry"].apply(lambda x: x.length)
     inR = inR.to_crs(4326)

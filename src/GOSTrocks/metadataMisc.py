@@ -11,7 +11,7 @@ from pyproj.crs.crs import CRS
 
 try:
     pass
-except:
+except Exception:
     print("METADATA Library: Could not import arcgis libraries")
 
 vector_file_types = [".shp", ".kml", ".geojson"]
@@ -147,14 +147,14 @@ class metadata_gost:
                 cur_meta = vector_file_metadata(vector_file, in_folder=self.input_dir)
                 metadata.append(cur_meta.get_metadata())
                 field_defs.append(cur_meta.get_field_summaries())
-            except:
+            except Exception:
                 logging.error(f"Cannot log {vector_file}")
 
         for raster_file in raster_files:
             try:
                 cur_meta = raster_file_metadata(raster_file, in_folder=self.input_dir)
                 metadata.append(cur_meta.get_metadata())
-            except:
+            except Exception:
                 logging.error(f"Cannot log {raster_file}")
 
         metaPD = pd.DataFrame(metadata)
@@ -165,19 +165,19 @@ class metadata_gost:
         metaPD["data_process_summary"] = ""
         self.metaPD = metaPD
         try:
-            del final
-        except:
+            del final  # noqa
+        except Exception:
             pass
         for cur_fields in field_defs:
             cur_pd = pd.DataFrame(cur_fields)
             try:
-                final = final.append(cur_pd)
-            except:
+                final = final.append(cur_pd)  # noqa
+            except Exception:
                 final = cur_pd
         try:
             fieldsPD = final.reset_index()
             self.fieldsPD = fieldsPD
-        except:
+        except Exception:
             fieldsPD = None
             self.fieldsPD = None
         self.metaPD.sort_values(["folder", "layer_name"], inplace=True)

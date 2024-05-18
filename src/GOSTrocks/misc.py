@@ -98,7 +98,7 @@ def tabulateUnq(unqResults, verbose=False, columnPrefix="c"):
             curRes = [0] * len(unq)
             for idx in range(0, len(r[0].tolist())):
                 curRes[unq.index(r[0].tolist()[idx])] = r[1].tolist()[idx]
-        except:
+        except Exception:
             print(r)
         allRes.append(curRes)
     return pd.DataFrame(allRes, columns=["%s_%s" % (columnPrefix, xxx) for xxx in unq])
@@ -139,16 +139,16 @@ def createFishnet(
     :rtype: gpd.GeoDataFrame
     """
 
-    def get_box(row, col, l, r, b, t, gridWidth, gridHeight):
-        ll = Point(l + (row * gridWidth), b + (col + gridHeight))
-        ul = Point(l + (row * gridWidth), t + (col + gridHeight))
+    def get_box(row, col, left, r, b, t, gridWidth, gridHeight):
+        ll = Point(left + (row * gridWidth), b + (col + gridHeight))
+        ul = Point(left + (row * gridWidth), t + (col + gridHeight))
         ur = Point(r + (row * gridWidth), t + (col + gridHeight))
         lr = Point(r + (row * gridWidth), b + (col + gridHeight))
         box = Polygon([ll, ul, ur, lr, ll])
         return box
 
-    def get_point(row, col, l, r, b, t, gridWidth, gridHeight):
-        pt = Point((l + r) / 2 + (col * gridWidth), (t + b) / 2 - (row * gridHeight))
+    def get_point(row, col, left, r, b, t, gridWidth, gridHeight):
+        pt = Point((left + r) / 2 + (col * gridWidth), (t + b) / 2 - (row * gridHeight))
         return pt
 
     # convert sys.argv to float
