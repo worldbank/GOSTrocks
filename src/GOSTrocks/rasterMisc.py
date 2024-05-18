@@ -169,6 +169,10 @@ def clipRaster(inR, inD, outFile=None, crop=True):
     :return: array of [numpy array of data, and rasterio metadata]
     :rtype: array
     """
+    if isinstance(inR, str):
+        inR = rasterio.open(inR)
+    if isinstance(inD, str):
+        inD = gpd.read_file(inD)
     if inD.crs != inR.crs:
         inD = inD.to_crs(inR.crs)
         inD = inD.buffer(0)
