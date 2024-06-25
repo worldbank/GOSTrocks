@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
@@ -35,13 +35,13 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -67,7 +67,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Apr 26, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 25, 2024"/>
   </head>
   
   
@@ -75,27 +75,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -117,8 +113,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -192,7 +193,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -201,14 +202,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -366,9 +367,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -405,11 +406,12 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">boto3</span><span class="o">,</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">rasterio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">boto3</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
 <span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">ET</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;../../src&quot;</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">GOSTrocks.dataMisc</span> <span class="k">as</span> <span class="nn">dMisc</span>
@@ -428,11 +430,11 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s3_bucket</span> <span class="o">=</span> <span class="s1">&#39;wbg-geography01&#39;</span>
-<span class="n">s3_prefix</span> <span class="o">=</span> <span class="s1">&#39;FATHOM/v2023/&#39;</span>
-<span class="n">s3_out</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;s3://&#39;</span><span class="p">,</span><span class="n">s3_bucket</span><span class="p">,</span> <span class="n">s3_prefix</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s3_bucket</span> <span class="o">=</span> <span class="s2">&quot;wbg-geography01&quot;</span>
+<span class="n">s3_prefix</span> <span class="o">=</span> <span class="s2">&quot;FATHOM/v2023/&quot;</span>
+<span class="n">s3_out</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;s3://&quot;</span><span class="p">,</span> <span class="n">s3_bucket</span><span class="p">,</span> <span class="n">s3_prefix</span><span class="p">)</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s2">&quot;s3&quot;</span><span class="p">)</span>
 <span class="n">my_bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="n">s3_bucket</span><span class="p">)</span>
 
 <span class="c1"># Find all files already copied</span>
@@ -448,24 +450,34 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build list of rasters for generating VRT</span>
-<span class="n">local_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;v2023&quot;</span><span class="p">,</span><span class="s2">&quot;GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0&quot;</span><span class="p">)</span>
-<span class="n">in_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">template_folder</span><span class="p">,</span> <span class="n">local_path</span><span class="p">)</span>
+<span class="n">local_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="s2">&quot;v2023&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">in_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">template_folder</span><span class="p">,</span> <span class="n">local_path</span><span class="p">)</span>  <span class="c1"># noqa</span>
 <span class="n">all_tiffs</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">local_path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">in_folder</span><span class="p">)]</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">template_folder</span><span class="p">,</span> <span class="s2">&quot;s3_tiffs.txt&quot;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">template_folder</span><span class="p">,</span> <span class="s2">&quot;s3_tiffs.txt&quot;</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>  <span class="c1"># noqa</span>
     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">all_tiffs</span><span class="p">:</span>
-        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">template_folder</span> <span class="o">=</span> <span class="s1">&#39;/home/wb411133/temp&#39;</span>
-<span class="n">coastal_template</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">template_folder</span><span class="p">,</span> <span class="s2">&quot;GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.0.vrt&quot;</span><span class="p">)</span>
-<span class="n">other_template</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">template_folder</span><span class="p">,</span>   <span class="s2">&quot;GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">template_folder</span> <span class="o">=</span> <span class="s2">&quot;/home/wb411133/temp&quot;</span>
+<span class="n">coastal_template</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">template_folder</span><span class="p">,</span>
+    <span class="s2">&quot;GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0.0.vrt&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">other_template</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">template_folder</span><span class="p">,</span>
+    <span class="s2">&quot;GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0.vrt&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">generate_vrt_from_template</span><span class="p">():</span>
+
+<span class="k">class</span> <span class="nc">generate_vrt_from_template</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template_vrt</span><span class="p">,</span> <span class="n">new_dataset</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">template_vrt</span> <span class="o">=</span> <span class="n">template_vrt</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">new_dataset</span> <span class="o">=</span> <span class="n">new_dataset</span>
@@ -481,11 +493,12 @@ document.write(`
 
         <span class="n">tree</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">new_vrt</span><span class="p">,</span> <span class="n">xml_declaration</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">new_ds = &quot;GLOBAL-1ARCSEC-NW_OFFSET-1in10-COASTAL-DEFENDED-DEPTH-2030-SSP3_7.0-PERCENTILE50-v3.0&quot;</span>
 <span class="sd">xx = generate_vrt_from_template(template_vrt, new_ds)</span>
 <span class="sd">xx.update_vrt()</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -522,17 +535,17 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s3_bucket</span> <span class="o">=</span> <span class="s1">&#39;wbg-geography01&#39;</span>
-<span class="n">s3_prefix</span> <span class="o">=</span> <span class="s1">&#39;FATHOM/&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s3_bucket</span> <span class="o">=</span> <span class="s2">&quot;wbg-geography01&quot;</span>
+<span class="n">s3_prefix</span> <span class="o">=</span> <span class="s2">&quot;FATHOM/&quot;</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s2">&quot;s3&quot;</span><span class="p">)</span>
 <span class="n">my_bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="n">s3_bucket</span><span class="p">)</span>
 
 <span class="n">all_vrts</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">my_bucket</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Prefix</span><span class="o">=</span><span class="n">s3_prefix</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.vrt&quot;</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-        <span class="n">full_vrt_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;s3://</span><span class="si">{</span><span class="n">s3_bucket</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">o</span><span class="o">.</span><span class="n">key</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">full_vrt_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;s3://</span><span class="si">{</span><span class="n">s3_bucket</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">o</span><span class="o">.</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">all_vrts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">full_vrt_path</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -629,7 +642,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_vrts</span><span class="p">[</span><span class="s1">&#39;FLOOD_TYPE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_vrts</span><span class="p">[</span><span class="s2">&quot;FLOOD_TYPE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -647,23 +660,23 @@ Name: FLOOD_TYPE, dtype: int64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_vrts</span> <span class="o">=</span> <span class="n">dMisc</span><span class="o">.</span><span class="n">get_fathom_vrts</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">all_res</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">all_vrts</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="c1">#vrt_path = row[&#39;PATH&#39;]</span>
-    <span class="c1">#xx = rasterio.open(vrt_path)</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;PATH&#39;</span><span class="p">])</span>
-    <span class="n">year</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">]</span>
+    <span class="c1"># vrt_path = row[&#39;PATH&#39;]</span>
+    <span class="c1"># xx = rasterio.open(vrt_path)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;PATH&quot;</span><span class="p">])</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;YEAR&quot;</span><span class="p">]</span>
     <span class="n">climate_model</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;CLIMATE_MODEL&quot;</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">climate_model</span> <span class="o">==</span> <span class="s2">&quot;PERCENTILE50&quot;</span><span class="p">:</span>
         <span class="n">climate_model</span> <span class="o">=</span> <span class="s2">&quot;CURRENT&quot;</span>
-    <span class="n">flood_type</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;FLOOD_TYPE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="n">defence</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;DEFENCE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;RETURN&#39;</span><span class="p">]</span>
+    <span class="n">flood_type</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;FLOOD_TYPE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">defence</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;DEFENCE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;RETURN&quot;</span><span class="p">]</span>
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">flood_type</span><span class="p">,</span> <span class="n">defence</span><span class="p">,</span> <span class="n">ret</span><span class="p">,</span> <span class="n">climate_model</span><span class="p">,</span> <span class="n">year</span><span class="p">])</span>
-    <span class="n">ret</span><span class="o">=</span><span class="n">ret</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot; in &quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">year</span> <span class="o">==</span> <span class="s1">&#39;2020&#39;</span><span class="p">:</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot; in &quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">year</span> <span class="o">==</span> <span class="s2">&quot;2020&quot;</span><span class="p">:</span>
         <span class="n">description</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Global </span><span class="si">{</span><span class="n">defence</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">flood_type</span><span class="si">}</span><span class="s2"> flood model based on current climate. Flood depth is measured in cm expected flood depth, based on a </span><span class="si">{</span><span class="n">ret</span><span class="si">}</span><span class="s2"> year return period.&quot;</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">description</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Global </span><span class="si">{</span><span class="n">defence</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">flood_type</span><span class="si">}</span><span class="s2"> flood model based on </span><span class="si">{</span><span class="n">climate_model</span><span class="si">}</span><span class="s2"> climate model for year </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">. Flood depth is measured in cm expected flood depth, based on a </span><span class="si">{</span><span class="n">ret</span><span class="si">}</span><span class="s2"> year return period.&quot;</span>
-    <span class="n">all_res</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span><span class="n">description</span><span class="p">,</span><span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;PATH&#39;</span><span class="p">]}</span>
+    <span class="n">all_res</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">description</span><span class="p">,</span> <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;PATH&quot;</span><span class="p">]}</span>
 </pre></div>
 </div>
 </div>
@@ -1721,7 +1734,7 @@ Name: FLOOD_TYPE, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;fathom_file_descriptions.json&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;fathom_file_descriptions.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_f</span><span class="p">:</span>
     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">all_res</span><span class="p">,</span> <span class="n">out_f</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1741,7 +1754,10 @@ Name: FLOOD_TYPE, dtype: int64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a list of files for gdalbuildvrt</span>
 <span class="n">folder</span> <span class="o">=</span> <span class="s2">&quot;/home/wb411133/temp/v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0&quot;</span>
-<span class="n">all_files</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder</span><span class="p">)]</span>
+<span class="n">all_files</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="sa">f</span><span class="s2">&quot;v2023/GLOBAL-1ARCSEC-NW_OFFSET-1in500-PLUVIAL-DEFENDED-DEPTH-2020-PERCENTILE50-v3.0/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
+<span class="p">]</span>
 <span class="n">all_files</span>
 </pre></div>
 </div>
@@ -1776,7 +1792,7 @@ Name: FLOOD_TYPE, dtype: int64
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
 </div>
@@ -1824,7 +1840,7 @@ By Geospatial Operations Support Team (GOST)
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 26, 2024.
+  Last updated on Jun 25, 2024.
   <br/>
 </p>
   </div>
@@ -1851,8 +1867,8 @@ By Geospatial Operations Support Team (GOST)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

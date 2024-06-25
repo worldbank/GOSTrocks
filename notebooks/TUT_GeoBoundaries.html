@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
@@ -35,13 +35,13 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -67,7 +67,7 @@
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Apr 26, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 25, 2024"/>
   </head>
   
   
@@ -75,27 +75,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -117,8 +113,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -192,7 +193,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -201,14 +202,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -408,37 +409,10 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/wb411133/.conda/envs/ee/lib/python3.9/site-packages/geopandas/_compat.py:106: UserWarning: The Shapely GEOS version (3.9.1-CAPI-1.14.2) is incompatible with the GEOS version PyGEOS was compiled with (3.10.4-CAPI-1.16.2). Conversions between both will be slow.
-  warnings.warn(
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">dataMisc</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Config&#39;,
- &#39;UNSIGNED&#39;,
- &#39;__builtins__&#39;,
- &#39;__cached__&#39;,
- &#39;__doc__&#39;,
- &#39;__file__&#39;,
- &#39;__loader__&#39;,
- &#39;__name__&#39;,
- &#39;__package__&#39;,
- &#39;__spec__&#39;,
- &#39;aws_search_ntl&#39;,
- &#39;boto3&#39;,
- &#39;get_geoboundaries&#39;,
- &#39;gpd&#39;,
- &#39;json&#39;,
- &#39;pd&#39;,
- &#39;urllib&#39;]
 </pre></div>
 </div>
 </div>
@@ -458,162 +432,10 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>shapeName</th>
-      <th>shapeISO</th>
-      <th>shapeID</th>
-      <th>shapeGroup</th>
-      <th>shapeType</th>
-      <th>geometry</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Abim</td>
-      <td></td>
-      <td>29229248B2720911975926</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((33.96576 2.61670, 33.95916 2.62089, ...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Adjumani</td>
-      <td></td>
-      <td>29229248B5864304727943</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((32.06201 3.57961, 32.06209 3.57970, ...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Agago</td>
-      <td></td>
-      <td>29229248B46383558561496</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((33.55948 3.14894, 33.55869 3.15924, ...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Alebtong</td>
-      <td></td>
-      <td>29229248B1604569270541</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((33.53498 2.35203, 33.53486 2.35187, ...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Amolatar</td>
-      <td></td>
-      <td>29229248B8101446493380</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((32.94045 1.81336, 32.93815 1.81341, ...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>130</th>
-      <td>Ssembabule</td>
-      <td></td>
-      <td>29229248B69968186094061</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((31.60093 0.05001, 31.59999 0.05042, ...</td>
-    </tr>
-    <tr>
-      <th>131</th>
-      <td>Tororo</td>
-      <td></td>
-      <td>29229248B21797160627701</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((33.97873 0.57800, 33.97875 0.57799, ...</td>
-    </tr>
-    <tr>
-      <th>132</th>
-      <td>Wakiso</td>
-      <td></td>
-      <td>29229248B89585843617230</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((32.50099 -0.15249, 32.50111 -0.15233...</td>
-    </tr>
-    <tr>
-      <th>133</th>
-      <td>Yumbe</td>
-      <td></td>
-      <td>29229248B61629311196164</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((31.40883 3.18405, 31.40880 3.18395, ...</td>
-    </tr>
-    <tr>
-      <th>134</th>
-      <td>Zombo</td>
-      <td></td>
-      <td>29229248B95470617370645</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((30.79203 2.64443, 30.79167 2.64430, ...</td>
-    </tr>
-  </tbody>
-</table>
-<p>135 rows × 6 columns</p>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">mapMisc</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Patch&#39;,
- &#39;__builtins__&#39;,
- &#39;__cached__&#39;,
- &#39;__doc__&#39;,
- &#39;__file__&#39;,
- &#39;__loader__&#39;,
- &#39;__name__&#39;,
- &#39;__package__&#39;,
- &#39;__spec__&#39;,
- &#39;ctx&#39;,
- &#39;gpd&#39;,
- &#39;mpatches&#39;,
- &#39;np&#39;,
- &#39;pd&#39;,
- &#39;plt&#39;,
- &#39;static_map_raster&#39;,
- &#39;static_map_vector&#39;]
 </pre></div>
 </div>
 </div>
@@ -631,15 +453,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error mapping specified column, defaulting to index
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;module &#39;matplotlib.pyplot&#39; from &#39;/home/wb411133/.conda/envs/ee/lib/python3.9/site-packages/matplotlib/pyplot.py&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/c787cad04ed4bfaff2e86551cd7ba073c4b00cb4ffdcd246e94c427bcdd2f453.png" src="../_images/c787cad04ed4bfaff2e86551cd7ba073c4b00cb4ffdcd246e94c427bcdd2f453.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -649,97 +462,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>shapeName</th>
-      <th>shapeISO</th>
-      <th>shapeID</th>
-      <th>shapeGroup</th>
-      <th>shapeType</th>
-      <th>geometry</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>8</th>
-      <td>Apac</td>
-      <td></td>
-      <td>29229248B63806553713105</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((32.58712 1.65118, 32.58642 1.65264, ...</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>Buyende</td>
-      <td></td>
-      <td>29229248B78054244522655</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((32.82026 1.47501, 32.82078 1.47207, ...</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>Dokolo</td>
-      <td></td>
-      <td>29229248B79330670222430</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((33.13554 2.10861, 33.13529 2.10698, ...</td>
-    </tr>
-    <tr>
-      <th>46</th>
-      <td>Kaliro</td>
-      <td></td>
-      <td>29229248B95132583956705</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((33.33503 1.07730, 33.33547 1.07707, ...</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>Kamuli</td>
-      <td></td>
-      <td>29229248B80079273075066</td>
-      <td>UGA</td>
-      <td>ADM2</td>
-      <td>POLYGON ((32.93538 1.22259, 32.93572 1.22041, ...</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mapMisc</span><span class="o">.</span><span class="n">static_map_vector</span><span class="p">(</span><span class="n">sel_districts</span><span class="p">,</span> <span class="s2">&quot;shapeID&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error mapping specified column, defaulting to index
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;module &#39;matplotlib.pyplot&#39; from &#39;/home/wb411133/.conda/envs/ee/lib/python3.9/site-packages/matplotlib/pyplot.py&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/02f4db4f35b4bcfcce65bfbcb8e4d9255be09172a8674b62dc5724c70ace9229.png" src="../_images/02f4db4f35b4bcfcce65bfbcb8e4d9255be09172a8674b62dc5724c70ace9229.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -778,7 +506,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
 </div>
@@ -787,8 +515,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
@@ -811,7 +537,7 @@ By Geospatial Operations Support Team (GOST)
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 26, 2024.
+  Last updated on Jun 25, 2024.
   <br/>
 </p>
   </div>
@@ -838,8 +564,8 @@ By Geospatial Operations Support Team (GOST)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

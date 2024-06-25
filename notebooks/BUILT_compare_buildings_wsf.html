@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
@@ -35,13 +35,13 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -67,7 +67,7 @@
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Apr 26, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 25, 2024"/>
   </head>
   
   
@@ -75,27 +75,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -117,8 +113,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -192,7 +193,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -201,14 +202,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -366,9 +367,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -403,19 +404,18 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">rasterio</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">shapely.wkt</span> <span class="kn">import</span> <span class="n">loads</span>
 
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;../src&quot;</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">GOSTrocks.rasterMisc</span> <span class="k">as</span> <span class="nn">rMisc</span>
-<span class="kn">import</span> <span class="nn">GOSTrocks.dataMisc</span> <span class="k">as</span> <span class="nn">dMisc</span>
 
 <span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
@@ -432,19 +432,25 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Local/input files</span>
-<span class="n">iso3</span> <span class="o">=</span> <span class="s1">&#39;KHM&#39;</span>
+<span class="n">iso3</span> <span class="o">=</span> <span class="s2">&quot;KHM&quot;</span>
 <span class="n">out_folder</span> <span class="o">=</span> <span class="s2">&quot;c:/WBG/Work/KHM_Energy/data&quot;</span>
 <span class="n">wsf_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_folder</span><span class="p">,</span> <span class="s2">&quot;WSF&quot;</span><span class="p">,</span> <span class="s2">&quot;wsf.tif&quot;</span><span class="p">)</span>
 <span class="n">ghsl_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_folder</span><span class="p">,</span> <span class="s2">&quot;GHSL&quot;</span><span class="p">,</span> <span class="s2">&quot;ghsl.tif&quot;</span><span class="p">)</span>
-<span class="n">overture_buildings</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_folder</span><span class="p">,</span> <span class="s2">&quot;overture&quot;</span><span class="p">,</span> <span class="s2">&quot;overture_download_2024_03_29.csv&quot;</span><span class="p">)</span>
-<span class="n">overture_raster</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_folder</span><span class="p">,</span> <span class="s2">&quot;overture&quot;</span><span class="p">,</span> <span class="s2">&quot;overture_download_2024_03_29.tif&quot;</span><span class="p">)</span>
-<span class="n">overture_raster_points</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_folder</span><span class="p">,</span> <span class="s2">&quot;overture&quot;</span><span class="p">,</span> <span class="s2">&quot;overture_download_2024_03_29_points.tif&quot;</span><span class="p">)</span>
+<span class="n">overture_buildings</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">out_folder</span><span class="p">,</span> <span class="s2">&quot;overture&quot;</span><span class="p">,</span> <span class="s2">&quot;overture_download_2024_03_29.csv&quot;</span>
+<span class="p">)</span>
+<span class="n">overture_raster</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">out_folder</span><span class="p">,</span> <span class="s2">&quot;overture&quot;</span><span class="p">,</span> <span class="s2">&quot;overture_download_2024_03_29.tif&quot;</span>
+<span class="p">)</span>
+<span class="n">overture_raster_points</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">out_folder</span><span class="p">,</span> <span class="s2">&quot;overture&quot;</span><span class="p">,</span> <span class="s2">&quot;overture_download_2024_03_29_points.tif&quot;</span>
+<span class="p">)</span>
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">[</span><span class="n">wsf_file</span><span class="p">,</span> <span class="n">ghsl_file</span><span class="p">]:</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">file</span><span class="p">)):</span>
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
 
 <span class="c1"># get country extent from geopandas</span>
-<span class="n">world_filepath</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;naturalearth_lowres&#39;</span><span class="p">)</span>
+<span class="n">world_filepath</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s2">&quot;naturalearth_lowres&quot;</span><span class="p">)</span>
 <span class="n">world</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">world_filepath</span><span class="p">)</span>
 <span class="n">country</span> <span class="o">=</span> <span class="n">world</span><span class="p">[</span><span class="n">world</span><span class="o">.</span><span class="n">iso_a3</span> <span class="o">==</span> <span class="n">iso3</span><span class="p">]</span>
 </pre></div>
@@ -479,12 +485,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Clip GHSL using local files</span>
-<span class="n">local_version</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;J:\Data\GLOBAL\GHSL\Built\GHS_BUILT_S_E2020_GLOBE_R2023A_54009_100_V1_0.tif&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clip GHSL using local files</span>
+<span class="n">local_version</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="sa">r</span><span class="s2">&quot;J:\Data\GLOBAL\GHSL\Built\GHS_BUILT_S_E2020_GLOBE_R2023A_54009_100_V1_0.tif&quot;</span>
+<span class="p">)</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">ghsl_file</span><span class="p">):</span>
     <span class="n">ghsl_raster</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">local_version</span><span class="p">)</span>
     <span class="n">data</span><span class="p">,</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">clipRaster</span><span class="p">(</span><span class="n">ghsl_raster</span><span class="p">,</span> <span class="n">country</span><span class="p">)</span>
-    <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">ghsl_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">profile</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">ghsl_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">profile</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
         <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">ghsl_r</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">ghsl_file</span><span class="p">)</span>
 </pre></div>
@@ -495,7 +503,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in and process Overture buildings</span>
 <span class="n">ob</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">overture_buildings</span><span class="p">)</span>
-<span class="n">ob_geoms</span> <span class="o">=</span> <span class="n">ob</span><span class="p">[</span><span class="s1">&#39;wkt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">loads</span><span class="p">)</span>
+<span class="n">ob_geoms</span> <span class="o">=</span> <span class="n">ob</span><span class="p">[</span><span class="s2">&quot;wkt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">loads</span><span class="p">)</span>
 <span class="n">inB</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">ob</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">ob_geoms</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
 <span class="n">inB</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -570,9 +578,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># attempt to rasterrize the buildings as polygons</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">overture_raster</span><span class="p">):</span>
-    <span class="n">rasterized_buildings</span> <span class="o">=</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">rasterizeDataFrame</span><span class="p">(</span><span class="n">inB</span><span class="p">,</span> <span class="n">templateRaster</span><span class="o">=</span><span class="n">ghsl_file</span><span class="p">,</span> <span class="n">mergeAlg</span><span class="o">=</span><span class="s2">&quot;ADD&quot;</span><span class="p">,</span> <span class="n">re_proj</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
-    <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">overture_raster</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">rasterized_buildings</span><span class="p">[</span><span class="s1">&#39;meta&#39;</span><span class="p">])</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
-        <span class="n">dst</span><span class="o">.</span><span class="n">write_band</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">rasterized_buildings</span><span class="p">[</span><span class="s1">&#39;vals&#39;</span><span class="p">])</span>
+    <span class="n">rasterized_buildings</span> <span class="o">=</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">rasterizeDataFrame</span><span class="p">(</span>
+        <span class="n">inB</span><span class="p">,</span> <span class="n">templateRaster</span><span class="o">=</span><span class="n">ghsl_file</span><span class="p">,</span> <span class="n">mergeAlg</span><span class="o">=</span><span class="s2">&quot;ADD&quot;</span><span class="p">,</span> <span class="n">re_proj</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="mf">0.0</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">overture_raster</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">rasterized_buildings</span><span class="p">[</span><span class="s2">&quot;meta&quot;</span><span class="p">])</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+        <span class="n">dst</span><span class="o">.</span><span class="n">write_band</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">rasterized_buildings</span><span class="p">[</span><span class="s2">&quot;vals&quot;</span><span class="p">])</span>
 <span class="n">overture_r</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">overture_raster</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -583,11 +593,15 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># attempt to rasterrize the buildings as points</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">overture_raster_points</span><span class="p">):</span>
     <span class="n">inB_points</span> <span class="o">=</span> <span class="n">inB</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">inB_points</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inB_points</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">centroid</span>
-    <span class="n">rasterized_buildings</span> <span class="o">=</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">rasterizeDataFrame</span><span class="p">(</span><span class="n">inB_points</span><span class="p">,</span> <span class="n">templateRaster</span><span class="o">=</span><span class="n">ghsl_file</span><span class="p">,</span> <span class="n">mergeAlg</span><span class="o">=</span><span class="s2">&quot;ADD&quot;</span><span class="p">,</span> <span class="n">re_proj</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
-    <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">overture_raster_points</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">rasterized_buildings</span><span class="p">[</span><span class="s1">&#39;meta&#39;</span><span class="p">])</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
-        <span class="n">dst</span><span class="o">.</span><span class="n">write_band</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">rasterized_buildings</span><span class="p">[</span><span class="s1">&#39;vals&#39;</span><span class="p">])</span>
-<span class="n">overture_r_points</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">overture_raster_points</span><span class="p">)</span> 
+    <span class="n">inB_points</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inB_points</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">centroid</span>
+    <span class="n">rasterized_buildings</span> <span class="o">=</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">rasterizeDataFrame</span><span class="p">(</span>
+        <span class="n">inB_points</span><span class="p">,</span> <span class="n">templateRaster</span><span class="o">=</span><span class="n">ghsl_file</span><span class="p">,</span> <span class="n">mergeAlg</span><span class="o">=</span><span class="s2">&quot;ADD&quot;</span><span class="p">,</span> <span class="n">re_proj</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="mf">0.0</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+        <span class="n">overture_raster_points</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">rasterized_buildings</span><span class="p">[</span><span class="s2">&quot;meta&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+        <span class="n">dst</span><span class="o">.</span><span class="n">write_band</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">rasterized_buildings</span><span class="p">[</span><span class="s2">&quot;vals&quot;</span><span class="p">])</span>
+<span class="n">overture_r_points</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">overture_raster_points</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -600,10 +614,10 @@ document.write(`
 <span class="n">ghsl_thresh</span> <span class="o">=</span> <span class="mi">3000</span>
 
 <span class="n">o_data</span> <span class="o">=</span> <span class="n">overture_r_points</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">o_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">o_data</span> <span class="o">&gt;</span> <span class="n">o_thresh</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span>
+<span class="n">o_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">o_data</span> <span class="o">&gt;</span> <span class="n">o_thresh</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;uint8&quot;</span><span class="p">)</span>
 
 <span class="n">ghsl_data</span> <span class="o">=</span> <span class="n">ghsl_r</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ghsl_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">ghsl_data</span> <span class="o">&gt;</span> <span class="n">ghsl_thresh</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="n">ghsl_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">ghsl_data</span> <span class="o">&gt;</span> <span class="n">ghsl_thresh</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;uint8&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span>
 
 <span class="n">combo_data</span> <span class="o">=</span> <span class="n">o_data</span> <span class="o">+</span> <span class="n">ghsl_data</span>
 
@@ -612,7 +626,7 @@ document.write(`
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">out_file</span><span class="p">):</span>
     <span class="n">meta</span> <span class="o">=</span> <span class="n">overture_r_points</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">meta</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">rasterio</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">meta</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_raster</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">meta</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_raster</span><span class="p">:</span>
         <span class="n">out_raster</span><span class="o">.</span><span class="n">write_band</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">combo_data</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -646,7 +660,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
 </div>
@@ -692,7 +706,7 @@ By Geospatial Operations Support Team (GOST)
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 26, 2024.
+  Last updated on Jun 25, 2024.
   <br/>
 </p>
   </div>
@@ -719,8 +733,8 @@ By Geospatial Operations Support Team (GOST)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
@@ -35,13 +35,13 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -68,7 +68,7 @@
     <link rel="prev" title="GOSTrocks" href="../README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Apr 26, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 25, 2024"/>
   </head>
   
   
@@ -76,27 +76,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -118,8 +114,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -191,7 +192,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -200,14 +201,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -365,9 +366,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -420,24 +421,16 @@ document.write(`
 <h2><span class="section-number">1.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
 <section id="from-pypi">
 <h3><span class="section-number">1.1.1. </span>From PyPI<a class="headerlink" href="#from-pypi" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">GOSTrocks</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">GOSTrocks</span>
 </pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="from-source">
 <h3><span class="section-number">1.1.2. </span>From Source<a class="headerlink" href="#from-source" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">worldbank</span><span class="o">/</span><span class="n">GOSTrocks</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">worldbank</span><span class="o">/</span><span class="n">GOSTrocks</span><span class="o">.</span><span class="n">git</span>
 <span class="n">cd</span> <span class="n">GOSTrocks</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -446,19 +439,8 @@ document.write(`
 <p>GOSTrocks is broken down into modules of functions that share common elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">GOSTrocks.dataMisc</span> <span class="k">as</span> <span class="nn">dMisc</span>          <span class="c1"># search and download specific datasets</span>
-<span class="kn">import</span> <span class="nn">GOSTrocks.ghslMisc</span> <span class="k">as</span> <span class="nn">gMisc</span>          <span class="c1"># process Global Human Settlement Layer data</span>
-<span class="kn">import</span> <span class="nn">GOSTrocks.mapMisc</span> <span class="k">as</span> <span class="nn">mMisc</span>           <span class="c1"># cartography functions</span>
-<span class="kn">import</span> <span class="nn">GOSTrocks.metadataMisc</span> <span class="k">as</span> <span class="nn">metaMisc</span>   <span class="c1"># create and manage metadata</span>
-<span class="kn">import</span> <span class="nn">GOSTrocks.misc</span> <span class="k">as</span> <span class="nn">misc</span>               <span class="c1"># miscellaneous functions</span>
-<span class="kn">import</span> <span class="nn">GOSTrocks.ntlMisc</span> <span class="k">as</span> <span class="nn">nMisc</span>           <span class="c1"># Nighttime Lights processing and composing</span>
-<span class="kn">import</span> <span class="nn">GOSTrocks.osmMisc</span> <span class="k">as</span> <span class="nn">oMisc</span>           <span class="c1"># OpenStreetMap data extraction</span>
-<span class="kn">import</span> <span class="nn">GOSTrocks.rasterMisc</span> <span class="k">as</span> <span class="nn">rMisc</span>        <span class="c1"># Raster tools!</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>METADATA Library: Could not import arcgis libraries
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">GOSTrocks.dataMisc</span> <span class="k">as</span> <span class="nn">dMisc</span>  <span class="c1"># search and download specific datasets</span>
+<span class="kn">import</span> <span class="nn">GOSTrocks.rasterMisc</span> <span class="k">as</span> <span class="nn">rMisc</span>  <span class="c1"># Raster tools!</span>
 </pre></div>
 </div>
 </div>
@@ -501,27 +483,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Signature:</span>
-dMisc<span class=" -Color -Color-Bold -Color-Bold-Yellow">.</span>get_geoboundaries<span class=" -Color -Color-Bold -Color-Bold-Yellow">(</span>
-    iso3<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
-    level<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
-    geo_api<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Blue">&#39;https://www.geoboundaries.org/api/current/gbOpen/{iso3}/{adm}/&#39;</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
-<span class=" -Color -Color-Bold -Color-Bold-Yellow">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span>
-Download boundaries dataset from geobounadries
-
-:param iso3: ISO3 code of country to download
-:type iso3: str
-:param level: Admin code to download in format of &quot;ADM1&quot; or &quot;ADM2&quot;
-:type level: str
-:return: spatial data representing the administrative boundaries
-:rtype: gpd.GeoDataFrame
-<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\wbg\anaconda3\envs\gost\lib\site-packages\gostrocks\datamisc.py
-<span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      function
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -530,32 +491,23 @@ Download boundaries dataset from geobounadries
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
-</pre></div>
-</div>
-<img alt="../_images/6d464b1a7842ea643029faaa748cb3a9b24ea81c84fae5f4ae83bbc155dabcd0.png" src="../_images/6d464b1a7842ea643029faaa748cb3a9b24ea81c84fae5f4ae83bbc155dabcd0.png" />
-</div>
 </div>
 </section>
 <section id="download-population-data">
 <h3><span class="section-number">1.3.2. </span>Download Population Data<a class="headerlink" href="#download-population-data" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wp_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://data.worldpop.org/GIS/Population/Global_2000_2020_1km/2020/</span><span class="si">{</span><span class="n">iso</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">iso</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s1">_ppp_2020_1km_Aggregated.tif&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wp_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://data.worldpop.org/GIS/Population/Global_2000_2020_1km/2020/</span><span class="si">{</span><span class="n">iso</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">iso</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">_ppp_2020_1km_Aggregated.tif&quot;</span>
 <span class="n">wp_url</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://data.worldpop.org/GIS/Population/Global_2000_2020_1km/2020/GHA/gha_ppp_2020_1km_Aggregated.tif&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wp_path</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">iso</span><span class="si">}</span><span class="s1">_ppp_2020_1km_Aggregated_UNadj.tif&#39;</span><span class="p">)</span> <span class="c1"># Download from link above</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wp_path</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span>
+    <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">iso</span><span class="si">}</span><span class="s2">_ppp_2020_1km_Aggregated_UNadj.tif&quot;</span>
+<span class="p">)</span>  <span class="c1"># Download from link above</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">exists</span><span class="p">(</span><span class="n">wp_path</span><span class="p">):</span>
     <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">wp_url</span><span class="p">,</span> <span class="n">wp_path</span><span class="p">)</span>
 </pre></div>
@@ -572,16 +524,10 @@ Download boundaries dataset from geobounadries
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">show</span><span class="p">(</span><span class="n">src_pop</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">PowerNorm</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">src_pop</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">PowerNorm</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-3.251249987361092, 1.190416661538908, 4.732916852582885, 11.174583493482885)
-</pre></div>
-</div>
-<img alt="../_images/7c60dd530463ae7af4522f80af0760feadfc042bd05ace1131f5213d52ce998f.png" src="../_images/7c60dd530463ae7af4522f80af0760feadfc042bd05ace1131f5213d52ce998f.png" />
 </div>
 </div>
 </section>
@@ -598,16 +544,10 @@ Download boundaries dataset from geobounadries
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">show</span><span class="p">(</span><span class="n">src_travel</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">PowerNorm</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.2</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;magma&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">src_travel</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">PowerNorm</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.2</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;magma&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-180.0, 180.0, -60.0, 85.0)
-</pre></div>
-</div>
-<img alt="../_images/b4dd2fd1e70c7e9411bd06b1f6015d29976dcc096e2f82b338dbb59525f40f8b.png" src="../_images/b4dd2fd1e70c7e9411bd06b1f6015d29976dcc096e2f82b338dbb59525f40f8b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -616,31 +556,13 @@ Download boundaries dataset from geobounadries
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Signature:</span> rMisc<span class=" -Color -Color-Bold -Color-Bold-Yellow">.</span>clipRaster<span class=" -Color -Color-Bold -Color-Bold-Yellow">(</span>inR<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span> inD<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span> outFile<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">None</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span> crop<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">True</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span>
-Clip input raster
-
-:param inR: rasterio object to clip
-:type inR: rasterio.DatasetReader
-:param inD: geopandas polygonal dataframe to use for clip clip extent based on crop param
-:type inD: geopandas.GeoDataFrame
-:param outFile: string path to write output raster, default is &#39;&#39; which writes nothing
-:type outFile: string
-:param crop: determine wether to clip based on bounding box (False) or unary_union (True). Default is True
-:type crop: Boolean
-:return: array of [numpy array of data, and rasterio metadata]
-:rtype: array
-<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\wbg\anaconda3\envs\gost\lib\site-packages\gostrocks\rastermisc.py
-<span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      function
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out_travel</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">iso</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s1">_2020_motorized_friction_surface.tif&#39;</span><span class="p">)</span>
-<span class="n">surface</span><span class="p">,</span> <span class="n">surface_meta</span> <span class="o">=</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">clipRaster</span><span class="p">(</span><span class="n">src_travel</span><span class="p">,</span> <span class="n">gdf</span><span class="p">,</span> <span class="n">outFile</span><span class="o">=</span><span class="n">out_travel</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out_travel</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">iso</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">_2020_motorized_friction_surface.tif&quot;</span><span class="p">)</span>
+<span class="n">surface</span><span class="p">,</span> <span class="n">surface_meta</span> <span class="o">=</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">clipRaster</span><span class="p">(</span>
+    <span class="n">src_travel</span><span class="p">,</span> <span class="n">gdf</span><span class="p">,</span> <span class="n">outFile</span><span class="o">=</span><span class="n">out_travel</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -648,16 +570,10 @@ Clip input raster
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">show</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">PowerNorm</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.2</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;magma&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">PowerNorm</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.2</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;magma&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.5, 534.5, 772.5, -0.5)
-</pre></div>
-</div>
-<img alt="../_images/3227b11c44f8e62a14fd8d8486743472af6dfc72b3b033334f4115d921c5a07d.png" src="../_images/3227b11c44f8e62a14fd8d8486743472af6dfc72b3b033334f4115d921c5a07d.png" />
 </div>
 </div>
 </section>
@@ -667,32 +583,6 @@ Clip input raster
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rMisc.standardizeInputRasters<span class="o">?</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Signature:</span>
-rMisc<span class=" -Color -Color-Bold -Color-Bold-Yellow">.</span>standardizeInputRasters<span class=" -Color -Color-Bold -Color-Bold-Yellow">(</span>
-    inR1<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
-    inR2<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
-    inR1_outFile<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Blue">&#39;&#39;</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
-    resampling_type<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Blue">&#39;nearest&#39;</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span>
-<span class=" -Color -Color-Bold -Color-Bold-Yellow">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span>
-Standardize inR1 to inR2: changes crs, extent, and resolution.
-
-:param inR1: rasterio object for raster to be modified
-:type inR1: ratserio.DatasetReader
-:param inR2: rasterio object to be standardized to
-:type inR12 ratserio.DatasetReader
-:param inR1_outfile: path to create output raster file of standardized inR1, default is &#39;&#39;, which means nothing is written
-:type inR1: string
-:param resampling_type: how to perfrom spatial resampling; options are nearest (default), cubic, or sum
-:type resampling_type: string
-:return: array of numpy array, and rasterio metadata
-:rtype: array
-<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\wbg\anaconda3\envs\gost\lib\site-packages\gostrocks\rastermisc.py
-<span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      function
 </pre></div>
 </div>
 </div>
@@ -706,7 +596,9 @@ Standardize inR1 to inR2: changes crs, extent, and resolution.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_std</span><span class="p">,</span> <span class="n">pop_meta</span> <span class="o">=</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">standardizeInputRasters</span><span class="p">(</span><span class="n">src_pop</span><span class="p">,</span> <span class="n">src_travel_clipped</span><span class="p">,</span> <span class="n">resampling_type</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_std</span><span class="p">,</span> <span class="n">pop_meta</span> <span class="o">=</span> <span class="n">rMisc</span><span class="o">.</span><span class="n">standardizeInputRasters</span><span class="p">(</span>
+    <span class="n">src_pop</span><span class="p">,</span> <span class="n">src_travel_clipped</span><span class="p">,</span> <span class="n">resampling_type</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -718,46 +610,11 @@ Standardize inR1 to inR2: changes crs, extent, and resolution.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;driver&#39;: &#39;GTiff&#39;,
- &#39;dtype&#39;: &#39;float32&#39;,
- &#39;nodata&#39;: -99999.0,
- &#39;width&#39;: 533,
- &#39;height&#39;: 773,
- &#39;count&#39;: 1,
- &#39;crs&#39;: CRS.from_epsg(4326),
- &#39;transform&#39;: Affine(0.0083333333, 0.0, -3.251249987361092,
-        0.0, -0.0083333333, 11.174583493482885)}
-</pre></div>
-</div>
-</div>
 </div>
 <p>New population metadata aligned with travel surface:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_meta</span><span class="p">,</span> <span class="n">surface_meta</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>({&#39;driver&#39;: &#39;GTiff&#39;,
-  &#39;dtype&#39;: &#39;float32&#39;,
-  &#39;nodata&#39;: -99999.0,
-  &#39;width&#39;: 535,
-  &#39;height&#39;: 773,
-  &#39;count&#39;: 1,
-  &#39;crs&#39;: CRS.from_epsg(4326),
-  &#39;transform&#39;: Affine(0.008333333333333333, 0.0, -3.2583333333333258,
-         0.0, -0.008333333333333333, 11.174999999999997)},
- {&#39;driver&#39;: &#39;GTiff&#39;,
-  &#39;dtype&#39;: &#39;float32&#39;,
-  &#39;nodata&#39;: -9999.0,
-  &#39;width&#39;: 535,
-  &#39;height&#39;: 773,
-  &#39;count&#39;: 1,
-  &#39;crs&#39;: CRS.from_epsg(4326),
-  &#39;transform&#39;: Affine(0.008333333333333333, 0.0, -3.2583333333333258,
-         0.0, -0.008333333333333333, 11.174999999999997)})
 </pre></div>
 </div>
 </div>
@@ -810,7 +667,7 @@ Standardize inR1 to inR2: changes crs, extent, and resolution.
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -877,7 +734,7 @@ By Geospatial Operations Support Team (GOST)
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 26, 2024.
+  Last updated on Jun 25, 2024.
   <br/>
 </p>
   </div>
@@ -904,8 +761,8 @@ By Geospatial Operations Support Team (GOST)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
