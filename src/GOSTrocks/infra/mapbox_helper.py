@@ -7,7 +7,7 @@ import pandas as pd
 import urllib.request as url
 
 ### README
-### This code has been adpated from the earlier Market Access tools written by Charles Fox.
+### This code has been adapted from the earlier Market Access tools written by Charles Fox.
 ### Some simple adjustments were made to work with the InfraSAP inputs, but I have not had enough time to re-write this as it's quite complicated.
 
 
@@ -35,7 +35,7 @@ def CreateODMatrix(
     #     print('Destinations: %s\n' % infile_2)
 
     # Save settings
-    save_rate = 5
+    save_rate = 5  # noqa
 
     def save(returns, j, i, numcalls, rescue_num):
         elapsed_mins = (time.time() - start) / 60
@@ -55,9 +55,9 @@ def CreateODMatrix(
         print("\n______________________________________\n")
         try:
             df = pd.concat(returns)
-        except:
+        except Exception:
             df = returns
-        curOutput = os.path.join(ffpath, "temp_file_%d.csv" % rescue_num)
+        curOutput = os.path.join(ffpath, "temp_file_%d.csv" % rescue_num)  # noqa
         df.to_csv(curOutput)
 
     # Function for calling OSRM server.
@@ -91,7 +91,7 @@ def CreateODMatrix(
 
         try:
             r = url.urlopen(request)
-        except:
+        except Exception:
             print(request)
             time.sleep(5)
             r = url.urlopen(request)
@@ -101,7 +101,7 @@ def CreateODMatrix(
             # Convert Bytes response to readable Json
             MB_TelTest_json = json.loads(r.read().decode("utf-8"))
             data_block = MB_TelTest_json["durations"]
-        except:
+        except Exception:
             data_block = "null"
 
         # Build df from JSON
@@ -171,7 +171,7 @@ def CreateODMatrix(
 
     ### Making Calls
     if call_type == "Euclid":
-        df = EuclidCall(source_list, dest_list, source_points, dest_points)
+        df = EuclidCall(source_list, dest_list, source_points, dest_points)  # noqa
     else:
         if rescue > 0:
             s = s[rescue:]  # possibly rescue -1
@@ -207,12 +207,12 @@ def CreateODMatrix(
                     returns.append(Call(O_list, D_list, i, O_IDs, D_IDs, header))
                     i += 1
                     j += 1
-                except:
+                except Exception:
                     logging.warning("Error Processing OSRM for i:%s and j:%s" % (i, j))
                     save(returns, j, i, numcalls, rescue_num)
         try:
             df = pd.concat(returns)
-        except:
+        except Exception:
             df = returns
 
     # re-attach the population of origins and destinations, prep dataframe
@@ -220,7 +220,8 @@ def CreateODMatrix(
     if rescue_num > 0:
         for r in range(0, rescue_num):
             rescued_matrix = pd.read_csv(
-                os.path.join(ffpath, "temp_file_%d.csv" % (r)), header=None
+                os.path.join(ffpath, "temp_file_%d.csv" % (r)),  # noqa
+                header=None,
             )
             rescued_matrix.columns = ["O_UID", "D_UID", "DIST"]
             all_matrices.append(rescued_matrix)

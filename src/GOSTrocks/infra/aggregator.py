@@ -25,8 +25,8 @@ def rasterize_gdf(inD, field, template, outFile=None, nodata=np.nan):
     """
     raster_template = rio.open(template)
     # get info from template file
-    xRes = raster_template.res[1]
-    yRes = raster_template.res[0]
+    xRes = raster_template.res[1]  # noqa
+    yRes = raster_template.res[0]  # noqa
     trans = raster_template.transform
     x_pixels = raster_template.shape[1]
     y_pixels = raster_template.shape[0]
@@ -69,7 +69,7 @@ def pop_weighted_average(target, data_raster, pop_raster, new_field, table=None)
     Target GDF with new fields
     """
     # Load inputs
-    if type(target) == str:
+    if isinstance(target, str):
         target = gpd.read_file(target)
 
     pop = rio.open(pop_raster)
@@ -123,7 +123,6 @@ def pop_weighted_average_national(data_raster, pop_raster, label, table=None):
     Target GDF with new fields
     """
     pop = rio.open(pop_raster)
-    pop_crs = pop.crs.to_string()
     pop_array = pop.read(1, masked=True)
 
     # Calculate weights
@@ -155,11 +154,11 @@ def calculate_access_percentages(
     thresholds=[0, 30, 60, 120, 180, 240, 300, 360, 2000],
     capital=None,
 ):
-    if type(target) == str:
+    if isinstance(target, str):
         target = gpd.read_file(target).reset_index(drop=True)
-    if type(OD) == str:
+    if isinstance(OD, str):
         OD = pd.read_csv(OD, header=[0, 1], index_col=0)
-    if type(urban_extents) == str:
+    if isinstance(urban_extents, str):
         urban_extents = gpd.read_file(urban_extents)
 
     origins_geom = OD["origin"][["geometry"]].copy()

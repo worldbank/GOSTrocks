@@ -33,7 +33,7 @@ def extract_rai_network(focal_osm, epsg=3857, rai_buffer=2000):
     def get_num(x):
         try:
             return int(x)
-        except:
+        except Exception:
             return 5
 
     roadsGPD_rai["OSMLR_num"] = roadsGPD_rai["OSMLR"].apply(

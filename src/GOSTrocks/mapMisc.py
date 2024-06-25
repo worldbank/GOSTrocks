@@ -55,7 +55,7 @@ def static_map_vector(
             )
         else:
             v_data["tomap"] = pd.cut(v_data[map_column], 6, labels=[0, 1, 2, 3, 4, 5])
-    except:
+    except Exception:
         print("Error mapping specified column, defaulting to index")
         map_column = "fake_index"
         v_data[map_column] = list(v_data.index)
@@ -86,7 +86,7 @@ def static_map_vector(
                 mdata.plot(color=color, ax=ax, label=label, edgecolor=c_edge)
             try:
                 cLabel = f"{round(mdata[map_column].min())} - {round(mdata[map_column].max())}"
-            except:
+            except Exception:
                 cLabel = "LABEL"
             cur_patch = mpatches.Patch(color=color, label=cLabel)
             all_labels.append(cur_patch)
@@ -94,7 +94,7 @@ def static_map_vector(
         ctx.add_basemap(
             ax, source=ctx.providers.Stamen.TonerBackground
         )  # zorder=-10, 'EPSG:4326'
-    except:
+    except Exception:
         print("Error adding basemap")
     ax.legend(handles=all_labels, loc=legend_loc)
     ax = ax.set_axis_off()
@@ -148,7 +148,7 @@ def static_map_raster(
     if thresh:
         map_data = np.digitize(map_data, thresh)
     fig, ax = plt.subplots(figsize=figsize)
-    chm_plot = ax.imshow(map_data, cmap=cm)
+    chm_plot = ax.imshow(map_data, cmap=cm)  # noqa
 
     legend_labels = [[cm(0), "Low"], [cm(0.5), "Medium"], [cm(1), "High"]]
     if thresh:

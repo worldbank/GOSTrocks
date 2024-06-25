@@ -26,7 +26,7 @@ curPath = os.path.realpath(
 if curPath not in sys.path:
     sys.path.append(curPath)
 
-from misc import tPrint
+from misc import tPrint  # noqa
 
 
 def merge_rasters(
@@ -79,7 +79,7 @@ def create_rasterio_inmemory(src, curData):
         with memFile.open(**src) as dataset:
             try:
                 dataset.write(curData)
-            except:
+            except Exception:
                 dataset.write_band(1, curData)
             del curData
 
@@ -164,13 +164,13 @@ def clipRaster(inR, inD, outFile=None, crop=True):
     :type inD: geopandas.GeoDataFrame
     :param outFile: string path to write output raster, default is '' which writes nothing
     :type outFile: string
-    :param crop: determine wether to clip based on bounding box (False) or unary_union (True). Default is True
+    :param crop: determine whether to clip based on bounding box (False) or unary_union (True). Default is True
     :type crop: Boolean
     :return: array of [numpy array of data, and rasterio metadata]
     :rtype: array
     """
     if isinstance(inR, str):
-        inR = rasterio.open(inR)    
+        inR = rasterio.open(inR)
     if isinstance(inD, str):
         inD = gpd.read_file(inD)
     if inD.crs != inR.crs:
@@ -324,7 +324,7 @@ def rasterizeDataFrame(
         try:
             with rasterio.open(outFile, "w", **cMeta) as out:
                 out.write_band(1, burned)
-        except:
+        except Exception:
             print("Error writing raster")
     return {"meta": cMeta, "vals": burned}
 
@@ -549,7 +549,7 @@ def zonalStats(
                     if calc_sd:
                         try:
                             results.append(np.std(masked_data))
-                        except:
+                        except Exception:
                             results.append(-1)
                 if rastType == "C":
                     if len(unqVals) > 0:
@@ -572,7 +572,7 @@ def zonalStats(
                     outputData.append([-1, -1, -1, -1])
                 else:
                     outputData.append([-1 for x in unqVals])
-        except:
+        except Exception:
             print("Error processing %s" % fCount)
     if return_df:
         cols = ["SUM", "MIN", "MAX", "MEAN"]
@@ -586,12 +586,12 @@ def standardizeInputRasters(inR1, inR2, inR1_outFile="", resampling_type="neares
     """Standardize inR1 to inR2: changes crs, extent, and resolution.
 
     :param inR1: rasterio object for raster to be modified
-    :type inR1: ratserio.DatasetReader
+    :type inR1: rasterio.DatasetReader
     :param inR2: rasterio object to be standardized to
-    :type inR12 ratserio.DatasetReader
+    :type inR12 rasterio.DatasetReader
     :param inR1_outfile: path to create output raster file of standardized inR1, default is '', which means nothing is written
     :type inR1: string
-    :param resampling_type: how to perfrom spatial resampling; options are nearest (default), cubic, or sum
+    :param resampling_type: how to perform spatial resampling; options are nearest (default), cubic, or sum
     :type resampling_type: string
     :return: array of numpy array, and rasterio metadata
     :rtype: array
@@ -701,5 +701,5 @@ def jaccardIndex(inR1, inR2):
     try:
         jIdx = outDict[2] / float(outDict[2] + outDict[1])
         return jIdx
-    except:
+    except Exception:
         return -1

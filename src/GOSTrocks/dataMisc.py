@@ -1,4 +1,4 @@
-import sys, os
+import os
 import json
 import urllib
 import boto3
@@ -13,8 +13,11 @@ from botocore import UNSIGNED
 from . import rasterMisc as rMisc
 
 
-def download_WSF(extent, wsf_url="https://download.geoservice.dlr.de/WSF2019/files/WSF2019_cog.tif",
-                 out_file=""):
+def download_WSF(
+    extent,
+    wsf_url="https://download.geoservice.dlr.de/WSF2019/files/WSF2019_cog.tif",
+    out_file="",
+):
     """_summary_
 
     Parameters
@@ -29,9 +32,10 @@ def download_WSF(extent, wsf_url="https://download.geoservice.dlr.de/WSF2019/fil
     wsf_raster = rasterio.open(wsf_url)
     data, profile = rMisc.clipRaster(raster=wsf_raster, bounds=extent)
     if out_file != "":
-        with rasterio.open(out_file, 'w', **profile) as dst:
+        with rasterio.open(out_file, "w", **profile) as dst:
             dst.write(data)
-    return(data, profile)
+    return (data, profile)
+
 
 def aws_search_ntl(
     bucket="globalnightlight",
@@ -67,13 +71,15 @@ def aws_search_ntl(
             print(f"Completed loop: {loops}")
         if loops > 0:
             objects = s3client.list_objects_v2(
-                Bucket=bucket, Prefix=prefix, ContinuationToken=token
+                Bucket=bucket,
+                Prefix=prefix,
+                ContinuationToken=token,  # noqa
             )
         else:
             objects = s3client.list_objects_v2(Bucket=bucket, Prefix=prefix)
         more_results = objects["IsTruncated"]
         if more_results:
-            token = objects["NextContinuationToken"]
+            token = objects["NextContinuationToken"]  # noqa
         loops += 1
         for res in objects["Contents"]:
             if res["Key"].endswith("avg_rade9.tif") and ("slcorr" in res["Key"]):
@@ -104,7 +110,7 @@ def get_geoboundaries(
             data = json.load(url)
             geo_data = gpd.read_file(data["gjDownloadURL"])
             return geo_data
-    except:
+    except Exception:
         all_url = geo_api.format(iso3=iso3, adm="ALL")
         raise (
             ValueError(
@@ -112,20 +118,33 @@ def get_geoboundaries(
             )
         )
 
-def get_fathom_vrts(return_df = False):       
-    """ Get a list of VRT files of Fathom data from the GOST S3 bucket. Note that the 
-        VRT files are not searched dynamically but are stored in a text file in the same
-        folder as the function. 
 
-        return_df: if True, return a pandas dataframe with the VRT files and their components, defaults to False which returns just the list of VRT files           
-    """    
-    vrt_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "fathom_vrts.txt")
+def get_fathom_vrts(return_df=False):
+    """Get a list of VRT files of Fathom data from the GOST S3 bucket. Note that the
+    VRT files are not searched dynamically but are stored in a text file in the same
+    folder as the function.
+
+    return_df: if True, return a pandas dataframe with the VRT files and their components, defaults to False which returns just the list of VRT files
+    """
+    vrt_file = os.path.join(
+        os.path.dirname(os.path.realpath(__file__)), "fathom_vrts.txt"
+    )
     all_vrts = []
     with open(vrt_file, "r") as f:
         for line in f:
             all_vrts.append(line.strip())
     if return_df:
-        vrt_pd = pd.DataFrame([x.split("-")[4:10] for x in all_vrts], columns=['RETURN', 'FLOOD_TYPE', 'DEFENCE', 'DEPTH', 'YEAR', 'CLIMATE_MODEL'])
-        vrt_pd['PATH'] = all_vrts
+        vrt_pd = pd.DataFrame(
+            [x.split("-")[4:10] for x in all_vrts],
+            columns=[
+                "RETURN",
+                "FLOOD_TYPE",
+                "DEFENCE",
+                "DEPTH",
+                "YEAR",
+                "CLIMATE_MODEL",
+            ],
+        )
+        vrt_pd["PATH"] = all_vrts
         return vrt_pd
     return all_vrts

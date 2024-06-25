@@ -17,7 +17,7 @@ def get_centroid(iso, boundaries):
             return selected_country.iloc[0]["geometry"]
         else:
             return None
-    except:
+    except Exception:
         return None
 
 
@@ -25,11 +25,11 @@ def generate_great_circle(from_pt, to_pt, interim_steps=15):
     """ """
     geod = Geodesic.WGS84
     g = geod.Inverse(from_pt.x, from_pt.y, to_pt.x, to_pt.y)
-    l = geod.Line(g["lat1"], g["lon1"], g["azi1"])
+    lin = geod.Line(g["lat1"], g["lon1"], g["azi1"])
     num = interim_steps  # 15 intermediate steps
     list_of_points = [from_pt]
     for i in range(num + 1):
-        pos = l.Position(i * g["s12"] / num)
+        pos = lin.Position(i * g["s12"] / num)
         list_of_points.append(Point(pos["lat2"], pos["lon2"]))
     list_of_points.append(to_pt)
     return LineString(list_of_points)
@@ -48,7 +48,7 @@ def generate_line_string(row, type="normal"):
             else:
                 return generate_great_circle(row["Partner_Pt"], row["Reporter_Pt"])
 
-    except:
+    except Exception:
         # print("Error processing %s and %s" % (row['Reporter ISO'], row['Partner ISO']))
         return None
 
@@ -103,11 +103,11 @@ class comtrade_flow(object):
         for n_field in ["Trade Value (US$)", "Qty", "TOE"]:
             try:
                 inD[n_field] = inD[n_field].astype(float)
-            except:
+            except Exception:
                 inD[n_field] = inD[n_field].replace("", "0").astype(float)
             try:
                 inD[n_field] = inD[n_field].astype(float)
-            except:
+            except Exception:
                 inD[n_field] = inD[n_field].replace("", "0").astype(float)
         # filter out bad data
         if len(good_quantity_code) > 0:
@@ -231,7 +231,7 @@ class comtrade_flow(object):
         self.clean_fields()
 
         if out_type == "CSV":
-            geom_driver = "CSV"
+            geom_driver = "CSV"  # noqa
             out_type = "csv"
             country_flows_file = os.path.join(out_folder, f"country_flows.{out_type}")
             country_summary_file = os.path.join(
@@ -240,7 +240,6 @@ class comtrade_flow(object):
             self.country_flows.to_csv(country_flows_file)
             self.country_summary.to_csv(country_summary_file)
         if out_type == "SHP":
-            geom_driver = "ESRI Shapefile"
             out_type = "shp"
             country_flows_file = os.path.join(out_folder, f"country_flows.{out_type}")
             country_summary_file = os.path.join(

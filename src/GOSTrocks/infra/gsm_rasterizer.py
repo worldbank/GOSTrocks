@@ -39,7 +39,7 @@ class gsm_rasterizer(object):
         else:
             try:
                 return boundary.intersection(x)
-            except:
+            except Exception:
                 x = x.buffer(0)
                 return boundary.intersection(x)
 
