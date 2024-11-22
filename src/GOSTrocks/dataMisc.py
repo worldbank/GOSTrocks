@@ -2,6 +2,7 @@ import os
 import json
 import urllib
 import boto3
+import boto3.session
 import rasterio
 
 import pandas as pd
@@ -9,8 +10,9 @@ import geopandas as gpd
 
 from botocore.config import Config
 from botocore import UNSIGNED
+from osgeo import gdal
 
-from . import rasterMisc as rMisc
+import rasterMisc as rMisc
 
 
 def download_WSF(
@@ -58,9 +60,9 @@ def aws_search_ntl(
     :type verbose: bool, optional
     """
     if unsigned:
-        s3client = boto3.client("s3", config=Config(signature_version=UNSIGNED))
+        s3client = boto3.client("s3", verify=False, config=Config(signature_version=UNSIGNED))
     else:
-        s3client = boto3.client("s3")
+        s3client = boto3.client("s3", verify=False)
 
     # Loop through the S3 bucket and get all the keys for files that are .tif
     more_results = True
@@ -148,3 +150,61 @@ def get_fathom_vrts(return_df=False):
         vrt_pd["PATH"] = all_vrts
         return vrt_pd
     return all_vrts
+
+def get_worldcover(df, download_folder, worldcover_vrt='WorldCover.vrt',
+                   version='v200',
+                   print_command=False, verbose=False):
+    """ Download ESA globcover from AWS (https://aws.amazon.com/marketplace/pp/prodview-7oorylcamixxc)
+
+    Parameters
+    ----------
+    df : geopandas.GeoDataFrame
+        Data frame used to select tiles to download; selects tiles based on the data frame unary_union
+    download_folder : string 
+        path to folder to download tiles
+    worldcover_vrt : str, optional
+        name of the VRT file to create, by default 'WorldCover.vrt'
+    version : str, optional
+        version of Worldcover to download, by default 'v200', other option is 'v100
+    print_command : bool, optional
+        if true, print the awscli commands to download the tiles. If false, uses boto3
+        to download the tiles, by default False
+    verbose : bool, optional
+        Print more updates during processing, by default False
+    """
+    
+    bucket='esa-worldcover'
+    esa_file_geojson = 'esa_worldcover_grid.geojson'
+    s3 = boto3.client('s3', verify=False, config=Config(signature_version=UNSIGNED))
+    tiles_geojson = os.path.join(download_folder, esa_file_geojson)
+
+    if not os.path.exists(tiles_geojson):
+        s3.download_file(bucket, esa_file_geojson, tiles_geojson)
+
+    tile_path = "{version}/2021/map/ESA_WorldCover_10m_2021_v200_{tile}_Map.tif"
+    
+    in_tiles = gpd.read_file(tiles_geojson)
+    sel_tiles = in_tiles.loc[in_tiles.intersects(df.unary_union)]
+
+    all_tiles = []
+    for idx, row in sel_tiles.iterrows():
+        cur_tile_path = tile_path.format(tile=row['ll_tile'], version=version)
+        cur_out = os.path.join(download_folder, f"WorldCover_{row['ll_tile']}.tif")
+        all_tiles.append(cur_out)
+        if not os.path.exists(cur_out):
+            if print_command:
+                command = f"aws s3 --no-sign-request --no-verify-ssl cp s3://{bucket}/{cur_tile_path} {cur_out}"
+                print(command)
+            else:
+                if not os.path.exists(cur_out):
+                    if verbose:
+                        print(f"Downloading {cur_tile_path} to {cur_out}")
+                    s3.download_file(bucket,cur_tile_path, cur_out)
+                else:
+                    if verbose:
+                        print(f"File {cur_out} already exists")
+    out_vrt = os.path.join(download_folder, worldcover_vrt)
+    gdal.BuildVRT(out_vrt, all_tiles, options=gdal.BuildVRTOptions())
+    
+    return(all_tiles)
+

@@ -18,6 +18,7 @@ from rasterio.features import rasterize, MergeAlg
 from rasterio.warp import reproject, Resampling, calculate_default_transform
 from rasterio.merge import merge
 from rasterio.io import MemoryFile
+from rasterio.crs import CRS
 from contextlib import contextmanager
 
 curPath = os.path.realpath(
@@ -121,10 +122,14 @@ def project_raster(srcRst, dstCrs, output_raster=""):
     """project raster to destination crs
 
     Args:
-        srcRst (_type_): _description_
-        dstCrs (_type_): _description_
-        output_raster (_type_): _description_
-    """
+        srcRst (rasterio.datasetReader): input rasterio to reproject
+        dstCrs (int): crs to project to
+        output_raster (string): file to write to, defaults to '', which writes nothing
+
+    """    
+    if dstCrs.__class__ == int:
+        dstCrs = CRS.from_epsg(dstCrs)
+
     transform, width, height = calculate_default_transform(
         srcRst.crs, dstCrs, srcRst.width, srcRst.height, *srcRst.bounds
     )
@@ -132,7 +137,6 @@ def project_raster(srcRst, dstCrs, output_raster=""):
     kwargs.update(
         {"crs": dstCrs, "transform": transform, "width": width, "height": height}
     )
-
     # open destination raster
     dstRst = np.zeros([kwargs["count"], width, height], kwargs["dtype"])
 
@@ -147,9 +151,8 @@ def project_raster(srcRst, dstCrs, output_raster=""):
             dst_crs=dstCrs,
             resampling=Resampling.nearest,
         )
-
     if output_raster != "":
-        with rasterio.open(output_raster, "w", *kwargs) as out_raster:
+        with rasterio.open(output_raster, "w", **kwargs) as out_raster:
             out_raster.write(dstRst)
 
     return [dstRst, kwargs]
