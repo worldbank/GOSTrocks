@@ -51,7 +51,7 @@ dependencies = [
 	"python-dotenv>=0.5.1",
 	"rasterio",
 	"s3fs",
-	"seaborn",	
+	"seaborn",
 	"tqdm",
 	"xarray"
 ]
