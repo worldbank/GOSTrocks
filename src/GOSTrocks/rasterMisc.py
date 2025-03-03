@@ -126,7 +126,7 @@ def project_raster(srcRst, dstCrs, output_raster=""):
         dstCrs (int): crs to project to
         output_raster (string): file to write to, defaults to '', which writes nothing
 
-    """    
+    """
     if dstCrs.__class__ == int:
         dstCrs = CRS.from_epsg(dstCrs)
 
