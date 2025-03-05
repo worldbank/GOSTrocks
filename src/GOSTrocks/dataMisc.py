@@ -325,6 +325,6 @@ def acled_search(api_key, email, bounding_box=None, iso3=None, start_date=None):
                 continue_pagination = False
             page += 1
         else:
-            raise ValueError(f"ACLED API call failed on page {res.url}}")
+            raise ValueError(f"ACLED API call failed on page {res.url}")
         
     return pd.concat(all_results)
