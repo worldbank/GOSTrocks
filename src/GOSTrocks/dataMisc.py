@@ -2,17 +2,19 @@ import os
 import json
 import urllib
 import boto3
-import boto3.session
 import rasterio
+import requests
+import urllib.request
+import urllib.parse
 
 import pandas as pd
 import geopandas as gpd
 
 from botocore.config import Config
 from botocore import UNSIGNED
-from osgeo import gdal
+#from osgeo import gdal
 
-import rasterMisc as rMisc
+from . import rasterMisc as rMisc
 
 
 def download_WSF(
@@ -208,3 +210,121 @@ def get_worldcover(df, download_folder, worldcover_vrt='WorldCover.vrt',
     
     return(all_tiles)
 
+def gdf_esri_service(url, layer=0):
+    """Download a GeoPandas dataframe from an ESRI service
+
+    Parameters
+    ----------
+    url : str
+        URL to the ESRI service
+    layer : int, optional
+        Layer number to download, by default 0
+
+    Returns
+    -------
+    gpd.GeoDataFrame
+        GeoDataFrame of the data
+
+    https://medium.com/@jesse.b.nestler/how-to-extract-every-feature-from-an-esri-map-service-using-python-b6e34743574a
+    """
+    # Look at metadata of url 
+    with urllib.request.urlopen(f'{url}/?f=pjson') as service_url:
+        service_data = json.loads(service_url.read().decode())
+
+    queryable = ['Query' in service_data['capabilities']]
+
+    if queryable:
+        query_url = f"{url}/{layer}/query"
+        # get total number of records in complete service
+        n_queries = service_data['maxRecordCount']
+        count_query = {"outFields": "*", "where": "1=1", "returnCountOnly": True, 'f':'json'}
+        count_str = urllib.parse.urlencode(count_query)
+        with urllib.request.urlopen(f'{query_url}?{count_str}') as count_url:
+            count_json = json.loads(count_url.read().decode())
+            n_records = count_json['count']
+        if n_records < n_queries: #We can download all the data in a single query
+            all_records_query = {"outFields": "*", "where": "1=1", "returnGeometry": True, "f": "geojson"}
+            query_str = urllib.parse.urlencode(all_records_query)
+            all_query_url = f"{query_url}?{query_str}"
+            return gpd.read_file(all_query_url)
+        else:
+            step_query = {"outFields": "*", "where": "1=1", "returnGeometry": True,"f": "geojson",
+                        'resultRecordCount': n_queries, "resultOffset": 0}
+            for offset in range(0, n_records, n_queries):
+                step_query['resultOffset'] = offset
+                query_str = urllib.parse.urlencode(step_query)
+                step_query_url = f"{query_url}?{query_str}"                
+                cur_res = gpd.read_file(step_query_url)
+                if offset == 0:
+                    gdf = cur_res
+                else:
+                    gdf = pd.concat([gdf, cur_res])
+            return gdf
+    else:
+        raise ValueError("Service is not queryable :(")
+    
+def acled_search(api_key, email, bounding_box=None, iso3=None, start_date=None):
+    """ Search the ACLED API for data based on either a bounding box, ISO3 code, or start date
+        https://apidocs.acleddata.com/acled_endpoint.html
+
+    Parameters
+    ----------
+    api_key : string
+        ACLED api key foud on your ACLED dashboard
+    email : string
+        ACLED email found on your ACLED dashboard
+    bounding_box : array of float, optional
+        bounding box to search for, defined as minx, miny, maxx, maxy (shpely.geometry.bounds)
+    iso3 : string, optional
+        numeric iso code for the country. Can be found using pycountry.countries.get(alpha_3=iso3).numeric
+    start_date : string, optional
+        starting date to search for events, in the format of "YYYY-MM-DD"
+
+    Returns
+    -------
+    pd.DataFrame
+        results of the search converted into DataFrame
+
+    Raises
+    ------
+    ValueError
+        If API call fails for whatever reason
+    """
+
+    acled_url = "https://api.acleddata.com/acled/read"
+    acled_params = {
+        "email": email,
+        "key": api_key,
+    }    
+
+    # Add optional parameters
+    if not bounding_box is None:
+        acled_params['longitude'] = "|".join([str(bounding_box[0]), str(bounding_box[2])])
+        acled_params['longitude_where'] = "BETWEEN"
+        acled_params['latitude'] = "|".join([str(bounding_box[1]), str(bounding_box[3])])
+        acled_params['latitude_where'] = "BETWEEN"
+    if not iso3 is None:
+        acled_params['iso'] = iso3
+    if not start_date is None:
+        acled_params["event_date"] = start_date
+        acled_params['event_date_where'] = ">"        
+
+    page = 1        
+    default_page_size = 5000    
+    continue_pagination = True
+
+    all_results = []        
+    while continue_pagination:                
+        acled_params['page'] = page
+        res = requests.get(acled_url, params=acled_params, verify=False)
+        #print(res.url)
+        if res.json()['status'] == 200:
+            cur_res = pd.DataFrame(res.json()['data'])
+            all_results.append(cur_res)
+            if res.json()['count'] < default_page_size:
+                continue_pagination = False
+            page += 1
+        else:
+            raise ValueError(f"ACLED API call failed on page {res.url}}")
+        
+    return pd.concat(all_results)

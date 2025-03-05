@@ -19,6 +19,7 @@ from rasterio.warp import reproject, Resampling, calculate_default_transform
 from rasterio.merge import merge
 from rasterio.io import MemoryFile
 from rasterio.crs import CRS
+from scipy.ndimage import gaussian_filter
 from contextlib import contextmanager
 
 curPath = os.path.realpath(
@@ -217,6 +218,8 @@ def rasterizeDataFrame(
     mergeAlg="REPLACE",
     re_proj=False,
     nodata=np.nan,
+    smooth=False,
+    smooth_sigma=50
 ):
     """Convert input geopandas dataframe into a raster file
 
@@ -238,6 +241,11 @@ def rasterizeDataFrame(
     :type mergeAlg: str, optional
     :param re_proj: option to reproject inD to templateRaster if CRS do not match, defaults to False
     :type re_proj: bool, optional
+    :param nodata: value to set as nodata in output raster, defaults to np.nan
+    :type nodata: number, optional
+    :param smooth: option to smooth raster output using scipy.ndimage gaussian_filter, defaults to False
+    :type smooth: bool, optional
+    :param smooth_sigma: sigma value for gaussian smoothing, defaults to 100
     :return:  dict of metadata used to create output raster and burned raster values
     :rtype: dict of {'meta':new raster metadata, 'vals': values in new raster}
     """
@@ -300,10 +308,7 @@ def rasterizeDataFrame(
         nTransform = rasterio.transform.from_bounds(
             b[0], b[1], b[2], b[3], width, height
         )
-        if inD.crs.__class__ == pyproj.crs.crs.CRS:
-            crs = {"init": "epsg:%s" % inD.crs.to_epsg()}
-        else:
-            crs = inD.crs
+        crs = inD.crs
         cMeta = {
             "count": 1,
             "crs": crs,
@@ -323,6 +328,9 @@ def rasterizeDataFrame(
         merge_alg=mAlg,
         fill=nodata,
     )
+    if smooth:
+        burned = gaussian_filter(burned, sigma=smooth_sigma)
+        
     if outFile:
         try:
             with rasterio.open(outFile, "w", **cMeta) as out:
@@ -541,7 +549,7 @@ def zonalStats(
                                 np.nanmean(masked_data),
                             ]
                         else:
-                            results = [-1, -1, -1, -1]
+                            results = [None, None, None, None]
                     else:
                         results = [
                             np.nansum(masked_data),
@@ -572,9 +580,9 @@ def zonalStats(
                 if verbose:
                     print(e)
                 if rastType == "N":
-                    outputData.append([-1, -1, -1, -1])
+                    outputData.append([None, None, None, None])
                 else:
-                    outputData.append([-1 for x in unqVals])
+                    outputData.append([None for x in unqVals])
         except Exception:
             print("Error processing %s" % fCount)
     if return_df:
