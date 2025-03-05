@@ -263,7 +263,21 @@ def gdf_esri_service(url, layer=0):
     else:
         raise ValueError("Service is not queryable :(")
     
-def acled_search(api_key, email, bounding_box=None, iso3=None, start_date=None):
+def get_acled_creds():
+    """Get the ACLED credentials from a .acled file in the user's home directory
+
+    Returns
+    -------
+    Dictionary
+        email and API key for ACLED
+    """
+    acled_file = os.path.join(os.path.expanduser("~"), ".acled")
+    with open(acled_file, "r") as f:
+        email = f.readline().strip().split("=")[1]
+        api_key = f.readline().strip().split("=")[1]
+    return {"email": email, "api_key": api_key}
+
+def acled_search(api_key, email, bounding_box=None, iso3=None, start_date=None, fields=[]):
     """ Search the ACLED API for data based on either a bounding box, ISO3 code, or start date
         https://apidocs.acleddata.com/acled_endpoint.html
 
@@ -308,6 +322,8 @@ def acled_search(api_key, email, bounding_box=None, iso3=None, start_date=None):
     if not start_date is None:
         acled_params["event_date"] = start_date
         acled_params['event_date_where'] = ">"        
+    if len(fields) > 0:
+        acled_params['fields'] = "|".join(fields)
 
     page = 1        
     default_page_size = 5000    
