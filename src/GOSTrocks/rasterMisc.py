@@ -3,7 +3,6 @@ import os
 import inspect
 import json
 import rasterio
-import pyproj
 
 import pandas as pd
 import geopandas as gpd
@@ -127,7 +126,7 @@ def project_raster(srcRst, dstCrs, output_raster=""):
         dstCrs (int): crs to project to
         output_raster (string): file to write to, defaults to '', which writes nothing
 
-    """    
+    """
     if dstCrs.__class__ == int:
         dstCrs = CRS.from_epsg(dstCrs)
 
@@ -219,7 +218,7 @@ def rasterizeDataFrame(
     re_proj=False,
     nodata=np.nan,
     smooth=False,
-    smooth_sigma=50
+    smooth_sigma=50,
 ):
     """Convert input geopandas dataframe into a raster file
 
@@ -330,7 +329,7 @@ def rasterizeDataFrame(
     )
     if smooth:
         burned = gaussian_filter(burned, sigma=smooth_sigma)
-        
+
     if outFile:
         try:
             with rasterio.open(outFile, "w", **cMeta) as out:
