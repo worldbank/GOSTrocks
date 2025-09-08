@@ -1,6 +1,6 @@
 [build-system]
-requires = ["hatchling>=1.21.0", "hatch-vcs>=0.3.0"]
-build-backend = "hatchling.build"
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "GOSTrocks"
@@ -8,6 +8,7 @@ description = "Miscellaneous geospatial functions concerning vector, raster, and
 readme = { file = "README.md", content-type = "text/markdown" }
 license = { file = "LICENSE" }
 keywords = ["gostrocks", "raster", "GOST"]
+dynamic = ["version", "dependencies", "optional-dependencies"]
 
 authors = [
 	{ name = "Benjamin P. Stewart", email = "ben.gis.stewart@gmail.com" },
@@ -26,58 +27,16 @@ classifiers = [
 	"Intended Audience :: Developers",
 	"Topic :: Scientific/Engineering",
 ]
-dynamic = ["version"]
 
-requires-python = ">=3.7"
+requires-python = ">=3.11"
 
-dependencies = [
-	"awscli",
-	"affine",
-	"boto3",
-	"botocore",
-	"contextily",
-	"click",
-	"coverage",
-	"flake8",
-	"geopandas",
-	"matplotlib",
-	"numexpr > 2.6.8",
-	"numpy",
-	"osmnx",
-	"gdal",
-	"pandas",
-	"pyproj",
-	"PyOpenSSL >= 23.2",
-	"python-dotenv>=0.5.1",
-	"rasterio",
-	"s3fs",
-	"seaborn",	
-	"tqdm",
-	"xarray"
-]
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
 
-[project.optional-dependencies]
-docs = [
-	"docutils==0.17.1",    # https://jupyterbook.org/en/stable/content/citations.html?highlight=docutils#citations-and-bibliographies
-	"jupyter-book >=1,<2",
-	"sphinx"
-]
+[tool.setuptools.dynamic.optional-dependencies]
+dev = { file = ["requirements-dev.txt"] }
 
 [project.urls]
 "Homepage" = "https://github.com/worldbank/GOSTrocks"
 "Bug Reports" = "https://github.com/worldbank/GOSTrocks/issues"
 "Source" = "https://github.com/worldbank/GOSTrocks"
-
-[tool.codespell]
-skip = 'docs/_build,docs/references.bib,*.png,*.gz,*.whl'
-ignore-regex = '^\s*"image\/png":\s.*'
-ignore-words-list = "gost,caf,nam,som,lenth,"
-
-[tool.hatch.version]
-source = "vcs"
-
-[tool.hatch.build.hooks.vcs]
-version-file = "src/GOSTrocks/_version.py"
-
-[tool.ruff.lint.pydocstyle]
-convention = "numpy"

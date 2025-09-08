@@ -3,7 +3,6 @@ import os
 import inspect
 import json
 import rasterio
-import pyproj
 
 import pandas as pd
 import geopandas as gpd
@@ -32,7 +31,7 @@ from misc import tPrint  # noqa
 
 
 def merge_rasters(
-    in_rasters, merge_method="first", dtype="", out_file="", boolean_gt_0=False
+    in_rasters, merge_method="first", dtype="", out_file="", boolean_gt_0=False, gdal_unssafe=False, compress=False
 ):
     """Merge a list of rasters into a single raster file
 
@@ -43,9 +42,13 @@ def merge_rasters(
         out_file (str, optional): Path to create output raster. Defaults to '', which creates no raster
         boolean_gt_0 (str, optional): If true, converts merged result to binary 0, 1 of values greater than 0, Defaults to False
     """
-
-    opened_tiffs = [rasterio.open(x) for x in in_rasters]
-    merged, out_transform = merge(opened_tiffs, method=merge_method)
+    if not gdal_unssafe:
+        opened_tiffs = [rasterio.open(x) for x in in_rasters]
+        merged, out_transform = merge(opened_tiffs, method=merge_method)
+    else:
+        with rasterio.Env(GDAL_HTTP_UNSAFESSL = 'YES'):
+            opened_tiffs = [rasterio.open(x) for x in in_rasters]
+            merged, out_transform = merge(opened_tiffs, method=merge_method)
     if boolean_gt_0:
         merged = (merged > 0) * 1
         dtype = "uint8"
@@ -62,6 +65,9 @@ def merge_rasters(
             "dtype": "uint8",
         }
     )
+    if compress:
+        metadata.update({"compress": "lzw"})
+    
     if out_file != "":
         with rasterio.open(out_file, "w", **metadata) as dst:
             dst.write(merged)
@@ -340,27 +346,50 @@ def rasterizeDataFrame(
     return {"meta": cMeta, "vals": burned}
 
 
-def polygonizeArray(data, curRaster):
-    """Convert input array (data) to a geodataframe
+def polygonizeArray(geometry, curRaster, bandNum=1):
+    """ Convert cells of a rasterio object into a geodataframe of polygons, 
+    within the bounds of geometry
 
-    :param data: numpy array of raster data. ie - rasterio.open().read()
-    :type data: np.array
-    :param curRaster: template raster object
-    :type curRaster: rasterio.DatasetReader
-    :return: geodataframe with columns row, col, val, geometry
-    :rtype: gpd.GeoDataFrame
+    Parameters
+    ----------
+    geometry : shapely.geometry
+        polygon inside which to create polygon grid
+    curRaster : rasterio.DatasetReader
+        raster from which to create polygons
+
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        grid of polygons with values from the raster and % overlap with geometry
     """
-    # Calculate resolution of cells
-    b = curRaster.bounds
-    ll = curRaster.xy(*curRaster.index(*b[0:2]), "ll")
-    xmin = ll[0]
-    ymin = ll[1]
+    # extract data from the raster
+    ul = curRaster.index(*geometry.bounds[0:2])
+    lr = curRaster.index(*geometry.bounds[2:4])
+    # read the subset of the data into a numpy array
+    window = (
+        (float(lr[0]), float(ul[0] + 1)),
+        (float(ul[1]), float(lr[1] + 1)),
+    )
+    data = curRaster.read(bandNum, window=window, masked=False)    
     xRes = curRaster.res[0]
     yRes = curRaster.res[1]
-    crs = curRaster.crs
+
+    # Create a polygon covering each cell
+    def getPolygon(x):
+        xmin = geometry.bounds[0]
+        ymin = geometry.bounds[1]
+        llX = xmin + (xRes * x["col"])
+        llY = ymin + (yRes * x["row"])
+        A = "%s %s" % (llX, llY)
+        B = "%s %s" % (llX, llY + yRes)
+        C = "%s %s" % (llX + xRes, llY + yRes)
+        D = "%s %s" % (llX + xRes, llY)
+        return wkt.loads("POLYGON((%s,%s,%s,%s,%s))" % (A, B, C, D, A))
+
     # create a dataframe equal to the size of the array
     outArray = pd.DataFrame()
     outArray["id"] = list(range(0, (data.shape[0] * data.shape[1])))
+    # add actual row and column raster indices
     rowVals = []
     colVals = []
     actualvals = []
@@ -372,20 +401,9 @@ def polygonizeArray(data, curRaster):
     outArray["row"] = rowVals
     outArray["col"] = colVals
     outArray["vals"] = actualvals
-
-    # Create a polygon covering each cell
-    def getPolygon(x):
-        llX = xmin + (xRes * x["col"])
-        llY = ymin + (yRes * x["row"])
-        A = "%s %s" % (llX, llY)
-        B = "%s %s" % (llX, llY + yRes)
-        C = "%s %s" % (llX + xRes, llY + yRes)
-        D = "%s %s" % (llX + xRes, llY)
-        return wkt.loads("POLYGON((%s,%s,%s,%s,%s))" % (A, B, C, D, A))
-
     outArray["geometry"] = outArray.apply(getPolygon, axis=1)
-    outGeo = gpd.GeoDataFrame(outArray, geometry="geometry")
-    outGeo.crs = crs
+    outGeo = gpd.GeoDataFrame(outArray, geometry="geometry", crs=curRaster.crs)    
+    outGeo["geometry"] = outGeo.buffer(0)
     return outGeo
 
 
@@ -492,7 +510,7 @@ def zonalStats(
                 if weighted:
                     allTouched = True
                     # Create a grid of the input raster (data)
-                    rGrid = polygonizeArray(data, geometry.bounds, curRaster)
+                    rGrid = polygonizeArray(geometry, curRaster)
                     # Clip the grid by the input geometry
                     rGrid["gArea"] = rGrid.area
                     rGrid["newArea"] = rGrid.intersection(geometry).area
@@ -504,33 +522,26 @@ def zonalStats(
                             data[row["row"], row["col"]] * row["w"]
                         )
                     data = newData
+                    masked_data = np.ma.array(data=data, mask=[data <= 0])
+                else:
+                    # create an affine transform for the subset data
+                    t = curRaster.transform
+                    shifted_affine = Affine(
+                        t.a, t.b, t.c + ul[1] * t.a, t.d, t.e, t.f + lr[0] * t.e
+                    )
 
-                """
-                # Mask out no-data in data array
-                if 'nodata' in curRaster.profile.keys():
-                    no_data_val = curRaster.profile['nodata']
-                    #data[data == no_data_val] = np.nan
-                    data[data == no_data_val] = 0
-                """
+                    # rasterize the geometry
+                    mask = rasterize(
+                        [(geometry, 0)],
+                        out_shape=data.shape,
+                        transform=shifted_affine,
+                        fill=1,
+                        all_touched=allTouched,
+                        dtype=np.uint8,
+                    )
 
-                # create an affine transform for the subset data
-                t = curRaster.transform
-                shifted_affine = Affine(
-                    t.a, t.b, t.c + ul[1] * t.a, t.d, t.e, t.f + lr[0] * t.e
-                )
-
-                # rasterize the geometry
-                mask = rasterize(
-                    [(geometry, 0)],
-                    out_shape=data.shape,
-                    transform=shifted_affine,
-                    fill=1,
-                    all_touched=allTouched,
-                    dtype=np.uint8,
-                )
-
-                # create a masked numpy array
-                masked_data = np.ma.array(data=data, mask=mask.astype(bool))
+                    # create a masked numpy array
+                    masked_data = np.ma.array(data=data, mask=mask.astype(bool))
                 if rastType == "N":
                     if minVal != "" or maxVal != "":
                         if minVal != "":

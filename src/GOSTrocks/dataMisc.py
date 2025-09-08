@@ -1,9 +1,10 @@
-import os
+import os, sys, inspect
 import json
 import urllib
 import boto3
 import rasterio
 import requests
+import warnings
 import urllib.request
 import urllib.parse
 
@@ -12,9 +13,14 @@ import geopandas as gpd
 
 from botocore.config import Config
 from botocore import UNSIGNED
-#from osgeo import gdal
 
-from . import rasterMisc as rMisc
+curPath = os.path.realpath(
+    os.path.abspath(os.path.split(inspect.getfile(inspect.currentframe()))[0])
+)
+if curPath not in sys.path:
+    sys.path.append(curPath)
+
+import rasterMisc as rMisc
 
 
 def download_WSF(
@@ -22,14 +28,15 @@ def download_WSF(
     wsf_url="https://download.geoservice.dlr.de/WSF2019/files/WSF2019_cog.tif",
     out_file="",
 ):
-    """_summary_
+    """ Download the World Settlement Footprint (WSF) dataset from DLR. 
+        The WSF dataset is a global raster dataset that provides information on the spatial distribution of built area
 
     Parameters
     ----------
-    extent : _type_
-        _description_
+    extent : shapely.geometry.Polygon
+        Polygon to clip the WSF dataset to
     wsf_url : str, optional
-        _description_, by default "https://download.geoservice.dlr.de/WSF2019/files/WSF2019_cog.tif"
+        WSF download link, by default "https://download.geoservice.dlr.de/WSF2019/files/WSF2019_cog.tif"
     """
 
     # Open the WSF COG
@@ -43,23 +50,27 @@ def download_WSF(
 
 def aws_search_ntl(
     bucket="globalnightlight",
-    prefix="composites",
-    region="us-east-1",
+    prefix="composites",    
     unsigned=True,
     verbose=False,
 ):
     """get list of nighttime lights files from open AWS bucket - https://registry.opendata.aws/wb-light-every-night/
 
-    :param bucket: bucket to search for imagery, defaults to 'globalnightlight'
-    :type bucket: str, optional
-    :param prefix: prefix storing images. Not required for LEN, defaults to 'composites'
-    :type prefix: str, optional
-    :param region: AWS region for bucket, defaults to 'us-east-1'
-    :type region: str, optional
-    :param unsigned: if True, search buckets without stored boto credentials, defaults to True
-    :type unsigned: bool, optional
-    :param verbose: print additional support messages, defaults to False
-    :type verbose: bool, optional
+    Parameters
+    ----------
+    bucket : str, optional
+        bucket to search for imagery, defaults to 'globalnightlight', by default "globalnightlight"
+    prefix : str, optional
+        prefix storing images. Not required for LEN, defaults to 'composites', by default "composites"
+    unsigned : bool, optional
+        prefix storing images. Not required for LEN, defaults to 'composites', by default True
+    verbose : bool, optional
+        print additional support messages, defaults to False, by default False
+
+    Returns
+    -------
+    _type_
+        _description_
     """
     if unsigned:
         s3client = boto3.client("s3", verify=False, config=Config(signature_version=UNSIGNED))
@@ -101,13 +112,21 @@ def get_geoboundaries(
 ):
     """Download boundaries dataset from geobounadries
 
-    :param iso3: ISO3 code of country to download
-    :type iso3: str
-    :param level: Admin code to download in format of "ADM1" or "ADM2"
-    :type level: str
-    :return: spatial data representing the administrative boundaries
-    :rtype: gpd.GeoDataFrame
+    Parameters
+    ----------
+    iso3 : bool
+        ISO3 code of country to download
+    level : str
+        Admin code to download in format of "ADM1" or "ADM2"
+    geo_api : str, optional
+        by default "https://www.geoboundaries.org/api/current/gbOpen/{iso3}/{adm}/"
+
+    Returns
+    -------
+    gpd.GeoDataFrame
+        spatial data representing the administrative boundaries
     """
+
     cur_url = geo_api.format(iso3=iso3, adm=level)
     try:
         with urllib.request.urlopen(cur_url) as url:
@@ -128,7 +147,8 @@ def get_fathom_vrts(return_df=False):
     VRT files are not searched dynamically but are stored in a text file in the same
     folder as the function.
 
-    return_df: if True, return a pandas dataframe with the VRT files and their components, defaults to False which returns just the list of VRT files
+    return_df: if True, return a pandas dataframe with the VRT files and their components, 
+            defaults to False which returns just the list of VRT files
     """
     vrt_file = os.path.join(
         os.path.dirname(os.path.realpath(__file__)), "fathom_vrts.txt"
@@ -205,8 +225,12 @@ def get_worldcover(df, download_folder, worldcover_vrt='WorldCover.vrt',
                 else:
                     if verbose:
                         print(f"File {cur_out} already exists")
-    out_vrt = os.path.join(download_folder, worldcover_vrt)
-    gdal.BuildVRT(out_vrt, all_tiles, options=gdal.BuildVRTOptions())
+    try:
+        from osgeo import gdal # noqa
+        out_vrt = os.path.join(download_folder, worldcover_vrt)
+        gdal.BuildVRT(out_vrt, all_tiles, options=gdal.BuildVRTOptions())
+    except:
+        print("GDAL not installed, cannot create VRT")
     
     return(all_tiles)
 
@@ -216,7 +240,7 @@ def gdf_esri_service(url, layer=0):
     Parameters
     ----------
     url : str
-        URL to the ESRI service
+        URL to the ESRI service without the layer number
     layer : int, optional
         Layer number to download, by default 0
 
@@ -332,7 +356,9 @@ def acled_search(api_key, email, bounding_box=None, iso3=None, start_date=None, 
     all_results = []        
     while continue_pagination:                
         acled_params['page'] = page
-        res = requests.get(acled_url, params=acled_params, verify=False)
+        with warnings.catch_warnings():
+            warnings.filterwarnings('ignore', category=Warning)
+            res = requests.get(acled_url, params=acled_params, verify=False)
         #print(res.url)
         if res.json()['status'] == 200:
             cur_res = pd.DataFrame(res.json()['data'])

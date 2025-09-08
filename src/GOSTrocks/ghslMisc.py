@@ -17,20 +17,26 @@ if curPath not in sys.path:
 def combine_ghsl_annual(
     ghsl_files, built_thresh=0.1, ghsl_files_labels=[], out_file=""
 ):
-    """_summary_
+    """Combine the annual tiffs from GHSL into a single raster. 
+    The output raster will have the minimum value of all the years for each pixel. 
+    This is useful for creating a raster that shows the earliest year that a pixel was built up.
 
-    :param ghsl_files: list of ghsl annual files to process
-    :type ghsl_files: list of strings (paths to ghsl files)
-    :param built_thresh: minimum percetn built to be considered built, defaults to 0.1 which is 10%
-    :type built_thresh: float, optional
-    :param ghsl_files_labels: list of numbers to define values in output raster, defaults to [] which means numbers will be extracted from the files.
-    :type ghsl_files_labels: list of ints
-    :param out_file: location to write output integer file, defaults to '' which does not write anything
-    :type out_file: str, optional
-    :returns: list of ghsl values and rasterio profile
-    :rtype: list of [numpy array, dictionary]
+    Parameters
+    ----------
+    ghsl_files : list of strings
+        list of ghsl annual files to process
+    built_thresh : float, optional
+        minimum percent built to be considered built in a single pixel, defaults to 0.1 which is 10%, by default 0.1
+    ghsl_files_labels : list, optional
+        list of numbers to define values in output raster, defaults to [] which means numbers will be extracted from the files, by default []
+    out_file : str, optional
+        location to write output integer file, defaults to '' which does not write anything, by default ""
+
+    Returns
+    -------
+    list of [numpy array, dictionary]
+        numpy array of the combined ghsl values, and the rasterio profile
     """
-
     # open all the ghsl files, extract data and labels
     ghsl_rasters = []
     ghsl_years = []

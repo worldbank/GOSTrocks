@@ -1,3 +1,4 @@
+import os
 import time
 import math
 import logging
@@ -13,6 +14,28 @@ from pyproj import CRS
 from pyproj.aoi import AreaOfInterest
 from pyproj.database import query_utm_crs_info
 
+def get_folder_size(folder_path):
+    """
+    Calculates the total size of a folder in bytes, including all subdirectories and files.
+
+    Args:
+        folder_path (str): The path to the folder.
+
+    Returns:
+        int: The total size of the folder in bytes.
+    """
+    total_size = 0
+    for dirpath, dirnames, filenames in os.walk(folder_path):
+        for f in filenames:
+            fp = os.path.join(dirpath, f)
+            # Use os.path.getsize() to get the size of each file
+            # Handle potential errors like broken symbolic links or permission issues
+            try:
+                total_size += os.path.getsize(fp)
+            except (FileNotFoundError, PermissionError):
+                # Skip files that cannot be accessed
+                continue
+    return total_size
 
 def loggingInfo(lvl=logging.INFO):
     """Set logging settings to info (default) and print useful information
@@ -84,26 +107,6 @@ def getHistPer(inD):
         inD[hIdx] = inD[hIdx] / tSum
     return inD
 
-
-def tabulateUnq(unqResults, verbose=False, columnPrefix="c"):
-    allVals = []
-    for r in unqResults:
-        allVals.append(r[0].tolist())
-    flattened = [val for sublist in allVals for val in sublist]
-    unq = np.unique(np.array(flattened)).tolist()
-    # unqCols = ["c_%s" % xxx for xxx in unq]
-    allRes = []
-    for r in unqResults:
-        try:
-            curRes = [0] * len(unq)
-            for idx in range(0, len(r[0].tolist())):
-                curRes[unq.index(r[0].tolist()[idx])] = r[1].tolist()[idx]
-        except Exception:
-            print(r)
-        allRes.append(curRes)
-    return pd.DataFrame(allRes, columns=["%s_%s" % (columnPrefix, xxx) for xxx in unq])
-
-
 def createFishnet(
     xmin,
     xmax,
@@ -115,7 +118,7 @@ def createFishnet(
     crsNum=4326,
     outputGridfn="",
 ):
-    """Create a fishnet shapefile inside the defined coordinates
+    """Create a vector fishnet shapefile inside the defined coordinates
 
     :param xmin: minimum longitude
     :type xmin: float
@@ -215,69 +218,15 @@ def explodeGDF(indf):
     :return: exploded geodaatframe
     :rtype: gpd.GeoDataFrame
     """
-    outdf = gpd.GeoDataFrame(columns=indf.columns)
-    outdf.crs = indf.crs
-    for idx, row in indf.iterrows():
-        row.geometry.type
-        if row.geometry.type in ["Polygon", "Point"]:
-            outdf = outdf.append(row, ignore_index=True)
-        if row.geometry.type in ["MultiPoint", "MultiPolygon"]:
-            multdf = gpd.GeoDataFrame(columns=indf.columns)
-            recs = len(row.geometry)
-            multdf = multdf.append([row] * recs, ignore_index=True)
-            for geom in range(recs):
-                multdf.loc[geom, "geometry"] = row.geometry[geom]
-            outdf = outdf.append(multdf, ignore_index=True)
-    return outdf
-
-
-def project_UTM(inD):
-    """Project an input data frame to UTM coordinates.
-
-    :param inD: input geodataframe to explode
-    :type inD: gpd.GeoDataFrame
-    :return: exploded geodaatframe
-    :rtype: gpd.GeoDataFrame
-    """
-    import utm
-
-    # get UTM zones for upper right and lower left of input dataframe
-
-    if inD.crs != {"init": "epsg:4326"}:
-        raise (ValueError("Cannot process input dataframe that is not WGS84"))
-
-    inBounds = inD.total_bounds
-    ll_utm = utm.from_latlon(inBounds[1], inBounds[0])
-    ur_utm = utm.from_latlon(inBounds[3], inBounds[2])
-
-    if (ll_utm[2] != ur_utm[2]) or (ll_utm[3] != ur_utm[3]):
-        raise (
-            ValueError(
-                "The input shape spans multiple UTM zones: %s_%s to %s_%s"
-                % (ll_utm[2], ll_utm[3], ur_utm[2], ur_utm[3])
-            )
-        )
-
-    letter = "6"
-    if ll_utm[3] == "U":
-        letter = "7"
-    outUTM = "32%s%s" % (letter, ll_utm[2])
-    return inD.to_crs({"init": "epsg:%s" % outUTM})
-
-
-def get_utm(gdf, bbox=True):
-    if bbox:
-        center = box(*gdf.total_bounds).centroid
-    else:
-        center = gdf.unary_union.centroid
-    utm_crs_list = query_utm_crs_info(
-        datum_name="WGS 84",
-        area_of_interest=AreaOfInterest(
-            west_lon_degree=center.x,
-            south_lat_degree=center.y,
-            east_lon_degree=center.x,
-            north_lat_degree=center.y,
-        ),
-    )
-    utm_crs = CRS.from_epsg(utm_crs_list[0].code)
-    return utm_crs
+    all_dfs = []
+    for idx, row in indf.iterrows():        
+        if row.geometry.geom_type in ["Polygon", "Point", "LineString"]:
+            all_dfs.append(pd.DataFrame([row]))
+        if row.geometry.geom_type in ["MultiPoint", "MultiPolygon", "MultiLineString"]:
+            recs = len(row.geometry.geoms)
+            multdf = gpd.GeoDataFrame([row] * recs).reset_index()
+            for idx in range(recs):
+                geom = row.geometry.geoms[idx]
+                multdf.loc[idx, "geometry"] = geom
+            all_dfs.append(multdf)
+    return(gpd.GeoDataFrame(pd.concat(all_dfs), geometry='geometry', crs=indf.crs).reset_index())

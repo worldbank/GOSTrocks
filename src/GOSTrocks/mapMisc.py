@@ -1,3 +1,5 @@
+import requests
+
 import contextily as ctx
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -6,6 +8,16 @@ import matplotlib.patches as mpatches
 
 from matplotlib.patches import Patch
 
+def fetch_wb_style(json_url="https://wbg-vis-design.vercel.app/colors.json"):
+    """Fetches the World Bank style JSON file from the internet
+
+    :param json_url: URL to the World Bank style JSON file, defaults to https://wbg-vis-design.vercel.app/colors.json
+    :type json_url: str, optional
+    :return: JSON file containing World Bank style
+    :rtype: dict
+    """
+    r = requests.get(json_url, verify=False)
+    
 
 def static_map_vector(
     v_data,
@@ -19,7 +31,7 @@ def static_map_vector(
     out_file="",
     set_title=True,
 ):
-    """Simple plot of vector data; most arguments expect
+    """Simple plot of vector data
 
     :param v_data: input geopandas dataset to map
     :type v_data: gpd.GeoDataFrame
@@ -156,7 +168,7 @@ def static_map_raster(
 
     patches = [Patch(color=x[0], label=x[1]) for x in legend_labels]
     ax.legend(handles=patches, loc=legend_loc, facecolor="white")
-    ax.set_axis_off()
+    #ax.set_axis_off()
     if out_file != "":
         plt.savefig(out_file, dpi=300, bbox_inches="tight")
-    return plt
+    return [plt, fig, ax]
