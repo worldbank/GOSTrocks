@@ -8,6 +8,7 @@ import matplotlib.patches as mpatches
 
 from matplotlib.patches import Patch
 
+
 def fetch_wb_style(json_url="https://wbg-vis-design.vercel.app/colors.json"):
     """Fetches the World Bank style JSON file from the internet
 
@@ -17,7 +18,7 @@ def fetch_wb_style(json_url="https://wbg-vis-design.vercel.app/colors.json"):
     :rtype: dict
     """
     r = requests.get(json_url, verify=False)
-    
+
 
 def static_map_vector(
     v_data,
@@ -168,7 +169,7 @@ def static_map_raster(
 
     patches = [Patch(color=x[0], label=x[1]) for x in legend_labels]
     ax.legend(handles=patches, loc=legend_loc, facecolor="white")
-    #ax.set_axis_off()
+    # ax.set_axis_off()
     if out_file != "":
         plt.savefig(out_file, dpi=300, bbox_inches="tight")
     return [plt, fig, ax]
