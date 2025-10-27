@@ -5,14 +5,10 @@ import logging
 
 import geopandas as gpd
 import pandas as pd
-import numpy as np
 
 from math import ceil
-from shapely.geometry import Point, Polygon, box
+from shapely.geometry import Point, Polygon
 
-from pyproj import CRS
-from pyproj.aoi import AreaOfInterest
-from pyproj.database import query_utm_crs_info
 
 def get_folder_size(folder_path):
     """
@@ -36,6 +32,7 @@ def get_folder_size(folder_path):
                 # Skip files that cannot be accessed
                 continue
     return total_size
+
 
 def loggingInfo(lvl=logging.INFO):
     """Set logging settings to info (default) and print useful information
@@ -106,6 +103,7 @@ def getHistPer(inD):
     for hIdx in range(0, len(inD)):
         inD[hIdx] = inD[hIdx] / tSum
     return inD
+
 
 def createFishnet(
     xmin,
@@ -219,7 +217,7 @@ def explodeGDF(indf):
     :rtype: gpd.GeoDataFrame
     """
     all_dfs = []
-    for idx, row in indf.iterrows():        
+    for idx, row in indf.iterrows():
         if row.geometry.geom_type in ["Polygon", "Point", "LineString"]:
             all_dfs.append(pd.DataFrame([row]))
         if row.geometry.geom_type in ["MultiPoint", "MultiPolygon", "MultiLineString"]:
@@ -229,4 +227,6 @@ def explodeGDF(indf):
                 geom = row.geometry.geoms[idx]
                 multdf.loc[idx, "geometry"] = geom
             all_dfs.append(multdf)
-    return(gpd.GeoDataFrame(pd.concat(all_dfs), geometry='geometry', crs=indf.crs).reset_index())
+    return gpd.GeoDataFrame(
+        pd.concat(all_dfs), geometry="geometry", crs=indf.crs
+    ).reset_index()
