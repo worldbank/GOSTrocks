@@ -167,7 +167,8 @@ def static_map_raster(
         legend_labels = [[cm(x / max(thresh)), str(x)] for x in thresh]
 
     patches = [Patch(color=x[0], label=x[1]) for x in legend_labels]
-    ax.legend(handles=patches, loc=legend_loc, facecolor="white")
+    if legend_loc:
+        ax.legend(handles=patches, loc=legend_loc, facecolor="white")
     #ax.set_axis_off()
     if out_file != "":
         plt.savefig(out_file, dpi=300, bbox_inches="tight")
