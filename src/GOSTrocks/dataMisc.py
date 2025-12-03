@@ -5,6 +5,7 @@ import boto3
 import rasterio
 import requests
 import warnings
+import ssl
 import urllib.request
 import urllib.parse
 
@@ -141,7 +142,6 @@ def get_geoboundaries(
             )
         )
 
-
 def get_fathom_vrts(return_df=False):
     """Get a list of VRT files of Fathom data from the GOST S3 bucket. Note that the
     VRT files are not searched dynamically but are stored in a text file in the same
@@ -234,7 +234,7 @@ def get_worldcover(df, download_folder, worldcover_vrt='WorldCover.vrt',
     
     return(all_tiles)
 
-def gdf_esri_service(url, layer=0):
+def gdf_esri_service(url, layer=0, verify_ssl=True):
     """Download a GeoPandas dataframe from an ESRI service
 
     Parameters
@@ -251,9 +251,10 @@ def gdf_esri_service(url, layer=0):
 
     https://medium.com/@jesse.b.nestler/how-to-extract-every-feature-from-an-esri-map-service-using-python-b6e34743574a
     """
+    to_stream = False
     # Look at metadata of url 
-    with urllib.request.urlopen(f'{url}/?f=pjson') as service_url:
-        service_data = json.loads(service_url.read().decode())
+    with requests.get(f'{url}/?f=pjson', verify=verify_ssl) as service_url:
+        service_data = service_url.json()
 
     queryable = ['Query' in service_data['capabilities']]
 
@@ -263,14 +264,15 @@ def gdf_esri_service(url, layer=0):
         n_queries = service_data['maxRecordCount']
         count_query = {"outFields": "*", "where": "1=1", "returnCountOnly": True, 'f':'json'}
         count_str = urllib.parse.urlencode(count_query)
-        with urllib.request.urlopen(f'{query_url}?{count_str}') as count_url:
-            count_json = json.loads(count_url.read().decode())
+        with requests.get(f'{query_url}?{count_str}', verify=verify_ssl, stream=to_stream) as count_url:
+            count_json = count_url.json()
             n_records = count_json['count']
         if n_records < n_queries: #We can download all the data in a single query
             all_records_query = {"outFields": "*", "where": "1=1", "returnGeometry": True, "f": "geojson"}
             query_str = urllib.parse.urlencode(all_records_query)
             all_query_url = f"{query_url}?{query_str}"
-            return gpd.read_file(all_query_url)
+            with requests.get(all_query_url, verify=verify_ssl, stream=to_stream) as geojson_result:
+                return gpd.read_file(geojson_result.text)
         else:
             step_query = {"outFields": "*", "where": "1=1", "returnGeometry": True,"f": "geojson",
                         'resultRecordCount': n_queries, "resultOffset": 0}
@@ -278,7 +280,8 @@ def gdf_esri_service(url, layer=0):
                 step_query['resultOffset'] = offset
                 query_str = urllib.parse.urlencode(step_query)
                 step_query_url = f"{query_url}?{query_str}"                
-                cur_res = gpd.read_file(step_query_url)
+                with requests.get(step_query_url, verify=verify_ssl, stream=to_stream) as step_query_result:
+                    cur_res = gpd.read_file(step_query_result.text)
                 if offset == 0:
                     gdf = cur_res
                 else:

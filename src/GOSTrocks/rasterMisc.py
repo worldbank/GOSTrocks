@@ -29,19 +29,33 @@ if curPath not in sys.path:
 
 from misc import tPrint  # noqa
 
+def merge_rasters(in_rasters, merge_method="first", 
+                  dtype="", out_file="", boolean_gt_0=False, gdal_unssafe=False, compress=False):
+    """ Merge a list of rasters into a single raster file
 
-def merge_rasters(
-    in_rasters, merge_method="first", dtype="", out_file="", boolean_gt_0=False, gdal_unssafe=False, compress=False
-):
-    """Merge a list of rasters into a single raster file
+    Parameters
+    ----------
+    in_rasters : list of str
+        List of raster file paths to merge.
+    merge_method : str, optional
+        Method to use for merging rasters, by default "first"
+    dtype : str, optional
+        Data type to convert the merged raster to, by default ""
+    out_file : str, optional
+        Path to create output raster, by default ""
+    boolean_gt_0 : bool, optional
+        If true, converts merged result to binary 0, 1 of values greater than 0, by default False
+    gdal_unssafe : bool, optional
+        If true, allows unsafe GDAL operations, by default False
+    compress : bool, optional
+        If true, applies compression to the output raster, by default False
 
-    Args:
-        in_rasters (list of rasters): List of rasters to process as string paths
-        merge_method (str, optional): merge method. Defaults to 'first'.
-        dtype (str, optional): dtype to convert final raster to. Defaults to '', which maintains input raster type
-        out_file (str, optional): Path to create output raster. Defaults to '', which creates no raster
-        boolean_gt_0 (str, optional): If true, converts merged result to binary 0, 1 of values greater than 0, Defaults to False
+    Returns
+    -------
+    tuple
+        A tuple containing the merged raster and its metadata.
     """
+    
     if not gdal_unssafe:
         opened_tiffs = [rasterio.open(x) for x in in_rasters]
         merged, out_transform = merge(opened_tiffs, method=merge_method)
@@ -73,15 +87,21 @@ def merge_rasters(
             dst.write(merged)
     return (merged, metadata)
 
-
 @contextmanager
 def create_rasterio_inmemory(src, curData):
     """Create a rasterio object in memory from a numpy array
 
-    :param src: data dictionary describing the rasterio template i.e. - rasterio.open().profile
-    :type src: rasterio metadata dictionary
-    :param curData: numpy array from which to create rasterio object
-    :type curData: numpy array
+    Parameters
+    ----------
+    src : rasterio.metadata
+        Metadata for the rasterio object
+    curData : numpy.ndarray
+        Data to write to the rasterio object
+
+    Yields
+    ------
+    rasterio.DatasetReader
+        In-memory rasterio dataset
     """
     with MemoryFile() as memFile:
         with memFile.open(**src) as dataset:
@@ -94,18 +114,19 @@ def create_rasterio_inmemory(src, curData):
         with memFile.open() as dataset:
             yield dataset
 
+def vectorize_raster(inR, bad_vals=[]):  # TODO out_file='', smooth=False, smooth_window=3, bad_vals=None):
+    """ Convert input raster data to a geodataframe
 
-def vectorize_raster(
-    inR, bad_vals=[]
-):  # TODO out_file='', smooth=False, smooth_window=3, bad_vals=None):
-    """convert input raster data to a geodatframe
-
-    :param inR: input raster data to vectorize
-    :type inR: rasterio.datasetReader
-    :param bad_vals: list of values to ignore in conversion
-    :type bad_vals: list of int
-    :returns: geopandas data frame of [idx, value (from raster), and geometry]
-    :rtype: geopandas.GeoDataFrame
+    Parameters
+    ----------
+    inR : rasterio.DatasetReader
+        Input raster data to vectorize
+    bad_vals : list, optional
+        List of values to ignore in conversion, by default []
+    Returns
+    -------
+    geopandas.GeoDataFrame
+        A GeoDataFrame containing the vectorized raster data
     """
 
     data = inR.read()
@@ -124,8 +145,6 @@ def vectorize_raster(
         all_vals, columns=["idx", "value", "geometry"], geometry="geometry", crs=inR.crs
     )
 
-
-def project_raster(srcRst, dstCrs, output_raster=""):
     """project raster to destination crs
 
     Args:
@@ -134,6 +153,23 @@ def project_raster(srcRst, dstCrs, output_raster=""):
         output_raster (string): file to write to, defaults to '', which writes nothing
 
     """    
+
+def project_raster(srcRst, dstCrs, output_raster=""):
+    """ Project raster to destination crs
+
+    Parameters
+    ----------
+    srcRst : rasterio.DatasetReader
+        Input raster to reproject
+    dstCrs : int
+        CRS to project to
+    output_raster : string
+        File to write to, defaults to '', which writes nothing
+    Returns
+    -------
+    tuple
+        A tuple containing the reprojected raster and its metadata.
+    """
     if dstCrs.__class__ == int:
         dstCrs = CRS.from_epsg(dstCrs)
 
@@ -164,20 +200,24 @@ def project_raster(srcRst, dstCrs, output_raster=""):
 
     return [dstRst, kwargs]
 
-
 def clipRaster(inR, inD, outFile=None, crop=True):
-    """Clip input raster
+    """ Clip input raster to provided geodataframe
 
-    :param inR: rasterio object to clip
-    :type inR: rasterio.DatasetReader
-    :param inD: geopandas polygonal dataframe to use for clip clip extent based on crop param
-    :type inD: geopandas.GeoDataFrame
-    :param outFile: string path to write output raster, default is '' which writes nothing
-    :type outFile: string
-    :param crop: determine whether to clip based on bounding box (False) or unary_union (True). Default is True
-    :type crop: Boolean
-    :return: array of [numpy array of data, and rasterio metadata]
-    :rtype: array
+    Parameters
+    ----------
+    inR : rasterio.DatasetReader
+        Input raster to clip
+    inD : geopandas.GeoDataFrame
+        GeoDataFrame containing the clipping geometry
+    outFile : str, optional
+        File to write the clipped raster to, by default None
+    crop : bool, optional
+        Whether to crop the raster to the unary_union of the GeoDataFrame (True) or to the bounding box (False), by default True
+
+    Returns
+    -------
+    tuple
+        A tuple containing the clipped raster and its metadata.
     """
     if isinstance(inR, str):
         inR = rasterio.open(inR)

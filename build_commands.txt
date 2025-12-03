@@ -1,4 +1,5 @@
 # Installation testing ipykernel
-conda create -n gost python=3.11 geopandas ipykernel
-conda activate gost
-pip install .
+conda create -n test_install geopandas
+conda activate test_install
+pip install ".[dev]"
+sphinx-build -b html .\docs\ _build/html

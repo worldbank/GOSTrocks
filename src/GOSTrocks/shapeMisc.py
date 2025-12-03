@@ -53,6 +53,7 @@ def ckdnearest(gdfA, gdfB, gdfB_cols=["ID"]):
     geopandas.GeoDataFrame
         gdfA with ID column from gdfB (defined by GDFB_cols) and distance to nearest geometry in gdfB
     """
+
     if gdfA.geometry.iloc[0].__class__ == Polygon:
         A = np.concatenate([np.array(geom.coords) for geom in gdfA.geometry.exterior.to_list()])
     else:

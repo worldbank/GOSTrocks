@@ -2,3 +2,5 @@ docutils==0.17.1
 jupyter-book>=1
 sphinx
 iPython
+standard-imghdr
+sphinxcontrib-apidoc

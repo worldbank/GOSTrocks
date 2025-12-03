@@ -5,4 +5,4 @@ parts:
   - caption: Examples
     numbered: True
     chapters:
-      - file: notebooks/GOSTrocks_Usage.ipynb
+      - file: api/GOSTrocks.rst

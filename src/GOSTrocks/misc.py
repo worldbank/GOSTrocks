@@ -15,14 +15,17 @@ from pyproj.aoi import AreaOfInterest
 from pyproj.database import query_utm_crs_info
 
 def get_folder_size(folder_path):
-    """
-    Calculates the total size of a folder in bytes, including all subdirectories and files.
+    """Get the total size of a folder in bytes.
 
-    Args:
-        folder_path (str): The path to the folder.
+    Parameters
+    ----------
+    folder_path : str
+        The path to the folder.
 
-    Returns:
-        int: The total size of the folder in bytes.
+    Returns
+    -------
+    int
+        The total size of the folder in bytes.
     """
     total_size = 0
     for dirpath, dirnames, filenames in os.walk(folder_path):
@@ -38,25 +41,44 @@ def get_folder_size(folder_path):
     return total_size
 
 def loggingInfo(lvl=logging.INFO):
-    """Set logging settings to info (default) and print useful information
+    """ Set the logging level
 
-    :param lvl: logging level for setting, defaults to logging.INFO
-    :type lvl: logging.INFO
+    Parameters
+    ----------
+    lvl : int, optional
+        Logging level to set, by default logging.INFO
     """
     logging.basicConfig(format="%(asctime)s:%(levelname)s: %(message)s", level=lvl)
 
 
 def tPrint(s):
-    """prints the time along with the message"""
+    """ Prints the time along with the message 
+
+    Parameters
+    ----------
+    s : str
+        The message to print
+    """
     print("%s\t%s" % (time.strftime("%H:%M:%S"), s))
 
 
-def round_to_1(x):
-    return round(x, -int(math.floor(math.log10(x))))
-
-
 def drange(start, stop, step):
-    """Create an interable range made with decimal point steps"""
+    """ Generate a range object with decimal points
+
+    Parameters
+    ----------
+    start : float
+        The starting value of the range.
+    stop : float
+        The end value of the range.
+    step : float
+        The step size for the range.
+
+    Yields
+    ------
+    float
+        The next value in the range.
+    """
     r = start
     while r < stop:
         yield r
@@ -64,15 +86,21 @@ def drange(start, stop, step):
 
 
 def getHistIndex(hIdx, val):
-    """Get the index of a specific [val] within a list of histogram values
+    """ Get the index of a specific [val] within a list of histogram values
 
-    :param hIdx: list of values (from histogram calculation)
-    :type hIdx: list of numbers
-    :param val: value to search for
-    :type val: number
-    :return: index in hIdx where val falls
-    :rtype: int
+    Parameters
+    ----------
+    hIdx : list
+        List of histogram values.
+    val : float
+        Value to search for.
+
+    Returns
+    -------
+    int
+        Index in hIdx where val falls.
     """
+
     lastH = 0
     for h in range(0, len(hIdx)):
         curH = hIdx[h]
@@ -83,10 +111,17 @@ def getHistIndex(hIdx, val):
 
 
 def listSum(inD):
-    """get sum of values in list
+    """ get the total value of a list
 
-    :param inD: list of numbers
-    :type inD: list
+    Parameters
+    ----------
+    inD : list
+        List of numbers.
+
+    Returns
+    -------
+    float
+        Total value of the list.
     """
     total = 0
     for x in inD:
@@ -95,17 +130,24 @@ def listSum(inD):
 
 
 def getHistPer(inD):
-    """Convert a list of values into a percent of total
+    """ Convert list of values into percentage of a total
 
-    :param inD: list of values
-    :type inD: list of numbers
-    :return: list of values of same length of inD.
-    :rtype: list of float
+    Parameters
+    ----------
+    inD : list
+        List of numbers.
+
+    Returns
+    -------
+    list
+        List of percentages corresponding to the input values.
     """
     tSum = listSum(inD)
     for hIdx in range(0, len(inD)):
         inD[hIdx] = inD[hIdx] / tSum
     return inD
+
+
 
 def createFishnet(
     xmin,
@@ -118,29 +160,35 @@ def createFishnet(
     crsNum=4326,
     outputGridfn="",
 ):
-    """Create a vector fishnet shapefile inside the defined coordinates
+    """ Create a vector fishnet inside the defined range
 
-    :param xmin: minimum longitude
-    :type xmin: float
-    :param xmax: maximum longitude
-    :type xmax: float
-    :param ymin: minimum latitude
-    :type ymin: float
-    :param ymax: maximum latitude
-    :type ymax: float
-    :param gridHeight: resolution of the grid cells in crsNum units
-    :type gridHeight: float
-    :param gridWidth: resolution of the grid cells in crsNum units
-    :type gridWidth: float
-    :param type: geometry type of output fishnet, defaults to 'POLY'
-    :type type: str, optional
-    :param crsNum: units of output crs, defaults to 4326
-    :type crsNum: int, optional
-    :param outputGridfn: path for output shapefile, defaults to '', which creates no shapefile
-    :type outputGridfn: str, optional
-    :return: geodataframe of fishnet
-    :rtype: gpd.GeoDataFrame
+    Parameters
+    ----------
+    xmin : float
+        Minimum x-coordinate of the fishnet.
+    xmax : float
+        Maximum x-coordinate of the fishnet.
+    ymin : float
+        Minimum y-coordinate of the fishnet.
+    ymax : float
+        Maximum y-coordinate of the fishnet.        
+    gridHeight : float
+        Height of each grid cell.
+    gridWidth : float
+        Width of each grid cell.
+    type : str, optional
+        Geometry type of the fishnet, by default "POLY"
+    crsNum : int, optional
+        Coordinate reference system number, by default 4326
+    outputGridfn : str, optional
+        Path to the output grid file, by default ""
+
+    Returns
+    -------
+    gpd.GeoDataFrame
+        GeoDataFrame containing the fishnet grid
     """
+
 
     def get_box(row, col, left, r, b, t, gridWidth, gridHeight):
         ll = Point(left + (row * gridWidth), b + (col + gridHeight))
@@ -211,12 +259,12 @@ def createFishnet(
 
 
 def explodeGDF(indf):
-    """Convert geodataframe with multi-part polygons to one with single part polygons
+    """ Convert multi-part geometries into separate rows in a GeoDataFrame
 
-    :param indf: input geodataframe to explode
-    :type indf: gpd.GeoDataFrame
-    :return: exploded geodaatframe
-    :rtype: gpd.GeoDataFrame
+    Parameters
+    ----------
+    indf : _type_
+        _description_
     """
     all_dfs = []
     for idx, row in indf.iterrows():        
