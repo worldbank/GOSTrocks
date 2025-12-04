@@ -1,6 +1,5 @@
 import os
 import time
-import math
 import logging
 
 import geopandas as gpd
@@ -38,7 +37,7 @@ def get_folder_size(folder_path):
 
 
 def loggingInfo(lvl=logging.INFO):
-    """ Set the logging level
+    """Set the logging level
 
     Parameters
     ----------
@@ -49,7 +48,7 @@ def loggingInfo(lvl=logging.INFO):
 
 
 def tPrint(s):
-    """ Prints the time along with the message 
+    """Prints the time along with the message
 
     Parameters
     ----------
@@ -60,7 +59,7 @@ def tPrint(s):
 
 
 def drange(start, stop, step):
-    """ Generate a range object with decimal points
+    """Generate a range object with decimal points
 
     Parameters
     ----------
@@ -83,7 +82,7 @@ def drange(start, stop, step):
 
 
 def getHistIndex(hIdx, val):
-    """ Get the index of a specific [val] within a list of histogram values
+    """Get the index of a specific [val] within a list of histogram values
 
     Parameters
     ----------
@@ -108,7 +107,7 @@ def getHistIndex(hIdx, val):
 
 
 def listSum(inD):
-    """ get the total value of a list
+    """get the total value of a list
 
     Parameters
     ----------
@@ -127,7 +126,7 @@ def listSum(inD):
 
 
 def getHistPer(inD):
-    """ Convert list of values into percentage of a total
+    """Convert list of values into percentage of a total
 
     Parameters
     ----------
@@ -156,7 +155,7 @@ def createFishnet(
     crsNum=4326,
     outputGridfn="",
 ):
-    """ Create a vector fishnet inside the defined range
+    """Create a vector fishnet inside the defined range
 
     Parameters
     ----------
@@ -167,7 +166,7 @@ def createFishnet(
     ymin : float
         Minimum y-coordinate of the fishnet.
     ymax : float
-        Maximum y-coordinate of the fishnet.        
+        Maximum y-coordinate of the fishnet.
     gridHeight : float
         Height of each grid cell.
     gridWidth : float
@@ -184,7 +183,6 @@ def createFishnet(
     gpd.GeoDataFrame
         GeoDataFrame containing the fishnet grid
     """
-
 
     def get_box(row, col, left, r, b, t, gridWidth, gridHeight):
         ll = Point(left + (row * gridWidth), b + (col + gridHeight))
@@ -255,7 +253,7 @@ def createFishnet(
 
 
 def explodeGDF(indf):
-    """ Convert multi-part geometries into separate rows in a GeoDataFrame
+    """Convert multi-part geometries into separate rows in a GeoDataFrame
 
     Parameters
     ----------

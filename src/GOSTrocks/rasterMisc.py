@@ -29,6 +29,7 @@ if curPath not in sys.path:
 
 from misc import tPrint  # noqa
 
+
 def merge_rasters(
     in_rasters,
     merge_method="first",
@@ -45,7 +46,7 @@ def merge_rasters(
     tuple
         A tuple containing the merged raster and its metadata.
     """
-    
+
     if not gdal_unssafe:
         opened_tiffs = [rasterio.open(x) for x in in_rasters]
         merged, out_transform = merge(opened_tiffs, method=merge_method)
@@ -77,6 +78,7 @@ def merge_rasters(
             dst.write(merged)
     return (merged, metadata)
 
+
 @contextmanager
 def create_rasterio_inmemory(src, curData):
     """Create a rasterio object in memory from a numpy array
@@ -104,8 +106,11 @@ def create_rasterio_inmemory(src, curData):
         with memFile.open() as dataset:
             yield dataset
 
-def vectorize_raster(inR, bad_vals=[]):  # TODO out_file='', smooth=False, smooth_window=3, bad_vals=None):
-    """ Convert input raster data to a geodataframe
+
+def vectorize_raster(
+    inR, bad_vals=[]
+):  # TODO out_file='', smooth=False, smooth_window=3, bad_vals=None):
+    """Convert input raster data to a geodataframe
 
     Parameters
     ----------
@@ -133,10 +138,11 @@ def vectorize_raster(inR, bad_vals=[]):  # TODO out_file='', smooth=False, smoot
 
     return gpd.GeoDataFrame(
         all_vals, columns=["idx", "value", "geometry"], geometry="geometry", crs=inR.crs
-    )   
+    )
+
 
 def project_raster(srcRst, dstCrs, output_raster=""):
-    """ Project raster to destination crs
+    """Project raster to destination crs
 
     Parameters
     ----------
@@ -181,8 +187,9 @@ def project_raster(srcRst, dstCrs, output_raster=""):
 
     return [dstRst, kwargs]
 
+
 def clipRaster(inR, inD, outFile=None, crop=True):
-    """ Clip input raster to provided geodataframe
+    """Clip input raster to provided geodataframe
 
     Parameters
     ----------

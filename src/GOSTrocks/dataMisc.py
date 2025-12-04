@@ -7,7 +7,6 @@ import boto3
 import rasterio
 import requests
 import warnings
-import ssl
 import urllib.request
 import urllib.parse
 
@@ -145,6 +144,7 @@ def get_geoboundaries(
                 f"Cannot find admin dataset {cur_url}. Check out {all_url} for details on what is available"
             )
         )
+
 
 def get_fathom_vrts(return_df=False):
     """Get a list of VRT files of Fathom data from the GOST S3 bucket. Note that the
@@ -292,7 +292,9 @@ def gdf_esri_service(url, layer=0, verify_ssl=True):
             }
             query_str = urllib.parse.urlencode(all_records_query)
             all_query_url = f"{query_url}?{query_str}"
-            with requests.get(all_query_url, verify=verify_ssl, stream=to_stream) as geojson_result:
+            with requests.get(
+                all_query_url, verify=verify_ssl, stream=to_stream
+            ) as geojson_result:
                 return gpd.read_file(geojson_result.text)
         else:
             step_query = {
@@ -306,8 +308,10 @@ def gdf_esri_service(url, layer=0, verify_ssl=True):
             for offset in range(0, n_records, n_queries):
                 step_query["resultOffset"] = offset
                 query_str = urllib.parse.urlencode(step_query)
-                step_query_url = f"{query_url}?{query_str}"                
-                with requests.get(step_query_url, verify=verify_ssl, stream=to_stream) as step_query_result:
+                step_query_url = f"{query_url}?{query_str}"
+                with requests.get(
+                    step_query_url, verify=verify_ssl, stream=to_stream
+                ) as step_query_result:
                     cur_res = gpd.read_file(step_query_result.text)
                 if offset == 0:
                     gdf = cur_res
