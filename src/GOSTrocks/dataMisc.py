@@ -1,6 +1,4 @@
 import os
-import sys
-import inspect
 import json
 import urllib
 import boto3
@@ -16,13 +14,7 @@ import geopandas as gpd
 from botocore.config import Config
 from botocore import UNSIGNED
 
-import rasterMisc as rMisc
-
-curPath = os.path.realpath(
-    os.path.abspath(os.path.split(inspect.getfile(inspect.currentframe()))[0])
-)
-if curPath not in sys.path:
-    sys.path.append(curPath)
+from . import rasterMisc as rMisc
 
 
 def download_WSF(

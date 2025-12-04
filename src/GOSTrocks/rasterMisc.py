@@ -1,6 +1,3 @@
-import sys
-import os
-import inspect
 import json
 import rasterio
 
@@ -21,13 +18,7 @@ from rasterio.crs import CRS
 from scipy.ndimage import gaussian_filter
 from contextlib import contextmanager
 
-curPath = os.path.realpath(
-    os.path.abspath(os.path.split(inspect.getfile(inspect.currentframe()))[0])
-)
-if curPath not in sys.path:
-    sys.path.append(curPath)
-
-from misc import tPrint  # noqa
+from .misc import tPrint
 
 
 def merge_rasters(

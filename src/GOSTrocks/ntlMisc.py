@@ -1,6 +1,4 @@
-import sys
 import os
-import inspect
 import rasterio
 
 import pandas as pd
@@ -8,15 +6,9 @@ import numpy as np
 import xarray as xr
 import matplotlib.pyplot as plt
 
-curPath = os.path.realpath(
-    os.path.abspath(os.path.split(inspect.getfile(inspect.currentframe()))[0])
-)
-if curPath not in sys.path:
-    sys.path.append(curPath)
-
-from dataMisc import aws_search_ntl  # noqa
-from misc import tPrint  # noqa
-import rasterMisc as rMisc  # noqa
+from .dataMisc import aws_search_ntl
+from .misc import tPrint
+from . import rasterMisc as rMisc
 
 
 def extract_monthly_ntl(aoi, out_folder, sel_files=[]):

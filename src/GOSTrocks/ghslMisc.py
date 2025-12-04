@@ -1,17 +1,8 @@
-import sys
-import os
-import inspect
 import rasterio
 
 import numpy as np
 
-from GOSTrocks.misc import tPrint
-
-curPath = os.path.realpath(
-    os.path.abspath(os.path.split(inspect.getfile(inspect.currentframe()))[0])
-)
-if curPath not in sys.path:
-    sys.path.append(curPath)
+from .misc import tPrint
 
 
 def combine_ghsl_annual(
