@@ -17,13 +17,13 @@ import geopandas as gpd
 from botocore.config import Config
 from botocore import UNSIGNED
 
+import rasterMisc as rMisc
+
 curPath = os.path.realpath(
     os.path.abspath(os.path.split(inspect.getfile(inspect.currentframe()))[0])
 )
 if curPath not in sys.path:
     sys.path.append(curPath)
-
-import rasterMisc as rMisc
 
 
 def download_WSF(
@@ -240,7 +240,7 @@ def get_worldcover(
 
         out_vrt = os.path.join(download_folder, worldcover_vrt)
         gdal.BuildVRT(out_vrt, all_tiles, options=gdal.BuildVRTOptions())
-    except:
+    except Exception:
         print("GDAL not installed, cannot create VRT")
 
     return all_tiles

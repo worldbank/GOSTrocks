@@ -43,9 +43,9 @@ def ckdnearest(gdfA, gdfB, gdfB_cols=["ID"]):
     Parameters
     ----------
     gdfA : geopandas.GeoDataFrame
-        GeoDataFrame containg geometries to find nearest match for
+        GeoDataFrame containing geometries to find nearest match for
     gdfB : geopandas.GeoDataFrame
-        GeoDataFrame containg geometries to find nearest match from
+        GeoDataFrame containing geometries to find nearest match from
     gdfB_cols : list of string, optional
         Columns from gdfB to attach to gdfA, by default ["ID"]
 

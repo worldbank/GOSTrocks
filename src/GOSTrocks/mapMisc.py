@@ -22,12 +22,22 @@ def fetch_wb_style(json_url="https://wbg-vis-design.vercel.app/colors.json"):
     :return: JSON file containing World Bank style
     :rtype: dict
     """
-    r = requests.get(json_url, verify=False)
-    
-def static_map_vector(v_data, map_column,
-        colormap="Reds", edgecolor="darker", reverse_colormap=False,
-    thresh=None, legend_loc="upper right", figsize=(10, 10), out_file="", set_title=True,
-    add_basemap=True, add_wb_borders_lines=True, iso3="", bbox=None, **kwargs
+    resp = requests.get(json_url, verify=False)
+    resp.raise_for_status()
+    return resp.json()
+
+
+def static_map_vector(
+    v_data,
+    map_column,
+    colormap="Reds",
+    edgecolor="darker",
+    reverse_colormap=False,
+    thresh=None,
+    legend_loc="upper right",
+    figsize=(10, 10),
+    out_file="",
+    set_title=True,
 ):
     """ Simple plot of vector data
 

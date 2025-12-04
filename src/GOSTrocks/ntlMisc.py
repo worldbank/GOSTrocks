@@ -62,7 +62,7 @@ def read_raster_box(curRaster, geometry, bandNum=1):
     curRaster : rasterio object
         raster file to read from
     geometry : shapely.geometry
-        Geomtery to read from raster
+        Geometery to read from raster
     bandNum : int, optional
         band in curRaster to read, by default 1
 
