@@ -39,6 +39,11 @@ def static_map_vector(
     figsize=(10, 10),
     out_file="",
     set_title=True,
+    add_basemap=True,
+    add_wb_borders_lines=True,
+    iso3="",
+    bbox=None,
+    **kwargs,
 ):
     """Simple plot of vector data
 

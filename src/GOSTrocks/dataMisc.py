@@ -293,7 +293,7 @@ def gdf_esri_service(url, layer=0, verify_ssl=True):
             query_str = urllib.parse.urlencode(all_records_query)
             all_query_url = f"{query_url}?{query_str}"
             with requests.get(
-                all_query_url, verify=verify_ssl, stream=to_stream
+                all_query_url, verify=verify_ssl, stream=False
             ) as geojson_result:
                 return gpd.read_file(geojson_result.text)
         else:
@@ -310,7 +310,7 @@ def gdf_esri_service(url, layer=0, verify_ssl=True):
                 query_str = urllib.parse.urlencode(step_query)
                 step_query_url = f"{query_url}?{query_str}"
                 with requests.get(
-                    step_query_url, verify=verify_ssl, stream=to_stream
+                    step_query_url, verify=verify_ssl, stream=False
                 ) as step_query_result:
                     cur_res = gpd.read_file(step_query_result.text)
                 if offset == 0:
