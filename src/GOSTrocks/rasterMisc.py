@@ -29,26 +29,16 @@ if curPath not in sys.path:
 
 from misc import tPrint  # noqa
 
-def merge_rasters(in_rasters, merge_method="first", 
-                  dtype="", out_file="", boolean_gt_0=False, gdal_unssafe=False, compress=False):
-    """ Merge a list of rasters into a single raster file
-
-    Parameters
-    ----------
-    in_rasters : list of str
-        List of raster file paths to merge.
-    merge_method : str, optional
-        Method to use for merging rasters, by default "first"
-    dtype : str, optional
-        Data type to convert the merged raster to, by default ""
-    out_file : str, optional
-        Path to create output raster, by default ""
-    boolean_gt_0 : bool, optional
-        If true, converts merged result to binary 0, 1 of values greater than 0, by default False
-    gdal_unssafe : bool, optional
-        If true, allows unsafe GDAL operations, by default False
-    compress : bool, optional
-        If true, applies compression to the output raster, by default False
+def merge_rasters(
+    in_rasters,
+    merge_method="first",
+    dtype="",
+    out_file="",
+    boolean_gt_0=False,
+    gdal_unssafe=False,
+    compress=False,
+):
+    """Merge a list of rasters into a single raster file
 
     Returns
     -------
@@ -60,7 +50,7 @@ def merge_rasters(in_rasters, merge_method="first",
         opened_tiffs = [rasterio.open(x) for x in in_rasters]
         merged, out_transform = merge(opened_tiffs, method=merge_method)
     else:
-        with rasterio.Env(GDAL_HTTP_UNSAFESSL = 'YES'):
+        with rasterio.Env(GDAL_HTTP_UNSAFESSL="YES"):
             opened_tiffs = [rasterio.open(x) for x in in_rasters]
             merged, out_transform = merge(opened_tiffs, method=merge_method)
     if boolean_gt_0:
@@ -81,7 +71,7 @@ def merge_rasters(in_rasters, merge_method="first",
     )
     if compress:
         metadata.update({"compress": "lzw"})
-    
+
     if out_file != "":
         with rasterio.open(out_file, "w", **metadata) as dst:
             dst.write(merged)
@@ -143,16 +133,7 @@ def vectorize_raster(inR, bad_vals=[]):  # TODO out_file='', smooth=False, smoot
 
     return gpd.GeoDataFrame(
         all_vals, columns=["idx", "value", "geometry"], geometry="geometry", crs=inR.crs
-    )
-
-    """project raster to destination crs
-
-    Args:
-        srcRst (rasterio.datasetReader): input rasterio to reproject
-        dstCrs (int): crs to project to
-        output_raster (string): file to write to, defaults to '', which writes nothing
-
-    """    
+    )   
 
 def project_raster(srcRst, dstCrs, output_raster=""):
     """ Project raster to destination crs
@@ -265,7 +246,7 @@ def rasterizeDataFrame(
     re_proj=False,
     nodata=np.nan,
     smooth=False,
-    smooth_sigma=50
+    smooth_sigma=50,
 ):
     """Convert input geopandas dataframe into a raster file
 
@@ -376,7 +357,7 @@ def rasterizeDataFrame(
     )
     if smooth:
         burned = gaussian_filter(burned, sigma=smooth_sigma)
-        
+
     if outFile:
         try:
             with rasterio.open(outFile, "w", **cMeta) as out:
@@ -387,7 +368,7 @@ def rasterizeDataFrame(
 
 
 def polygonizeArray(geometry, curRaster, bandNum=1):
-    """ Convert cells of a rasterio object into a geodataframe of polygons, 
+    """Convert cells of a rasterio object into a geodataframe of polygons,
     within the bounds of geometry
 
     Parameters
@@ -410,7 +391,7 @@ def polygonizeArray(geometry, curRaster, bandNum=1):
         (float(lr[0]), float(ul[0] + 1)),
         (float(ul[1]), float(lr[1] + 1)),
     )
-    data = curRaster.read(bandNum, window=window, masked=False)    
+    data = curRaster.read(bandNum, window=window, masked=False)
     xRes = curRaster.res[0]
     yRes = curRaster.res[1]
 
@@ -442,7 +423,7 @@ def polygonizeArray(geometry, curRaster, bandNum=1):
     outArray["col"] = colVals
     outArray["vals"] = actualvals
     outArray["geometry"] = outArray.apply(getPolygon, axis=1)
-    outGeo = gpd.GeoDataFrame(outArray, geometry="geometry", crs=curRaster.crs)    
+    outGeo = gpd.GeoDataFrame(outArray, geometry="geometry", crs=curRaster.crs)
     outGeo["geometry"] = outGeo.buffer(0)
     return outGeo
 

@@ -13,7 +13,7 @@ from matplotlib.patches import Patch
 from shapely.geometry import box
 from . import dataMisc as dMisc
 
-''' TODO: make this work
+#TODO: make this work
 def fetch_wb_style(json_url="https://wbg-vis-design.vercel.app/colors.json"):
     """Fetches the World Bank style JSON file from the internet
 
@@ -24,7 +24,6 @@ def fetch_wb_style(json_url="https://wbg-vis-design.vercel.app/colors.json"):
     """
     r = requests.get(json_url, verify=False)
     
-'''
 def static_map_vector(v_data, map_column,
         colormap="Reds", edgecolor="darker", reverse_colormap=False,
     thresh=None, legend_loc="upper right", figsize=(10, 10), out_file="", set_title=True,
@@ -289,7 +288,6 @@ def static_map_raster(r_data,
     patches = [Patch(color=x[0], label=x[1]) for x in legend_labels]
     if legend_loc:
         plt.legend(handles=patches, loc=legend_loc, facecolor="white")
-    #ax.set_axis_off()
     if out_file != "":
         plt.savefig(out_file, dpi=300, bbox_inches="tight")
     return [plt, fig, ax]
