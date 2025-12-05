@@ -4,7 +4,7 @@ This repository includes support functions for a number of geospatial tools used
 
 ## Installation
 
-```{shell}
+```bash
 pip install GOSTRocks
 ```
 
