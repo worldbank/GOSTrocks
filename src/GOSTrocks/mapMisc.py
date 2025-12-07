@@ -66,8 +66,8 @@ def static_map_vector(v_data, map_column,
 
     Returns
     -------
-    matplotlib.pyplot
-        Matplotlib object containing all maps
+    plt, fig, ax : matplotlib.pyplot, matplotlib.figure.Figure, matplotlib.axes.Axes
+        Matplotlib objects containing all maps
     """
     adm0_color = "dimgrey"
     linewidth = 0.5
