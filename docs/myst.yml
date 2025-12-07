@@ -4,7 +4,7 @@ project:
   github: worldbank/GOSTrocks
   toc:
     - file: README.md
-    - file: CONTRIBUTING.md
+
     - title: Function Reference
       children:
         - file: docstrings/dataMisc.md
@@ -18,7 +18,13 @@ project:
     - title: Examples
       children:
         - file: examples/GOSTrocks_Usage.ipynb
-        - file: examples/AWS_Summarize.ipynb
+        # - file: examples/dataMisc_exploration.ipynb
+        # - file: examples/mapMisc_exploration.ipynb
+        # - file: examples/ACLED_Explore_Access.ipynb
+        # - file: examples/NTL_extract_map.ipynb
+    - file: CONTRIBUTING.md
+      children:
+        - file: CODE_OF_CONDUCT.md
 
 site:
   template: book-theme

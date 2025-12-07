@@ -1,4 +1,4 @@
-# CONTRIBUTING
+# Contributing
 
 Thank you for considering contributing to this project! Your involvement helps improve the overall quality and functionality of the project and its codebase. Please take a moment to review the following guidelines to ensure a collaborative contribution process.
 
@@ -90,4 +90,4 @@ The generated documentation will be available in the `_build/html` directory. Op
 
 ## Licensing
 
-By contributing to this project, you agree that your contributions will be licensed under the project's [LICENSE](LICENSE).
+By contributing to this project, you agree that your contributions will be licensed under the project's [LICENSE](../LICENSE).
