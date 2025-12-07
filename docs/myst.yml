@@ -7,14 +7,14 @@ project:
 
     - title: Function Reference
       children:
-        - file: docstrings/dataMisc.md
-        - file: docstrings/ghslMisc.md
-        - file: docstrings/mapMisc.md
-        - file: docstrings/misc.md
-        - file: docstrings/ntlMisc.md
-        - file: docstrings/osmMisc.md
-        - file: docstrings/rasterMisc.md
-        - file: docstrings/shapeMisc.md
+        - file: api/dataMisc.md
+        - file: api/ghslMisc.md
+        - file: api/mapMisc.md
+        - file: api/misc.md
+        - file: api/ntlMisc.md
+        - file: api/osmMisc.md
+        - file: api/rasterMisc.md
+        - file: api/shapeMisc.md
     - title: Examples
       children:
         - file: examples/GOSTrocks_Usage.ipynb
@@ -27,7 +27,6 @@ project:
         - file: CODE_OF_CONDUCT.md
 
 site:
-  template: book-theme
   options:
     favicon: images/favicon.ico
     logo: images/logo.png
