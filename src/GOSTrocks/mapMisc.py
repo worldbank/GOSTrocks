@@ -1,5 +1,3 @@
-import requests
-
 import contextily as ctx
 import pandas as pd
 import geopandas as gpd
@@ -23,14 +21,28 @@ def fetch_wb_style(json_url="https://wbg-vis-design.vercel.app/colors.json"):
     :rtype: dict
     """
     r = requests.get(json_url, verify=False)
-    
+
 '''
-def static_map_vector(v_data, map_column,
-        colormap="Reds", edgecolor="darker", reverse_colormap=False,
-    thresh=None, legend_loc="upper right", figsize=(10, 10), out_file="", set_title=True,
-    add_basemap=True, add_wb_borders_lines=True, iso3="", bbox=None, **kwargs
+
+
+def static_map_vector(
+    v_data,
+    map_column,
+    colormap="Reds",
+    edgecolor="darker",
+    reverse_colormap=False,
+    thresh=None,
+    legend_loc="upper right",
+    figsize=(10, 10),
+    out_file="",
+    set_title=True,
+    add_basemap=True,
+    add_wb_borders_lines=True,
+    iso3="",
+    bbox=None,
+    **kwargs,
 ):
-    """ Simple plot of vector data
+    """Simple plot of vector data
 
     Parameters
     ----------
@@ -73,7 +85,7 @@ def static_map_vector(v_data, map_column,
     linewidth = 0.5
     geom_type = v_data["geometry"].geom_type.iloc[0]
 
-    #if v_data.crs.to_epsg() != 3857:
+    # if v_data.crs.to_epsg() != 3857:
     #    v_data = v_data.to_crs(3857)
     # classify the data into categories if threshold is defined
     try:
@@ -93,10 +105,10 @@ def static_map_vector(v_data, map_column,
     if reverse_colormap:
         cm = cm.reversed()
     all_labels = []
-    v_data['r_val'] = np.nan
-    v_data['g_val'] = np.nan
-    v_data['b_val'] = np.nan
-    v_data['a_val'] = np.nan
+    v_data["r_val"] = np.nan
+    v_data["g_val"] = np.nan
+    v_data["b_val"] = np.nan
+    v_data["a_val"] = np.nan
     for label, mdata in v_data.groupby("tomap", observed=False):
         if mdata.shape[0] > 0:
             color = cm(label / v_data["tomap"].max())
@@ -115,9 +127,21 @@ def static_map_vector(v_data, map_column,
                     color=color, ax=ax, label=label, edgecolor=c_edge, markersize=300
                 )
             elif geom_type == "Polygon":
-                mdata.plot(color=color, ax=ax, label=label, edgecolor=c_edge, linewidth=linewidth)
+                mdata.plot(
+                    color=color,
+                    ax=ax,
+                    label=label,
+                    edgecolor=c_edge,
+                    linewidth=linewidth,
+                )
             else:  # should handle lines; not yet tested
-                mdata.plot(color=color, ax=ax, label=label, edgecolor=c_edge, linewidth=linewidth)
+                mdata.plot(
+                    color=color,
+                    ax=ax,
+                    label=label,
+                    edgecolor=c_edge,
+                    linewidth=linewidth,
+                )
             try:
                 cLabel = f"{round(mdata[map_column].min())} - {round(mdata[map_column].max())}"
             except Exception:
@@ -125,34 +149,38 @@ def static_map_vector(v_data, map_column,
             cur_patch = mpatches.Patch(color=color, label=cLabel)
             all_labels.append(cur_patch)
 
-            v_data.loc[mdata.index, 'r_val'] = color[0]
-            v_data.loc[mdata.index, 'g_val'] = color[1]
-            v_data.loc[mdata.index, 'b_val'] = color[2]
-            v_data.loc[mdata.index, 'a_val'] = color[3]
-            
+            v_data.loc[mdata.index, "r_val"] = color[0]
+            v_data.loc[mdata.index, "g_val"] = color[1]
+            v_data.loc[mdata.index, "b_val"] = color[2]
+            v_data.loc[mdata.index, "a_val"] = color[3]
+
     if add_basemap:
         try:
-            ctx.add_basemap(ax, source=ctx.providers.Stamen.TonerBackground)  
+            ctx.add_basemap(ax, source=ctx.providers.Stamen.TonerBackground)
         except Exception:
             print("Error adding basemap")
 
     if add_wb_borders_lines:
         wb_gad_service = "https://services.arcgis.com/iQ1dY19aHwbSDYIF/arcgis/rest/services/World_Bank_Global_Administrative_Divisions/FeatureServer"
-        if 'adm0' in kwargs.keys():
-            adm0 = kwargs['adm0']
+        if "adm0" in kwargs.keys():
+            adm0 = kwargs["adm0"]
         else:
             adm0 = dMisc.gdf_esri_service(wb_gad_service, layer=1, verify_ssl=False)
 
         # Fetch the NDLSA polygons
-        if 'adm0_ndlsa' in kwargs.keys():
-            adm0_ndlsa = kwargs['adm0_ndlsa']
-        else:   
-            adm0_ndlsa = dMisc.gdf_esri_service(wb_gad_service, layer=3, verify_ssl=False)
+        if "adm0_ndlsa" in kwargs.keys():
+            adm0_ndlsa = kwargs["adm0_ndlsa"]
+        else:
+            adm0_ndlsa = dMisc.gdf_esri_service(
+                wb_gad_service, layer=3, verify_ssl=False
+            )
 
-        if 'adm0_lines' in kwargs.keys():
-            adm0_lines = kwargs['adm0_lines']
-        else:   
-            adm0_lines = dMisc.gdf_esri_service(wb_gad_service, layer=4, verify_ssl=False)
+        if "adm0_lines" in kwargs.keys():
+            adm0_lines = kwargs["adm0_lines"]
+        else:
+            adm0_lines = dMisc.gdf_esri_service(
+                wb_gad_service, layer=4, verify_ssl=False
+            )
 
         # remove the defined iso3 if provided
         if iso3 != "":
@@ -161,50 +189,57 @@ def static_map_vector(v_data, map_column,
             adm0 = adm0.to_crs(v_data.crs)
         adm0.plot(ax=ax, facecolor=adm0_color, edgecolor=adm0_color, linewidth=0.5)
 
-        
-        # NDLSAs need to be plotted the same color as the adm0 polygons 
+        # NDLSAs need to be plotted the same color as the adm0 polygons
         # EXCEPT those that intersect with v_data, where the values need to be halfway between
         # adm0 and the v_data fill colour
         adm0_rgba = mcolors.to_rgba(adm0_color)
-        adm0_ndlsa['r_val'] = adm0_rgba[0]
-        adm0_ndlsa['g_val'] = adm0_rgba[1]
-        adm0_ndlsa['b_val'] = adm0_rgba[2]
-        adm0_ndlsa['a_val'] = adm0_rgba[3]
+        adm0_ndlsa["r_val"] = adm0_rgba[0]
+        adm0_ndlsa["g_val"] = adm0_rgba[1]
+        adm0_ndlsa["b_val"] = adm0_rgba[2]
+        adm0_ndlsa["a_val"] = adm0_rgba[3]
 
         adm0_ndlsa_buffer = adm0_ndlsa.copy()
-        adm0_ndlsa_buffer['geometry'] = adm0_ndlsa_buffer.geometry.buffer(0.01)
+        adm0_ndlsa_buffer["geometry"] = adm0_ndlsa_buffer.geometry.buffer(0.01)
         adm0_ndlsa = adm0_ndlsa.to_crs(v_data.crs)
-        
+
         if adm0_ndlsa_buffer.crs != v_data.crs:
             adm0_ndlsa = adm0_ndlsa.to_crs(v_data.crs)
-            adm0_ndlsa_buffer = adm0_ndlsa_buffer.to_crs(v_data.crs)    
+            adm0_ndlsa_buffer = adm0_ndlsa_buffer.to_crs(v_data.crs)
 
         if v_data.crs != adm0_ndlsa.crs:
             v_data = v_data.to_crs(adm0_ndlsa.crs)
-        ndlsa_bad_colours = gpd.sjoin(adm0_ndlsa_buffer, v_data, how="inner", predicate='intersects')
-        new_colours = ndlsa_bad_colours.groupby("FID").apply(lambda row: row.loc[:, ['r_val_right', 'g_val_right', 'b_val_right', 'a_val_right']].mean())
-        new_colours.set_index('FID', inplace=True)
-        
-        adm0_ndlsa.set_index('FID', inplace=True)
-        adm0_ndlsa.loc[new_colours.index, 'r_val'] = new_colours['r_val_right']
-        adm0_ndlsa.loc[new_colours.index, 'g_val'] = new_colours['g_val_right']
-        adm0_ndlsa.loc[new_colours.index, 'b_val'] = new_colours['b_val_right']
-        adm0_ndlsa.loc[new_colours.index, 'a_val'] = new_colours['a_val_right']
+        ndlsa_bad_colours = gpd.sjoin(
+            adm0_ndlsa_buffer, v_data, how="inner", predicate="intersects"
+        )
+        new_colours = ndlsa_bad_colours.groupby("FID").apply(
+            lambda row: row.loc[
+                :, ["r_val_right", "g_val_right", "b_val_right", "a_val_right"]
+            ].mean()
+        )
+        new_colours.set_index("FID", inplace=True)
+
+        adm0_ndlsa.set_index("FID", inplace=True)
+        adm0_ndlsa.loc[new_colours.index, "r_val"] = new_colours["r_val_right"]
+        adm0_ndlsa.loc[new_colours.index, "g_val"] = new_colours["g_val_right"]
+        adm0_ndlsa.loc[new_colours.index, "b_val"] = new_colours["b_val_right"]
+        adm0_ndlsa.loc[new_colours.index, "a_val"] = new_colours["a_val_right"]
 
         # add all the NDLSA polygons, coloured appropriately
-        color_list = adm0_ndlsa.apply(lambda row: (row['r_val'], row['g_val'], row['b_val'], row['a_val']), axis=1).tolist()
+        color_list = adm0_ndlsa.apply(
+            lambda row: (row["r_val"], row["g_val"], row["b_val"], row["a_val"]), axis=1
+        ).tolist()
         # For each item get the average between itself and the adm0 colour
         color_list = [
             (
-                (row['r_val'] + adm0_rgba[0]) / 2,
-                (row['g_val'] + adm0_rgba[1]) / 2,
-                (row['b_val'] + adm0_rgba[2]) / 2,
-                (row['a_val'] + adm0_rgba[3]) / 2,
+                (row["r_val"] + adm0_rgba[0]) / 2,
+                (row["g_val"] + adm0_rgba[1]) / 2,
+                (row["b_val"] + adm0_rgba[2]) / 2,
+                (row["a_val"] + adm0_rgba[3]) / 2,
             )
             for idx, row in adm0_ndlsa.iterrows()
         ]
-        #return([color_list, ndlsa_bad_colours, adm0_ndlsa])
-        
+        # return([color_list, ndlsa_bad_colours, adm0_ndlsa])
+
         adm0_ndlsa.plot(ax=ax, color=color_list, edgecolor=color_list, linewidth=0.5)
 
         if adm0_lines.crs != v_data.crs:
@@ -219,35 +254,41 @@ def static_map_vector(v_data, map_column,
                 mdata.plot(ax=ax, color="black", linewidth=1, linestyle=(1, (1, 4)))
             elif label == "Tightly Dashed":
                 mdata.plot(ax=ax, color="black", linewidth=1, linestyle=(3, (3, 3)))
-        
-        #Set extent to v_data
+
+        # Set extent to v_data
         ax.set_xlim(v_data.total_bounds[0], v_data.total_bounds[2])
         ax.set_ylim(v_data.total_bounds[1], v_data.total_bounds[3])
 
     bounds = v_data.total_bounds
-    if not bbox is None:
+    if bbox is not None:
         ax.set_xlim(bbox[0], bbox[2])
         ax.set_ylim(bbox[1], bbox[3])
         bounds = bbox
 
-    ax.legend(handles=all_labels, loc=legend_loc)        
+    ax.legend(handles=all_labels, loc=legend_loc)
     ocean = gpd.GeoDataFrame(geometry=[box(*bounds)], crs=v_data.crs)
     ocean.plot(ax=ax, color="midnightblue", zorder=0)
-    #ax = ax.set_axis_off()
+    # ax = ax.set_axis_off()
 
     if set_title:
         plt.title(map_column)
 
     if out_file != "":
-        plt.savefig(out_file, dpi=300, bbox_inches="tight")    
-    
+        plt.savefig(out_file, dpi=300, bbox_inches="tight")
+
     return [plt, fig, ax]
 
-def static_map_raster(r_data,
-    colormap="magma", reverse_colormap=False,
-    thresh=None, legend_loc="upper right",
-    figsize=(10, 10), out_file="",):
-    """ Simple plot of raster data
+
+def static_map_raster(
+    r_data,
+    colormap="magma",
+    reverse_colormap=False,
+    thresh=None,
+    legend_loc="upper right",
+    figsize=(10, 10),
+    out_file="",
+):
+    """Simple plot of raster data
 
     Parameters
     ----------
@@ -289,7 +330,7 @@ def static_map_raster(r_data,
     patches = [Patch(color=x[0], label=x[1]) for x in legend_labels]
     if legend_loc:
         plt.legend(handles=patches, loc=legend_loc, facecolor="white")
-    #ax.set_axis_off()
+    # ax.set_axis_off()
     if out_file != "":
         plt.savefig(out_file, dpi=300, bbox_inches="tight")
     return [plt, fig, ax]
