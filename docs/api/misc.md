@@ -1,127 +1,127 @@
 # misc
 
-### `get_folder_size(folder_path)`
+## `get_folder_size(folder_path)`
 
-**Description**
+**Description:**
 
 Get the total size of a folder in bytes.
 
-**Parameters**
+**Parameters:**
 
 - `folder_path` (*str*): Path to the folder.
 
-**Returns**
+**Returns:**
 
 - `int`: Total size of the folder in bytes.
 
 ---
 
-### `loggingInfo(lvl=logging.INFO)`
+## `loggingInfo(lvl=logging.INFO)`
 
-**Description**
+**Description:**
 
 Set the logging level.
 
-**Parameters**
+**Parameters:**
 
 - `lvl` (*int*, optional): Logging level to set, defaults to `logging.INFO`.
 
-**Returns**
+**Returns:**
 
 - *None*: This function sets configuration and returns nothing.
 
 ---
 
-### `tPrint(s)`
+## `tPrint(s)`
 
-**Description**
+**Description:**
 
 Print the time along with the message.
 
-**Parameters**
+**Parameters:**
 
 - `s` (*str*): Message to print.
 
-**Returns**
+**Returns:**
 
 - *None*: This function prints output and returns nothing.
 
 ---
 
-### `drange(start, stop, step)`
+## `drange(start, stop, step)`
 
-**Description**
+**Description:**
 
 Generate a range object with decimal points.
 
-**Parameters**
+**Parameters:**
 
 - `start` (*float*): Starting value of the range.
 - `stop` (*float*): End value of the range.
 - `step` (*float*): Step size for the range.
 
-**Returns**
+**Returns:**
 
 - *float*: Next value in the range.
 
 ---
 
-### `getHistIndex(hIdx, val)`
+## `getHistIndex(hIdx, val)`
 
-**Description**
+**Description:**
 
 Get the index of a specific value within a list of histogram values.
 
-**Parameters**
+**Parameters:**
 
 - `hIdx` (*list*): List of histogram values.
 - `val` (*float*): Value to search for.
 
-**Returns**
+**Returns:**
 
 - `int`: Index in `hIdx` where `val` falls.
 
 ---
 
-### `listSum(inD)`
+## `listSum(inD)`
 
-**Description**
+**Description:**
 
 Get the total value of a list.
 
-**Parameters**
+**Parameters:**
 
 - `inD` (*list*): List of numbers.
 
-**Returns**
+**Returns:**
 
 - `float`: Total value of the list.
 
 ---
 
-### `getHistPer(inD)`
+## `getHistPer(inD)`
 
-**Description**
+**Description:**
 
 Convert list of values into percentage of a total.
 
-**Parameters**
+**Parameters:**
 
 - `inD` (*list*): List of numbers.
 
-**Returns**
+**Returns:**
 
 - `list`: Percentages corresponding to the input values.
 
 ---
 
-### `createFishnet(xmin, xmax, ymin, ymax, gridHeight, gridWidth, type='POLY', crsNum=4326, outputGridfn='')`
+## `createFishnet(xmin, xmax, ymin, ymax, gridHeight, gridWidth, type='POLY', crsNum=4326, outputGridfn='')`
 
-**Description**
+**Description:**
 
 Create a vector fishnet inside the defined range.
 
-**Parameters**
+**Parameters:**
 
 - `xmin` (*float*): Minimum x-coordinate of the fishnet.
 - `xmax` (*float*): Maximum x-coordinate of the fishnet.
@@ -133,23 +133,23 @@ Create a vector fishnet inside the defined range.
 - `crsNum` (*int*, optional): Coordinate reference system number, defaults to `4326`.
 - `outputGridfn` (*str*, optional): Path to the output grid file; empty string skips writing.
 
-**Returns**
+**Returns:**
 
 - `gpd.GeoDataFrame`: GeoDataFrame containing the fishnet grid.
 
 ---
 
-### `explodeGDF(indf)`
+## `explodeGDF(indf)`
 
-**Description**
+**Description:**
 
 Convert multi-part geometries into separate rows in a GeoDataFrame.
 
-**Parameters**
+**Parameters:**
 
 - `indf` (*geopandas.GeoDataFrame*): Input GeoDataFrame with possible multi-part geometries.
 
-**Returns**
+**Returns:**
 
 - `gpd.GeoDataFrame`: GeoDataFrame with exploded geometries.
 

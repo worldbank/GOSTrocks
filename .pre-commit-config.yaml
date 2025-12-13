@@ -4,7 +4,8 @@
 ci:
   autofix_prs: false
 
-exclude: ^docs/
+# Skip notebooks everywhere; run hooks on docs markdown
+exclude: ^.*\.ipynb$
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -20,17 +21,17 @@ repos:
         args: [--allow-missing-credentials]
       - id: detect-private-key
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.39.0
+    rev: v0.41.0
     hooks:
       - id: markdownlint
         name: Markdownlint
-        files: \.(md|mdown|markdown)$
+        files: ^docs/.*\.(md|mdown|markdown)$
         args: [
             "--disable=MD013", # line-length
             "--disable=MD033", # no-inline-html
           ]
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.6
+    rev: v2.3.0
     hooks:
       - id: codespell
         name: codespell

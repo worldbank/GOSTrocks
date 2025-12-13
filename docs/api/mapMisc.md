@@ -1,28 +1,28 @@
 # mapMisc
 
-### `fetch_wb_style(json_url='https://wbg-vis-design.vercel.app/colors.json')`
+## `fetch_wb_style(json_url='https://wbg-vis-design.vercel.app/colors.json')`
 
-**Description**
+**Description:**
 
 Fetch the World Bank style JSON file from the internet.
 
-**Parameters**
+**Parameters:**
 
 - `json_url` (*str*, optional): URL to the World Bank style JSON file, defaults to `https://wbg-vis-design.vercel.app/colors.json`.
 
-**Returns**
+**Returns:**
 
 - `dict`: JSON content containing World Bank style.
 
 ---
 
-### `static_map_vector(v_data, map_column, colormap='Reds', edgecolor='darker', reverse_colormap=False, thresh=None, legend_loc='upper right', figsize=(10, 10), out_file='', set_title=True, add_basemap=True, add_wb_borders_lines=True, iso3='', bbox=None, **kwargs)`
+## `static_map_vector(v_data, map_column, colormap='Reds', edgecolor='darker', reverse_colormap=False, thresh=None, legend_loc='upper right', figsize=(10, 10), out_file='', set_title=True, add_basemap=True, add_wb_borders_lines=True, iso3='', bbox=None, **kwargs)`
 
-**Description**
+**Description:**
 
 Simple plot of vector data with optional basemap and styling controls.
 
-**Parameters**
+**Parameters:**
 
 - `v_data` (*geopandas.GeoDataFrame*): Input GeoDataFrame to map.
 - `map_column` (*str*): Column label in `v_data` to map.
@@ -40,19 +40,19 @@ Simple plot of vector data with optional basemap and styling controls.
 - `bbox` (*tuple*, optional): Bounding box to set map extent in CRS of `v_data`, defaults to `None`.
 - `**kwargs`: Additional keyword arguments forwarded to plotting utilities.
 
-**Returns**
+**Returns:**
 
 - `matplotlib.pyplot`: Matplotlib object containing the map.
 
 ---
 
-### `static_map_raster(r_data, colormap='magma', reverse_colormap=False, thresh=None, legend_loc='upper right', figsize=(10, 10), out_file='')`
+## `static_map_raster(r_data, colormap='magma', reverse_colormap=False, thresh=None, legend_loc='upper right', figsize=(10, 10), out_file='')`
 
-**Description**
+**Description:**
 
 Simple plot of raster data for the first band of a raster dataset.
 
-**Parameters**
+**Parameters:**
 
 - `r_data` (*rasterio.RasterDatasetReader*): Raster data to map.
 - `colormap` (*str*, optional): Name of colour ramp to send to matplotlib, defaults to `magma`.
@@ -62,7 +62,7 @@ Simple plot of raster data for the first band of a raster dataset.
 - `figsize` (*tuple*, optional): Size of image, defaults to `(10, 10)`.
 - `out_file` (*str*, optional): Path to create output image; empty string skips writing.
 
-**Returns**
+**Returns:**
 
 - `matplotlib.pyplot`: Matplotlib object containing the map.
 

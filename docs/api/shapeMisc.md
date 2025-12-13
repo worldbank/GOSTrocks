@@ -1,50 +1,42 @@
 # shapeMisc
 
-### `polsby_popper(cShape)`
+## `polsby_popper(cShape)`
 
-**Description**
+**Description:**
 
 Calculate the Polsby-Popper score for a given shape.
 
-**Parameters**
+**Parameters:**
 
 - `cShape` (*shapely.Polygon*): Shape for which to calculate shape metrics.
 
-**Returns**
-
-- *Any*: Return value not documented.
-
 ---
 
-### `schwartzberg(cShape)`
+## `schwartzberg(cShape)`
 
-**Description**
+**Description:**
 
 Calculate the Schwartzberg score for a given shape.
 
-**Parameters**
+**Parameters:**
 
 - `cShape` (*shapely.Polygon*): Shape for which to calculate shape metrics.
 
-**Returns**
-
-- *Any*: Return value not documented.
-
 ---
 
-### `ckdnearest(gdfA, gdfB, gdfB_cols=['ID'])`
+## `ckdnearest(gdfA, gdfB, gdfB_cols=['ID'])`
 
-**Description**
+**Description:**
 
 Calculate the nearest object in `gdfB` for each object in `gdfA`; works for varied geometry types.
 
-**Parameters**
+**Parameters:**
 
 - `gdfA` (*geopandas.GeoDataFrame*): GeoDataFrame containing geometries to find nearest match for.
 - `gdfB` (*geopandas.GeoDataFrame*): GeoDataFrame containing geometries to match from.
 - `gdfB_cols` (*list[str]*, optional): Columns from `gdfB` to attach to `gdfA`, defaults to `["ID"]`.
 
-**Returns**
+**Returns:**
 
 - `geopandas.GeoDataFrame`: `gdfA` with columns from `gdfB` and distance to nearest geometry.
 

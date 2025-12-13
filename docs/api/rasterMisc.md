@@ -1,12 +1,12 @@
 # rasterMisc
 
-### `merge_rasters(in_rasters, merge_method='first', dtype='', out_file='', boolean_gt_0=False, gdal_unssafe=False, compress=False)`
+## `merge_rasters(in_rasters, merge_method='first', dtype='', out_file='', boolean_gt_0=False, gdal_unssafe=False, compress=False)`
 
-**Description**
+**Description:**
 
 Merge a list of rasters into a single raster file.
 
-**Parameters**
+**Parameters:**
 
 - `in_rasters` (*list*): Rasters to merge.
 - `merge_method` (*str*, optional): Merge method, defaults to `first`.
@@ -16,90 +16,90 @@ Merge a list of rasters into a single raster file.
 - `gdal_unssafe` (*bool*, optional): Use GDAL unsafe operations, defaults to `False`.
 - `compress` (*bool*, optional): Apply compression to output raster, defaults to `False`.
 
-**Returns**
+**Returns:**
 
 - `tuple`: Merged raster and its metadata.
 
 ---
 
-### `create_rasterio_inmemory(src, curData)`
+## `create_rasterio_inmemory(src, curData)`
 
-**Description**
+**Description:**
 
 Create a rasterio object in memory from a numpy array.
 
-**Parameters**
+**Parameters:**
 
 - `src` (*rasterio.metadata*): Metadata for the rasterio object.
 - `curData` (*numpy.ndarray*): Data to write to the rasterio object.
 
-**Returns**
+**Returns:**
 
 - `rasterio.DatasetReader`: In-memory rasterio dataset.
 
 ---
 
-### `vectorize_raster(inR, bad_vals=[])`
+## `vectorize_raster(inR, bad_vals=[])`
 
-**Description**
+**Description:**
 
 Convert input raster data to a GeoDataFrame.
 
-**Parameters**
+**Parameters:**
 
 - `inR` (*rasterio.DatasetReader*): Input raster data to vectorize.
 - `bad_vals` (*list*, optional): Values to ignore in conversion, defaults to `[]`.
 
-**Returns**
+**Returns:**
 
 - `geopandas.GeoDataFrame`: GeoDataFrame containing the vectorized raster data.
 
 ---
 
-### `project_raster(srcRst, dstCrs, output_raster='')`
+## `project_raster(srcRst, dstCrs, output_raster='')`
 
-**Description**
+**Description:**
 
 Project a raster to a destination CRS.
 
-**Parameters**
+**Parameters:**
 
 - `srcRst` (*rasterio.DatasetReader*): Input raster to reproject.
 - `dstCrs` (*int*): CRS to project to.
 - `output_raster` (*str*, optional): File to write to; empty string skips writing.
 
-**Returns**
+**Returns:**
 
 - `tuple`: Reprojected raster and its metadata.
 
 ---
 
-### `clipRaster(inR, inD, outFile=None, crop=True)`
+## `clipRaster(inR, inD, outFile=None, crop=True)`
 
-**Description**
+**Description:**
 
 Clip input raster to a provided GeoDataFrame.
 
-**Parameters**
+**Parameters:**
 
 - `inR` (*rasterio.DatasetReader*): Input raster to clip.
 - `inD` (*geopandas.GeoDataFrame*): GeoDataFrame containing the clipping geometry.
 - `outFile` (*str*, optional): File to write the clipped raster to, defaults to `None`.
 - `crop` (*bool*, optional): Crop raster to the `unary_union` of GeoDataFrame (`True`) or bounding box (`False`), defaults to `True`.
 
-**Returns**
+**Returns:**
 
 - `tuple`: Clipped raster and its metadata.
 
 ---
 
-### `rasterizeDataFrame(inD, outFile, idField='', templateRaster='', templateMeta='', nCells=0, res=0, mergeAlg='REPLACE', re_proj=False, nodata=np.nan, smooth=False, smooth_sigma=50)`
+## `rasterizeDataFrame(inD, outFile, idField='', templateRaster='', templateMeta='', nCells=0, res=0, mergeAlg='REPLACE', re_proj=False, nodata=np.nan, smooth=False, smooth_sigma=50)`
 
-**Description**
+**Description:**
 
 Convert input GeoDataFrame into a raster file.
 
-**Parameters**
+**Parameters:**
 
 - `inD` (*gpd.GeoDataFrame*): Input data frame to rasterize.
 - `outFile` (*str*): Output file to create from rasterized dataframe; empty string skips writing.
@@ -114,37 +114,37 @@ Convert input GeoDataFrame into a raster file.
 - `smooth` (*bool*, optional): Smooth raster output using `scipy.ndimage.gaussian_filter`, defaults to `False`.
 - `smooth_sigma` (*int*, optional): Sigma value for gaussian smoothing, defaults to `50`.
 
-**Returns**
+**Returns:**
 
 - `dict`: Metadata used to create output raster and burned raster values.
 
 ---
 
-### `polygonizeArray(geometry, curRaster, bandNum=1)`
+## `polygonizeArray(geometry, curRaster, bandNum=1)`
 
-**Description**
+**Description:**
 
 Convert cells of a rasterio object into a GeoDataFrame of polygons within the bounds of a geometry.
 
-**Parameters**
+**Parameters:**
 
 - `geometry` (*shapely.geometry*): Polygon inside which to create polygon grid.
 - `curRaster` (*rasterio.DatasetReader*): Raster from which to create polygons.
 - `bandNum` (*int*, optional): Band number to polygonize, defaults to `1`.
 
-**Returns**
+**Returns:**
 
 - `geopandas.GeoDataFrame`: Grid of polygons with values from the raster and percentage overlap with geometry.
 
 ---
 
-### `zonalStats(inShp, inRaster, bandNum=1, mask_A=None, reProj=False, minVal='', maxVal='', verbose=False, rastType='N', unqVals=[], weighted=False, allTouched=False, calc_sd=False, return_df=False)`
+## `zonalStats(inShp, inRaster, bandNum=1, mask_A=None, reProj=False, minVal='', maxVal='', verbose=False, rastType='N', unqVals=[], weighted=False, allTouched=False, calc_sd=False, return_df=False)`
 
-**Description**
+**Description:**
 
 Run zonal statistics against an input shapefile and raster.
 
-**Parameters**
+**Parameters:**
 
 - `inShp` (*str | gpd.GeoDataFrame*): Input geospatial data to summarize raster.
 - `inRaster` (*str | rasterio.DatasetReader*): Input raster to summarize.
@@ -161,51 +161,51 @@ Run zonal statistics against an input shapefile and raster.
 - `calc_sd` (*bool*, optional): Include standard deviation in calculation, defaults to `False`.
 - `return_df` (*bool*, optional): If `True`, return result as data frame, defaults to `False`.
 
-**Returns**
+**Returns:**
 
 - `array`: Zonal results for each feature in `inShp` (SUM, MIN, MAX, MEAN, SD optional).
 
-**Raises**
+**Raises:**
 
 - `ValueError`: If CRS mismatch occurs between `inShp` and `inRaster`.
 
 ---
 
-### `standardizeInputRasters(inR1, inR2, inR1_outFile='', resampling_type='nearest')`
+## `standardizeInputRasters(inR1, inR2, inR1_outFile='', resampling_type='nearest')`
 
-**Description**
+**Description:**
 
 Standardize `inR1` to `inR2` by changing CRS, extent, and resolution.
 
-**Parameters**
+**Parameters:**
 
 - `inR1` (*rasterio.DatasetReader | str*): Raster to be modified.
 - `inR2` (*rasterio.DatasetReader*): Raster to standardize to.
 - `inR1_outFile` (*str*, optional): Output path for standardized raster; empty string skips writing.
 - `resampling_type` (*str*, optional): Spatial resampling method (`nearest`, `cubic`, `sum`), defaults to `nearest`.
 
-**Returns**
+**Returns:**
 
 - `array`: Numpy array of standardized raster and rasterio metadata.
 
 ---
 
-### `jaccardIndex(inR1, inR2)`
+## `jaccardIndex(inR1, inR2)`
 
-**Description**
+**Description:**
 
 Calculate the Jaccard index on two binary input raster objects.
 
-**Parameters**
+**Parameters:**
 
 - `inR1` (*rasterio.DatasetReader*): Binary raster to compare; needs to be same shape as `inR2`.
 - `inR2` (*rasterio.DatasetReader*): Binary raster to compare; needs to be same shape as `inR1`.
 
-**Returns**
+**Returns:**
 
 - `float`: Index comparing similarity of input raster datasets.
 
-**Raises**
+**Raises:**
 
 - `ValueError`: If `inR1` and `inR2` are different shapes.
 
