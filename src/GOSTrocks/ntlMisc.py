@@ -1,6 +1,4 @@
-import sys
 import os
-import inspect
 import rasterio
 
 import pandas as pd
@@ -8,18 +6,13 @@ import numpy as np
 import xarray as xr
 import matplotlib.pyplot as plt
 
-curPath = os.path.realpath(
-    os.path.abspath(os.path.split(inspect.getfile(inspect.currentframe()))[0])
-)
-if curPath not in sys.path:
-    sys.path.append(curPath)
+from .dataMisc import aws_search_ntl
+from .misc import tPrint
+from . import rasterMisc as rMisc
 
-from dataMisc import aws_search_ntl  # noqa
-from misc import tPrint  # noqa
-import rasterMisc as rMisc  # noqa
 
 def extract_monthly_ntl(aoi, out_folder, sel_files=[]):
-    """ Extract monthly nighttime lights imagery from AWS S3 bucket for the given area of 
+    """Extract monthly nighttime lights imagery from AWS S3 bucket for the given area of
             interest (AOI) and save to the specified output folder.
 
     Parameters
@@ -44,23 +37,24 @@ def extract_monthly_ntl(aoi, out_folder, sel_files=[]):
         out_file = os.path.join(out_folder, os.path.basename(cur_file))
         if not os.path.exists(out_file):
             tPrint(f"Extracting {os.path.basename(cur_file)} to {out_folder}")
-            with rasterio.Env(GDAL_HTTP_UNSAFESSL = 'YES'):
+            with rasterio.Env(GDAL_HTTP_UNSAFESSL="YES"):
                 curRaster = rasterio.open(cur_file)
                 if curRaster.crs != aoi.crs:
                     aoi = aoi.to_crs(curRaster.crs)
                 data, out_meta = rMisc.clipRaster(curRaster, aoi, out_file, crop=False)
                 all_res.append([data, out_meta, out_file])
-    return(all_res)
+    return all_res
+
 
 def read_raster_box(curRaster, geometry, bandNum=1):
-    """ read section of a rasterio object with a specified geometry
+    """read section of a rasterio object with a specified geometry
 
     Parameters
     ----------
     curRaster : rasterio object
         raster file to read from
     geometry : shapely.geometry
-        Geomtery to read from raster
+        Geometery to read from raster
     bandNum : int, optional
         band in curRaster to read, by default 1
 
@@ -86,8 +80,10 @@ def calc_annual(df, extent, agg_method="MEAN"):
     :param extent: area to extract imagery from
     :type extent: shapely.Polygon
     """
-    with rasterio.Env(GDAL_HTTP_UNSAFESSL = 'YES'):
-        all_layers = df["PATH"].apply(lambda x: read_raster_box(rasterio.open(x), extent))
+    with rasterio.Env(GDAL_HTTP_UNSAFESSL="YES"):
+        all_layers = df["PATH"].apply(
+            lambda x: read_raster_box(rasterio.open(x), extent)
+        )
     all_vals = np.dstack(all_layers)
     if agg_method == "MEAN":
         final_vals = np.nanmean(all_vals, axis=2)
@@ -96,7 +92,7 @@ def calc_annual(df, extent, agg_method="MEAN"):
 
 
 def generate_annual_composites(aoi, agg_method="MEAN", sel_files=[], out_folder=""):
-    """ Collapse several monthly nighttime lights images into an annual composite
+    """Collapse several monthly nighttime lights images into an annual composite
 
     :param aoi: geopandas polygonal dataframe to use for clip clip extent based on crop param
     :type aoi: geopandas.GeoDataFrame
@@ -109,27 +105,31 @@ def generate_annual_composites(aoi, agg_method="MEAN", sel_files=[], out_folder=
         sel_files = aws_search_ntl()
     yr_month = [x.split("_")[1] for x in sel_files]
     yr = [int(x[:4]) for x in yr_month]
-    information = pd.DataFrame([yr, yr_month, sel_files], index=["YEAR", "MONTH", "PATH"]).transpose()
-    with rasterio.Env(GDAL_HTTP_UNSAFESSL = 'YES'):
-        annual_vals = information.groupby("YEAR").apply(lambda x: calc_annual(x, aoi.union_all(), agg_method))
+    information = pd.DataFrame(
+        [yr, yr_month, sel_files], index=["YEAR", "MONTH", "PATH"]
+    ).transpose()
+    with rasterio.Env(GDAL_HTTP_UNSAFESSL="YES"):
+        annual_vals = information.groupby("YEAR").apply(
+            lambda x: calc_annual(x, aoi.union_all(), agg_method)
+        )
 
     # Write the files to output
     if out_folder != "":
         if not os.path.exists(out_folder):
             os.makedirs(out_folder)
-        with rasterio.Env(GDAL_HTTP_UNSAFESSL = 'YES'):
+        with rasterio.Env(GDAL_HTTP_UNSAFESSL="YES"):
             out_meta = rasterio.open(information["PATH"].iloc[0]).profile.copy()
         for label, res in annual_vals.items():
-            #print([*aoi.bounds, res.shape[0], res.shape[1]])
+            # print([*aoi.bounds, res.shape[0], res.shape[1]])
             out_meta.update(
                 width=res.shape[0],
-                height=res.shape[1],                
+                height=res.shape[1],
                 transform=rasterio.transform.from_bounds(
                     *aoi.union_all().bounds, res.shape[0], res.shape[1]
                 ),
             )
             out_file = os.path.join(out_folder, f"VIIRS_{label}_annual.tif")
-            with rasterio.Env(GDAL_HTTP_UNSAFESSL = 'YES'): 
+            with rasterio.Env(GDAL_HTTP_UNSAFESSL="YES"):
                 with rasterio.open(out_file, "w", **out_meta) as out_r:
                     out_r.write_band(1, res)
     return annual_vals

@@ -1,0 +1,35 @@
+version: 1
+project:
+  title: GOSTrocks!
+  github: worldbank/GOSTrocks
+  toc:
+    - file: README.md
+
+    - title: Function Reference
+      children:
+        - file: api/dataMisc.md
+        - file: api/ghslMisc.md
+        - file: api/mapMisc.md
+        - file: api/misc.md
+        - file: api/ntlMisc.md
+        - file: api/osmMisc.md
+        - file: api/rasterMisc.md
+        - file: api/shapeMisc.md
+    - title: Examples
+      children:
+        - file: examples/GOSTrocks_Usage.ipynb
+        # - file: examples/dataMisc_exploration.ipynb
+        # - file: examples/mapMisc_exploration.ipynb
+        # - file: examples/ACLED_Explore_Access.ipynb
+        # - file: examples/NTL_extract_map.ipynb
+    - file: CONTRIBUTING.md
+      children:
+        - file: CODE_OF_CONDUCT.md
+
+site:
+  options:
+    favicon: images/favicon.ico
+    logo: images/logo.png
+    folders: true
+  parts:
+    primary_sidebar_footer: primary_sidebar_footer.md

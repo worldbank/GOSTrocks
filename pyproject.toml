@@ -1,5 +1,8 @@
 [build-system]
-requires = ["setuptools >= 61.0"]
+requires = [
+    "setuptools>=61",
+    "setuptools-scm[toml]>=8",
+]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -9,14 +12,13 @@ readme = { file = "README.md", content-type = "text/markdown" }
 license = { file = "LICENSE" }
 keywords = ["gostrocks", "raster", "GOST"]
 dynamic = ["version", "dependencies", "optional-dependencies"]
+requires-python = ">=3.8"
 
 authors = [
 	{ name = "Benjamin P. Stewart", email = "ben.gis.stewart@gmail.com" },
 	{ name = "Andres Chamorro", email = "afche18@gmail.com" }
 ]
 classifiers = [
-	"Programming Language :: Python :: 3",
-	"Programming Language :: Python :: 3.7",
 	"Programming Language :: Python :: 3.8",
 	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: 3.10",
@@ -28,13 +30,13 @@ classifiers = [
 	"Topic :: Scientific/Engineering",
 ]
 
-requires-python = ">=3.11"
-
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.txt"] }
 
 [tool.setuptools.dynamic.optional-dependencies]
 dev = { file = ["requirements-dev.txt"] }
+
+[tool.setuptools_scm]
 
 [project.urls]
 "Homepage" = "https://github.com/worldbank/GOSTrocks"
