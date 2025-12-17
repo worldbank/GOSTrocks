@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://localhost:3000/sitemap_style.xsl" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://localhost:3000</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/api/datamisc</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/api/ghslmisc</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/api/mapmisc</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/api/misc</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/api/ntlmisc</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/api/osmmisc</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/api/rastermisc</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/api/shapemisc</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/examples/gostrocks-usage</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/contributing</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/code-of-conduct</loc>
+  </url>
+</urlset>
