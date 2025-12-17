@@ -12,7 +12,7 @@ Future releases can be built from source, but pip will contain the most recent s
 
 ## Contributing
 
-Please refer to the World Bank's Github [Contributing](docs/CONTRIBUTING.md) guidelines.
+Please refer to the World Bank's Github [Contributing](CONTRIBUTING.md) guidelines.
 
 ## License
 
