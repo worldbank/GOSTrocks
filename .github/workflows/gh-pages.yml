@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,9 +22,9 @@ jobs:
       - name: Dependencies
         run: |
           if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
-      - name: Build Jupyter Book
+      - name: Build Jupyter book v2
         run: |
-          jupyter-book build docs/
+          jupyter book build docs/
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main' && job.status == 'success'
