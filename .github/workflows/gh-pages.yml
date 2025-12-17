@@ -10,6 +10,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      BASE_URL: GOSTrocks
     steps:
       - uses: actions/checkout@v4
         with:
