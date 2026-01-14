@@ -1,0 +1,19 @@
+{
+  "type": "Catalog",
+  "id": "fathom-v31-catalog",
+  "stac_version": "1.1.0",
+  "description": "STAC Catalog for FATHOM 3.1 global flood hazard data",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./FLOOD_MAP-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.1/collection.json",
+      "type": "application/json",
+      "title": "FATHOM 3.1 - FLOOD_MAP-1ARCSEC-NW_OFFSET-1in100-FLUVIAL-UNDEFENDED-DEPTH-2020-PERCENTILE50-v3.1"
+    }
+  ]
+}
