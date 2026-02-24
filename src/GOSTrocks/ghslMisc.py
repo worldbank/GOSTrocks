@@ -5,9 +5,7 @@ import numpy as np
 from .misc import tPrint
 
 
-def combine_ghsl_annual(
-    ghsl_files, built_thresh=0.1, ghsl_files_labels=[], out_file=""
-):
+def combine_ghsl_annual(ghsl_files, built_thresh=0.1, ghsl_files_labels=[], out_file=""):
     """Combine the annual tiffs from GHSL into a single raster.
     The output raster will have the minimum value of all the years for each pixel.
     This is useful for creating a raster that shows the earliest year that a pixel was built up.

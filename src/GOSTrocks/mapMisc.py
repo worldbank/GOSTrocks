@@ -274,7 +274,10 @@ def static_map_vector(
     # ax = ax.set_axis_off()
 
     if set_title:
-        plt.title(map_column)
+        if "title" in kwargs.keys():
+            plt.title(kwargs["title"])
+        else:   
+            plt.title(map_column)
 
     if out_file != "":
         plt.savefig(out_file, dpi=300, bbox_inches="tight")
