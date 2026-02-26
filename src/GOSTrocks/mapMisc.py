@@ -320,6 +320,7 @@ def static_map_raster(
 
     map_data = r_data.read()[0, :, :]
     map_data = np.nan_to_num(map_data, neginf=0, posinf=2000)
+    
     cm = plt.cm.get_cmap(colormap)
     if reverse_colormap:
         cm = cm.reversed()
@@ -327,11 +328,18 @@ def static_map_raster(
     if thresh:
         map_data = np.digitize(map_data, thresh)
     fig, ax = plt.subplots(figsize=figsize)
-    show(map_data, ax=ax, cmap=cm, transform=r_data.transform)
+    ax = show(map_data, ax=ax, cmap=cm, transform=r_data.transform)
 
+    '''
+    # map no data values to white
+    # Create an empty array with the same shape as map_data, filled with nan values
+    no_map_data = np.full_like(map_data, np.nan, dtype=float)
+    no_map_data[map_data == r_data.meta['nodata']] = 1
+    ax = show(no_map_data, ax=ax, cmap="grey", transform=r_data.transform)
+    '''
     legend_labels = [[cm(0), "Low"], [cm(0.5), "Medium"], [cm(1), "High"]]
     if thresh:
-        legend_labels = [[cm(x / max(thresh)), str(x)] for x in thresh]
+        legend_labels = [[cm((x-min(thresh)) / (max(thresh)-min(thresh))), str(x)] for x in thresh]
 
     patches = [Patch(color=x[0], label=x[1]) for x in legend_labels]
     if legend_loc:
