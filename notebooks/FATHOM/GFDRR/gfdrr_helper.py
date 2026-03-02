@@ -94,13 +94,14 @@ def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
                 masked_data = np.ma.array(data=data, mask=mask.astype(bool))
 
                 # calculate mean of values above threshold
-                #mean_val = masked_data[masked_data > depth_threshold].mean()
+                mean_val = masked_data[masked_data > 0].mean()
                 # calculate area percentage above threshold
                 area_flooded = (masked_data > depth_threshold).sum()
 
                 res[idx] = {
                     idx_col: row[idx_col],
                     'frac_area_flooded': (area_flooded / masked_data.count()) * 100 if masked_data.count() > 0 else 0, 
+                    'mean_val': mean_val if not np.isnan(mean_val) else 0,
                     #"area_flooded": area_flooded,
                     #"total_area": masked_data.count(),                    
                 }

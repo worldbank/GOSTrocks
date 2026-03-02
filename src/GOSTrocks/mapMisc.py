@@ -11,6 +11,8 @@ import matplotlib.colors as mcolors
 from rasterio.plot import show
 from matplotlib.patches import Patch
 from shapely.geometry import box
+from matplotlib_scalebar.scalebar import ScaleBar
+
 from . import dataMisc as dMisc
 
 
@@ -293,6 +295,7 @@ def static_map_raster(
     legend_loc="upper right",
     figsize=(10, 10),
     out_file="",
+    scale_bar=None
 ):
     """Simple plot of raster data
 
@@ -329,7 +332,9 @@ def static_map_raster(
         map_data = np.digitize(map_data, thresh)
     fig, ax = plt.subplots(figsize=figsize)
     ax = show(map_data, ax=ax, cmap=cm, transform=r_data.transform)
-
+    if scale_bar:
+        scalebar = ScaleBar(dx=scale_bar['dx'], units="m", location=scale_bar['location'], font_properties={'size': 'medium'})
+        ax.add_artist(scalebar)
     '''
     # map no data values to white
     # Create an empty array with the same shape as map_data, filled with nan values
