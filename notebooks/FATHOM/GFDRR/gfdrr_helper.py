@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 
 from affine import Affine
 from rasterio.features import rasterize, MergeAlg
+from rasterio.windows import from_bounds
 
 def map_flood(mapD, return_period, out_file):
     fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(15, 6))
@@ -56,13 +57,10 @@ def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
         for idx, row in inD.iterrows():
             geometry = row["geometry"]
             fCount = fCount + 1
-            ul = curRaster.index(*geometry.bounds[0:2])
-            lr = curRaster.index(*geometry.bounds[2:4])
+            ul = curRaster.index(geometry.bounds[0], geometry.bounds[3])
+            lr = curRaster.index(geometry.bounds[2], geometry.bounds[1])
             # read the subset of the data into a numpy array
-            window = (
-                (float(lr[0]), float(ul[0] + 1)),
-                (float(ul[1]), float(lr[1] + 1)),
-            )
+            window = from_bounds(*geometry.bounds, transform=curRaster.transform)
             try:
                 data = curRaster.read(1, window=window)
                 # Convert no data values to np.nan
@@ -92,9 +90,12 @@ def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
 
                 # create a masked numpy array
                 masked_data = np.ma.array(data=data, mask=mask.astype(bool))
-
                 # calculate mean of values above threshold
                 mean_val = masked_data[masked_data > 0].mean()
+                # if mean_val is masked, convert to 0
+                if np.ma.is_masked(mean_val):
+                    mean_val = 0
+
                 # calculate area percentage above threshold
                 area_flooded = (masked_data > depth_threshold).sum()
 
