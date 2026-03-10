@@ -57,8 +57,7 @@ def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
         for idx, row in inD.iterrows():
             geometry = row["geometry"]
             fCount = fCount + 1
-            ul = curRaster.index(geometry.bounds[0], geometry.bounds[3])
-            lr = curRaster.index(geometry.bounds[2], geometry.bounds[1])
+            
             # read the subset of the data into a numpy array
             window = from_bounds(*geometry.bounds, transform=curRaster.transform)
             try:
@@ -72,9 +71,7 @@ def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
                     data[data > max_val] = 0
                 
                 t = curRaster.transform
-                shifted_affine = Affine(
-                    t.a, t.b, t.c + ul[1] * t.a, t.d, t.e, t.f + lr[0] * t.e
-                )
+                shifted_affine = curRaster.window_transform(window)
 
                 # rasterize the geometry
                 mask = rasterize(
