@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 
 from affine import Affine
 from rasterio.features import rasterize, MergeAlg
-from rasterio.windows import from_bounds
 
 def map_flood(mapD, return_period, out_file):
     fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(15, 6))
@@ -21,8 +20,8 @@ def map_flood(mapD, return_period, out_file):
     for col in flood_columns:
         ax = axes[i]
         if i ==1:
-            legend_kwds={   
-                'title': 'Fraction of Area Flooded (%)',     
+            legend_kwds={
+                'title': 'Fraction of Area Flooded (%)',
                 'ncol': 3,#len(flood_thresh)-1,
                 'bbox_to_anchor': (1.2, 0.0), # Fine-tune the position relative to the plot
             }
@@ -38,8 +37,8 @@ def map_flood(mapD, return_period, out_file):
     plt.savefig(out_file)
     plt.close()
 
-def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col, 
-                                 all_touched=False, min_val=None, max_val=None,
+def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
+                                 all_touched=True, min_val=None, max_val=None,
                                  no_data=None):
     """
     Calculate hazard score for a single administrative unit based on mean depth and area percentage.
@@ -48,36 +47,52 @@ def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
         inD: GeoDataFrame with geometry of the admin units
         raster_path: path to raster file (can be VRT or regular GeoTIFF)
         depth_threshold: minimum depth threshold for hazard scoring
+        idx_col: column name for the index
+        all_touched: whether to include pixels touched by geometry boundary
+        min_val: minimum valid value (not used - kept for compatibility)
+        max_val: maximum valid value (not used - kept for compatibility)
+        no_data: nodata value override (if None, read from raster)
     """
     with rasterio.Env(GDAL_HTTP_UNSAFESSL='YES'):
         curRaster = rasterio.open(raster_path)
-        fCount = 0
         res = {}
+
+        # Get nodata value
         nodata_value = curRaster.nodata if no_data is None else no_data
+        if nodata_value is None:
+            nodata_value = -32768  # Fathom default
+            logging.warning(f"No nodata value found in raster metadata, using default: {nodata_value}")
+
         for idx, row in inD.iterrows():
             geometry = row["geometry"]
-            fCount = fCount + 1
+
+            # FIXED: Calculate correct corners
+            # Upper-left: (minx, maxy)
+            # Lower-right: (maxx, miny)
             ul = curRaster.index(geometry.bounds[0], geometry.bounds[3])
             lr = curRaster.index(geometry.bounds[2], geometry.bounds[1])
-            # read the subset of the data into a numpy array
-            window = from_bounds(*geometry.bounds, transform=curRaster.transform)
+
+            # FIXED: Build window manually from calculated corners
+            # Do NOT use from_bounds() - it bypasses the corner calculation!
+            window = (
+                (float(ul[0]), float(lr[0] + 1)),  # (row_start, row_stop)
+                (float(ul[1]), float(lr[1] + 1)),  # (col_start, col_stop)
+            )
+
             try:
+                # Read data from the window
                 data = curRaster.read(1, window=window)
-                # Convert no data values to np.nan
-                data = np.where(data == nodata_value, np.nan, data)
-                # Apply min and max value filters if provided
-                if min_val is not None:
-                    data[data < min_val] = 0
-                if max_val is not None:
-                    data[data > max_val] = 0
-                
+
+                # FIXED: Create affine transform anchored at upper-left corner
+                # Use ul[0] for both X and Y offsets (not lr[0]!)
                 t = curRaster.transform
                 shifted_affine = Affine(
-                    t.a, t.b, t.c + ul[1] * t.a, t.d, t.e, t.f + lr[0] * t.e
+                    t.a, t.b, t.c + ul[1] * t.a,  # X offset: ul[1] * pixel_width
+                    t.d, t.e, t.f + ul[0] * t.e   # Y offset: ul[0] * pixel_height (FIXED: was lr[0])
                 )
 
-                # rasterize the geometry
-                mask = rasterize(
+                # Rasterize the geometry with corrected affine
+                geom_mask = rasterize(
                     [(geometry, 0)],
                     out_shape=data.shape,
                     transform=shifted_affine,
@@ -85,33 +100,63 @@ def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
                     all_touched=all_touched,
                     dtype=np.uint8,
                 )
-                # Add to the mask areas that are nan in the data
-                mask = np.where(np.isnan(data), 1, mask)
 
-                # create a masked numpy array
-                masked_data = np.ma.array(data=data, mask=mask.astype(bool))
-                # calculate mean of values above threshold
-                mean_val = masked_data[masked_data > 0].mean()
-                # if mean_val is masked, convert to 0
-                if np.ma.is_masked(mean_val):
-                    mean_val = 0
+                # FIXED: Create nodata mask properly
+                # Flag nodata value AND any negative values
+                nodata_mask = (data == nodata_value) | (data < 0)
 
-                # calculate area percentage above threshold
-                area_flooded = (masked_data > depth_threshold).sum()
+                # FIXED: Combine masks properly
+                # combined_mask = True means: outside geometry OR nodata (exclude these pixels)
+                combined_mask = geom_mask.astype(bool) | nodata_mask
+
+                # Extract valid values (inside geometry AND valid data)
+                valid_values = data[~combined_mask]
+
+                if len(valid_values) > 0:
+                    # Mean of all wet pixels (depth > 0)
+                    wet = valid_values[valid_values > 0]
+                    mean_val = float(np.mean(wet)) if len(wet) > 0 else 0.0
+
+                    # Area fraction: pixels above depth threshold / all valid land pixels
+                    area_flooded = np.sum(valid_values > depth_threshold)
+                    frac_area_flooded = (area_flooded / len(valid_values)) * 100
+                else:
+                    mean_val = 0.0
+                    frac_area_flooded = 0.0
 
                 res[idx] = {
                     idx_col: row[idx_col],
-                    'frac_area_flooded': (area_flooded / masked_data.count()) * 100 if masked_data.count() > 0 else 0, 
-                    'mean_val': mean_val if not np.isnan(mean_val) else 0,
-                    #"area_flooded": area_flooded,
-                    #"total_area": masked_data.count(),                    
+                    'mean_val': mean_val,
+                    'frac_area_flooded': frac_area_flooded,
                 }
+
             except Exception as e:
-                #print(f"Error processing geometry at index {idx}: {e}")
+                logging.error(f"Error processing geometry at index {idx}: {e}")
                 res[idx] = {
                     idx_col: row[idx_col],
-                    'frac_area_flooded': 0, 
-                    #"area_flooded": 0,
-                    #"total_area": 0,
+                    'mean_val': 0,
+                    'frac_area_flooded': 0,
                 }
-        return(pd.DataFrame.from_dict(res, orient='index'))
+
+        curRaster.close()
+        return pd.DataFrame.from_dict(res, orient='index')
+
+
+def calculate_hazard_score(depth_threshold, area_threshold, *args):
+    """
+    Calculate hazard score based on dual thresholds.
+
+    Args:
+        depth_threshold: minimum mean depth (cm) for scoring
+        area_threshold: minimum area percentage (%) for scoring
+        *args: pairs of (mean_val, frac_area_flooded) for each return period
+
+    Returns:
+        int: hazard score (0-4 based on number of return periods exceeding both thresholds)
+    """
+    score = 0
+    for mean_val, frac_area in args:
+        # Both conditions must be met for this return period to count
+        if mean_val >= depth_threshold and frac_area >= area_threshold:
+            score += 1
+    return score
