@@ -60,7 +60,7 @@ def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
         # Get nodata value
         nodata_value = curRaster.nodata if no_data is None else no_data
         if nodata_value is None:
-            nodata_value = -32768  # Fathom default
+            nodata_value = -32767  # Fathom default
             logging.warning(f"No nodata value found in raster metadata, using default: {nodata_value}")
 
         for idx, row in inD.iterrows():
