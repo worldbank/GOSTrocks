@@ -38,8 +38,7 @@ def map_flood(mapD, return_period, out_file):
     plt.close()
 
 def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
-                                 all_touched=True, min_val=None, max_val=None,
-                                 no_data=None):
+                                 all_touched=True):
     """
     Calculate hazard score for a single administrative unit based on mean depth and area percentage.
 
@@ -49,19 +48,17 @@ def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
         depth_threshold: minimum depth threshold for hazard scoring
         idx_col: column name for the index
         all_touched: whether to include pixels touched by geometry boundary
-        min_val: minimum valid value (not used - kept for compatibility)
-        max_val: maximum valid value (not used - kept for compatibility)
-        no_data: nodata value override (if None, read from raster)
+
+    Note:
+        Nodata values are automatically handled by excluding all negative values (< 0).
+        Valid flood depths are always >= 0.
     """
     with rasterio.Env(GDAL_HTTP_UNSAFESSL='YES'):
         curRaster = rasterio.open(raster_path)
         res = {}
 
-        # Get nodata value
-        nodata_value = curRaster.nodata if no_data is None else no_data
-        if nodata_value is None:
-            nodata_value = -32767  # Fathom default
-            logging.warning(f"No nodata value found in raster metadata, using default: {nodata_value}")
+        # Note: We don't need to read the nodata value since we simply exclude all negative values
+        # Valid flood depths are always >= 0, so any negative value is nodata
 
         for idx, row in inD.iterrows():
             geometry = row["geometry"]
@@ -102,8 +99,9 @@ def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
                 )
 
                 # FIXED: Create nodata mask properly
-                # Flag nodata value AND any negative values
-                nodata_mask = (data == nodata_value) | (data < 0)
+                # Exclude all negative values as nodata (Fathom uses various negative values)
+                # Valid flood depths are always >= 0
+                nodata_mask = (data < 0)
 
                 # FIXED: Combine masks properly
                 # combined_mask = True means: outside geometry OR nodata (exclude these pixels)
