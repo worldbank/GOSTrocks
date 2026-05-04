@@ -14,7 +14,7 @@ from rasterio.features import rasterize, MergeAlg
 from rasterio.warp import reproject, Resampling, calculate_default_transform
 from rasterio.merge import merge
 from rasterio.io import MemoryFile
-from rasterio.window import from_bounds
+from rasterio.windows import from_bounds
 from rasterio.crs import CRS
 from scipy.ndimage import gaussian_filter
 from contextlib import contextmanager
@@ -513,11 +513,8 @@ def zonalStats(
             try:
                 if fCount % 1000 == 0 and verbose:
                     tPrint("Processing %s of %s" % (fCount, tCount))
-                # get pixel coordinates of the geometry's bounding box
-                ul = curRaster.index(geometry.bounds[0], geometry.bounds[3])
-                lr = curRaster.index(geometry.bounds[2], geometry.bounds[1])            
                 window = from_bounds(*geometry.bounds, transform=curRaster.transform)
-
+                shifted_affine = curRaster.window_transform(window)
                 if mask_A is not None:
                     data = curRaster.read(bandNum, window=window, masked=True)
                 else:
@@ -540,12 +537,6 @@ def zonalStats(
                     data = newData
                     masked_data = np.ma.array(data=data, mask=[data <= 0])
                 else:
-                    # create an affine transform for the subset data
-                    t = curRaster.transform
-                    shifted_affine = Affine(
-                        t.a, t.b, t.c + ul[1] * t.a, t.d, t.e, t.f + lr[0] * t.e
-                    )
-
                     # rasterize the geometry
                     mask = rasterize(
                         [(geometry, 0)],

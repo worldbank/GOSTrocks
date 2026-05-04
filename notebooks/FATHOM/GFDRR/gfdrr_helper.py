@@ -39,8 +39,7 @@ def map_flood(mapD, return_period, out_file):
     plt.close()
 
 def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col, 
-                                 all_touched=False, min_val=None, max_val=None,
-                                 no_data=None):
+                                 all_touched=False, no_data=None):
     """
     Calculate hazard score for a single administrative unit based on mean depth and area percentage.
 
@@ -58,21 +57,12 @@ def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
             geometry = row["geometry"]
             fCount = fCount + 1
             
-            # read the subset of the data into a numpy array
+            # read subset of the data into a numpy array
             window = from_bounds(*geometry.bounds, transform=curRaster.transform)
+            shifted_affine = curRaster.window_transform(window)
             try:
                 data = curRaster.read(1, window=window)
-                # Convert no data values to np.nan
-                data = np.where(data == nodata_value, np.nan, data)
-                # Apply min and max value filters if provided
-                if min_val is not None:
-                    data[data < min_val] = 0
-                if max_val is not None:
-                    data[data > max_val] = 0
                 
-                t = curRaster.transform
-                shifted_affine = curRaster.window_transform(window)
-
                 # rasterize the geometry
                 mask = rasterize(
                     [(geometry, 0)],
@@ -82,8 +72,9 @@ def calculate_think_hazard_score(inD, raster_path, depth_threshold, idx_col,
                     all_touched=all_touched,
                     dtype=np.uint8,
                 )
-                # Add to the mask areas that are nan in the data
-                mask = np.where(np.isnan(data), 1, mask)
+                
+                # Add to the mask areas that are < 0
+                mask = np.where(data < 0, 1, mask)
 
                 # create a masked numpy array
                 masked_data = np.ma.array(data=data, mask=mask.astype(bool))
