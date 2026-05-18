@@ -296,7 +296,10 @@ def rasterizeDataFrame(
         raise (ValueError("MergeAlg must be one of REPLACE or ADD"))
 
     if templateRaster != "":
-        inR = rasterio.open(templateRaster)
+        if isinstance(templateRaster, str):
+            inR = rasterio.open(templateRaster)
+        else:
+            inR = templateRaster
         cMeta = inR.profile.copy()
         cMeta.update(count=1)
         nTransform = cMeta["transform"]
@@ -617,7 +620,7 @@ def standardizeInputRasters(inR1, inR2, inR1_outFile="", resampling_type="neares
     :param inR1: rasterio object for raster to be modified
     :type inR1: rasterio.DatasetReader
     :param inR2: rasterio object to be standardized to
-    :type inR12 rasterio.DatasetReader
+    :type inR2 rasterio.DatasetReader
     :param inR1_outfile: path to create output raster file of standardized inR1, default is '', which means nothing is written
     :type inR1: string
     :param resampling_type: how to perform spatial resampling; options are nearest (default), cubic, or sum

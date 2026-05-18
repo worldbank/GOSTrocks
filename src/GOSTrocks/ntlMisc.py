@@ -2,10 +2,12 @@ import os
 import rasterio
 
 import pandas as pd
+import geopandas as gpd
 import numpy as np
 import xarray as xr
 import matplotlib.pyplot as plt
 
+from shapely.geometry import Point
 from .dataMisc import aws_search_ntl
 from .misc import tPrint
 from . import rasterMisc as rMisc
@@ -223,3 +225,81 @@ def run_zonal(inD, ntl_files=[], minval=0.1, verbose=False, calc_sd=True):
         ntl_df = pd.DataFrame(ntl_res, columns=out_cols)
         inD[f"ntl_{name}_SUM"] = ntl_df["SUM"]
     return inD
+
+def run_zonal_flares(inD, flares_file, ntl_images=[], buffer_dist=5000, minval=0.1, verbose=False, calc_sd=True):
+    """Run zonal statistics against a series of nighttime lights files, masking values to 0 around flares
+
+    :param inD: input geopandas dataframe in which to summarize results
+    :type inD: gpd.GeoDataFrames
+    :param ntl_images: list of ntl images to summarize, defaults to [] which will search for all files in the s3 bucket using datMisc.aws_search_ntl()
+    :type ntl_images: list, optional
+    :param flares_file: path to flares file
+    :type flares_file: str
+    :param minval: Minimum value to summarize in nighttime lights, defaults to 0.1 which means all values below this become 0
+    :type minval: float, optional
+    :param verbose: print additional information, defaults to False
+    :type verbose: bool, optional
+    :param calc_sd: calculate standard deviation, defaults to True
+    :type calc_sd: bool, optional
+    """
+    if len(ntl_images) == 0:
+        ntl_images = aws_search_ntl()
+
+    if verbose:
+        tPrint(f"Creating flare mask with buffer distance of {buffer_dist} meters")
+    # read in the flares file and create a mask
+    flaring_d = pd.read_excel(flares_file)
+    flaring_d["ID"] = flaring_d.index
+    flaring_geoms = [Point(x) for x in zip(flaring_d["Longitude"], flaring_d["Latitude"])]
+    flaring_d = gpd.GeoDataFrame(flaring_d, geometry=flaring_geoms, crs=4326)
+    buffered_flare = flaring_d.copy().to_crs("ESRI:54009")
+
+    buffered_flare["geometry"] = buffered_flare["geometry"].apply(
+        lambda x: x.buffer(buffer_dist)
+    )
+    buffered_flare = buffered_flare.to_crs(4326)
+
+    with rasterio.Env(GDAL_HTTP_UNSAFESSL='YES'):
+        ntl_r = rasterio.open(ntl_images[0])
+        ntl_window = rasterio.windows.from_bounds(*inD.total_bounds, transform=ntl_r.transform)
+        ntl_data = ntl_r.read(1, window=ntl_window)
+        masked_ntl_data = ntl_data.copy()
+
+        temp_meta = ntl_r.meta.copy()
+        temp_meta.update({
+            "height": ntl_window.height,
+            "width": ntl_window.width,
+            "transform": rasterio.windows.transform(ntl_window, ntl_r.transform)
+        })
+    # Loop through the NTL images and calculate zonal stats for each, saving results to a CSV file
+    final_ntl_res = inD.copy()
+    for idx, ntl_image in enumerate(ntl_images):
+        ntl_name = ntl_image.split("/")[-1].split("_")[2][:6]
+        if verbose:
+            tPrint(f"Processing {ntl_name} ({idx+1}/{len(ntl_images)})")
+        # Set rasterio environment to ignore SSL certificate issues with AWS
+        with rasterio.Env(GDAL_HTTP_UNSAFESSL='YES'):
+            with rasterio.open(ntl_image) as ntl_r:                
+                if inD.crs != ntl_r.crs:
+                    inD = inD.to_crs(ntl_r.crs)
+                # Calculate zonal stats on the raw NTL data
+                raw_ntl = rMisc.zonalStats(inD, ntl_image, minVal=minval, reProj=True)
+                raw_ntl = pd.DataFrame(raw_ntl, columns=["SUM", "MIN", "MAX", "MEAN"])
+                final_ntl_res[f"{ntl_name}_RAW"] = raw_ntl["SUM"]
+                
+                ntl_data = ntl_r.read(1, window=ntl_window)
+                masked_ntl_data = ntl_data.copy()
+
+                with rMisc.create_rasterio_inmemory(temp_meta, ntl_data) as ntl_raster:
+                    flare_mask = rMisc.rasterizeDataFrame(buffered_flare, None, templateRaster=ntl_raster, nodata=0)
+                    flare_mask = (~flare_mask["vals"].astype(bool)).astype(int)
+                    bool_flare_mask = flare_mask.astype(bool)
+                    if bool_flare_mask.shape != masked_ntl_data.shape:
+                        new_mask = np.zeros(masked_ntl_data.shape, dtype=bool)
+                        new_mask[:bool_flare_mask.shape[0], :bool_flare_mask.shape[1]] = bool_flare_mask
+                        bool_flare_mask = new_mask
+                    masked_ntl_data[~bool_flare_mask] = 0
+                
+                with rMisc.create_rasterio_inmemory(ntl_r.profile, masked_ntl_data) as masked_ntl_raster:
+                    masked_ntl = rMisc.zonalStats(inD, masked_ntl_raster, minVal=minval, return_df=True)
+                    final_ntl_res[f"{ntl_name}_MASKED"] = masked_ntl["SUM"]        

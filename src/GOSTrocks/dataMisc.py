@@ -1,3 +1,4 @@
+from io import BytesIO
 import os
 import json
 import urllib
@@ -15,6 +16,46 @@ from botocore.config import Config
 from botocore import UNSIGNED
 
 from . import rasterMisc as rMisc
+
+def download_wb_boundaries(level: str,
+                            iso3: str=None,                                                       
+                            url: str='https://services.arcgis.com/iQ1dY19aHwbSDYIF/arcgis/rest/services/World_Bank_Global_Administrative_Divisions/FeatureServer/{level}/query?',
+                            verify_ssl: bool=False                            
+                           ):
+    """ Download WB_GAD boundaries from ArcGIS REST API
+    Parameters
+    ----------
+    level : str
+        Administrative level to download, must be one of "ADM0_Lines", "ADM0_All", "ADM0_Countries", "ADM1", "ADM2", "NDLSA"
+    iso3 : str, optional
+        ISO3 code of country to download, by default None which downloads all countries
+    url : str, optional 
+        URL to the ArcGIS REST API, by default 'https://services.arcgis.com/iQ1dY19aHwbSDYIF/arcgis/rest/services/World_Bank_Global_Administrative_Divisions/FeatureServer/{level}/query?'
+    verify_ssl : bool, optional
+        Whether to verify SSL certificates when making the request, by default False
+    """
+    if level not in ["ADM0_Lines", "ADM0_All", "ADM0", "ADM1", "ADM2", "NDLSA"]:
+        raise ValueError("Level must be one of 'ADM0_Lines', 'ADM0_All', 'ADM0', 'ADM1', 'ADM2', 'NDLSA'")
+    level_dictionary = {
+        "ADM0_Lines": "0",
+        "ADM0_All": "4",
+        "ADM0": "1",
+        "ADM1": "2",
+        "ADM2": "3",
+        "NDLSA": "4"
+    }
+    query_params = {
+        "outfields": "*",
+        "f": "pgeojson"
+    }
+    if iso3 is not None:
+        query_params["where"] = f"\"ISO_A3\"='{iso3}'"
+    query_str = urllib.parse.urlencode(query_params)
+    query_url = url.format(level=level_dictionary[level]) + query_str
+    response = requests.get(query_url, verify=verify_ssl) # <--- Ignore SSL if verify_ssl is False
+    adm_gdf = gpd.read_file(BytesIO(response.content))
+    return(adm_gdf)
+    
 
 
 def download_WSF(
