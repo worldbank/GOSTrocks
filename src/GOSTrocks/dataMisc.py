@@ -17,6 +17,20 @@ from botocore import UNSIGNED
 
 from . import rasterMisc as rMisc
 
+def get_all_wb_iso3():
+    """Get a list of all ISO3 codes for countries in the World Bank dataset
+
+    Returns
+    -------
+    list
+        List of ISO3 codes for countries in the World Bank dataset
+    """
+    url = 'https://services.arcgis.com/iQ1dY19aHwbSDYIF/ArcGIS/rest/services/World_Bank_Global_Administrative_Divisions/FeatureServer/1/query?where=%22FID%22%3E0&objectIds=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&outDistance=&relationParam=&returnGeodetic=false&outFields=ISO_A3&returnGeometry=false&returnCentroid=false&returnEnvelope=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&collation=&orderByFields=&groupByFieldsForStatistics=&returnAggIds=false&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnTrueCurves=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token='
+    response = requests.get(url, verify=False)
+    data = json.loads(response.content.decode())
+    iso3_list = [feature['attributes']['ISO_A3'] for feature in data['features']]
+    return iso3_list
+
 def download_wb_boundaries(level: str,
                             iso3: str=None,                                                       
                             url: str='https://services.arcgis.com/iQ1dY19aHwbSDYIF/arcgis/rest/services/World_Bank_Global_Administrative_Divisions/FeatureServer/{level}/query?',
@@ -325,10 +339,13 @@ def gdf_esri_service(url, layer=0, verify_ssl=True):
             }
             query_str = urllib.parse.urlencode(all_records_query)
             all_query_url = f"{query_url}?{query_str}"
-            with requests.get(
-                all_query_url, verify=verify_ssl, stream=False
-            ) as geojson_result:
-                return gpd.read_file(geojson_result.text)
+            print(all_query_url)
+            with requests.get(all_query_url, verify=verify_ssl, stream=False) as geojson_result:
+                try:
+                    return gpd.read_file(geojson_result.text)
+                except Exception as e:                    
+                    data = json.loads(geojson_result.text)
+                    return gpd.GeoDataFrame.from_features(data)
         else:
             step_query = {
                 "outFields": "*",

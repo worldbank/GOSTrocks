@@ -1,5 +1,5 @@
 # Installation testing ipykernel
 conda create -n test_install geopandas
 conda activate test_install
-pip install ".[dev]"
+python -m pip install ".[dev]"
 sphinx-build -b html .\docs\ _build/html

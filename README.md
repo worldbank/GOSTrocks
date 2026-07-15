@@ -5,10 +5,16 @@ This repository includes support functions for a number of geospatial tools used
 ## Installation
 
 ```{shell}
-pip install GOSTRocks
+pip install GOSTrocks
 ```
 
-Future releases can be built from source, but pip will contain the most recent stable version (to be updated).
+For a local development install from source:
+
+```{shell}
+pip install -e .[dev]
+```
+
+The package ships with the runtime resources required by `GOSTrocks.dataMisc`.
 
 ## Contributing
 

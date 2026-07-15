@@ -42,3 +42,15 @@ dev = { file = ["requirements-dev.txt"] }
 "Homepage" = "https://github.com/worldbank/GOSTrocks"
 "Bug Reports" = "https://github.com/worldbank/GOSTrocks/issues"
 "Source" = "https://github.com/worldbank/GOSTrocks"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+GOSTrocks = ["*.txt"]
