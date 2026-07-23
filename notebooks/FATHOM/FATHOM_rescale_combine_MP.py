@@ -32,7 +32,7 @@ import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 def process_tile(tile, ghs_pop_file, scenario, year, s3_bucket, path_prefix, out_folder,
-                 depth_thresh = [0, 15, 50]):
+                 depth_thresh = [0, 15, 50, 150]):
     """Processes a single tile for FATHOM flood depth data.
 
     Args:
@@ -54,20 +54,24 @@ def process_tile(tile, ghs_pop_file, scenario, year, s3_bucket, path_prefix, out
         fluvial_path = "s3://{bucket}/{path}/{tile}".format(bucket=s3_bucket, path=path_prefix.format(hazard="FLUVIAL", year=year, scenario=scenario), tile=tile)
         coastal_path = "s3://{bucket}/{path}/{tile}".format(bucket=s3_bucket, path=path_prefix.format(hazard="COASTAL", year=year, scenario=scenario), tile=tile)
         pluvial_path = "s3://{bucket}/{path}/{tile}".format(bucket=s3_bucket, path=path_prefix.format(hazard="PLUVIAL", year=year, scenario=scenario), tile=tile)
-        ghs_r = rasterio.open(ghs_pop_file)
-
-        fluvial_r = rasterio.open(fluvial_path)
+        try:
+            fluvial_r = rasterio.open(fluvial_path)
+        except:
+            tPrint(f"Tile {tile} not found for scenario: {scenario}, year: {year}")
+            return
         fluvial_meta = fluvial_r.meta.copy()
         
+        
+        ghs_r = rasterio.open(ghs_pop_file)      
         # get boundaing box of the raster
         tile_box = box(*fluvial_r.bounds)
-        
         # Turn the tile_box shape into a geodataframe and reproject to the same crs as the ghs raster
         tile_gdf = gpd.GeoDataFrame(geometry=[tile_box], crs=fluvial_r.crs)
         tile_gdf = tile_gdf.to_crs(ghs_r.crs)
         ghs_data, ghs_meta = rMisc.clipRaster(ghs_r, tile_gdf, None, True)
+
         with rMisc.create_rasterio_inmemory(ghs_meta, ghs_data) as ghs_local:                        
-            try:
+            #try:
                 fluvial_r = rasterio.open(fluvial_path)
                 fluvial_meta = fluvial_r.meta.copy()    
                 # Stack the rasters together and take the max value across the stack to get the combined flood depth
@@ -79,9 +83,51 @@ def process_tile(tile, ghs_pop_file, scenario, year, s3_bucket, path_prefix, out
                     max_depth = np.maximum.reduce([max_depth, coastal_data])
                 except:
                     pass                            
+
+                out_file = os.path.join(out_folder, f"{tile[:-4]}_FATHOM_{year}_{scenario}_combo_{pop_file_name}m_proportion.tif")
+                process = True
+                try:
+                    xx = rasterio.open(out_file)
+                    process = False
+                except:
+                    pass
+                if process:
+                    ghs_meta.update({"dtype": rasterio.float32, "count": 5})  
+                    '''
+                    Band 1: % of cells with no flood risk
+                    Band 2: % of cells with flood risk between 0-15cm
+                    Band 3: % of cells with flood risk between 15-50cm
+                    Band 4: % of cells with flood risk between 50-150cm
+                    Band 5: % of cells with flood risk over 150 cm
+                    '''                  
+                    with rasterio.open(out_file, "w", **ghs_meta) as dest:
+                        i = 0                        
+                        for cDepth in depth_thresh:
+                            i += 1
+                            numerator = np.where(max_depth > cDepth, 1, 0)
+                            denominator = np.where(max_depth > cDepth, 0, 1)
+                            with rMisc.create_rasterio_inmemory(fluvial_meta, numerator[0,:,:]) as fathom_depth:
+                                numerator_scaled, numerator_meta = rMisc.standardizeInputRasters(fathom_depth, ghs_local, resampling_type="sum")
+                            with rMisc.create_rasterio_inmemory(fluvial_meta, denominator[0,:,:]) as fathom_depth:
+                                denominator_scaled, denominator_meta = rMisc.standardizeInputRasters(fathom_depth, ghs_local, resampling_type="sum")
+                            
+                            results = numerator_scaled / (denominator_scaled + numerator_scaled)
+                            if i == 1:
+                                dest.write_band(i, denominator_scaled[0,:,:])
+                                i += 1
+                            dest.write_band(i, results[0,:,:].astype(rasterio.float32))
+                                                                
+                '''
                 for cDepth in depth_thresh:
                     out_file = os.path.join(out_folder, f"{tile[:-4]}_FATHOM_{year}_{scenario}_{cDepth}cm_{pop_file_name}m_proportion.tif")
-                    if not os.path.exists(out_file):            
+                    
+                    process = True
+                    try:
+                        xx = rasterio.open(out_file)
+                        process = False
+                    except:
+                        pass
+                    if process:
                         numerator = np.where(max_depth > cDepth, 1, 0)
                         denominator = np.where(max_depth > cDepth, 0, 1)
                         with rMisc.create_rasterio_inmemory(fluvial_meta, numerator[0,:,:]) as fathom_depth:
@@ -92,11 +138,15 @@ def process_tile(tile, ghs_pop_file, scenario, year, s3_bucket, path_prefix, out
                         results = numerator_scaled / (denominator_scaled + numerator_scaled)
                         numerator_meta.update({"dtype": rasterio.float32, "count": 1})                    
                         with rasterio.open(out_file, "w", **numerator_meta) as dest:
-                            dest.write(results.astype(rasterio.float32))                                        
+                            dest.write(results.astype(rasterio.float32))
+                                                        
             except:
                 pass                                                    
+                '''
 
-def get_list_of_processed_tiles(out_folder=None, s3_path=None, scenario="PERCENTILE50", year=2020, depth_thresh=[0]):
+def get_list_of_processed_tiles(out_folder=None, s3_path=None, 
+                                scenario="PERCENTILE50", year=2020, depth_thresh=[0, 15, 50],
+                                copy_to_s3=False):
     """Returns a list of tiles that have already been processed and saved in the output folder.
 
     Args:
@@ -105,25 +155,28 @@ def get_list_of_processed_tiles(out_folder=None, s3_path=None, scenario="PERCENT
         scenario (str): The scenario name.
         year (int): The year of the scenario.
         depth_thresh (list, optional): List of depth thresholds. Defaults to [0, 15, 50].
+        copy_to_s3 (bool): If True, copy files from out_folder to S3 if they don't exist on S3.
     """
     if not out_folder and not s3_path:
         raise ValueError("Either out_folder or s3_path must be provided.")
     
-    if out_folder:
-        processed_tiles = []
+    # Get processed tiles from local folder
+    local_tiles = []
+    if out_folder and os.path.exists(out_folder):
         for cDepth in depth_thresh:
             pattern = f"_FATHOM_{year}_{scenario}_{cDepth}cm_"
             for file in os.listdir(out_folder):
                 if pattern in file and file.endswith(".tif"):
-                    processed_tiles.append(file.split("_FATHOM_")[0] + ".tif")
-        return list(set(processed_tiles))
+                    local_tiles.append(file)
+        local_tiles = list(set(local_tiles))
     
+    # Get processed tiles from S3
+    s3_tiles = []
     if s3_path:
         paginator = s3_client.get_paginator('list_objects_v2')
-        processed_tiles = []
         s3_bucket = s3_path.split('/')[2]
         prefix = '/'.join(s3_path.split('/')[3:])
-        print (f"Checking S3 bucket: {s3_bucket} with prefix: {prefix}")
+        print(f"Checking S3 bucket: {s3_bucket} with prefix: {prefix}")
         for cDepth in depth_thresh:
             pattern = f"_FATHOM_{year}_{scenario}_{cDepth}cm_"
             for page in paginator.paginate(Bucket=s3_bucket, Prefix=prefix):
@@ -131,12 +184,21 @@ def get_list_of_processed_tiles(out_folder=None, s3_path=None, scenario="PERCENT
                     for obj in page['Contents']:
                         key = obj['Key']
                         if pattern in key and key.endswith(".tif"):
-                            processed_tiles.append(key.split("/")[-1].split("_FATHOM_")[0] + ".tif")
-        return list(set(processed_tiles))
+                            s3_tiles.append(key.split("/")[-1])
+        s3_tiles = list(set(s3_tiles))   
+   
+    # Return based on what was requested
+    if out_folder and s3_path:
+        return list(set(local_tiles + s3_tiles))
+    elif out_folder:
+        return local_tiles
+    else:
+        return s3_tiles
+
 
 def main():
     local_folder = "C:/WBG/Work/Projects/FATHOM_COLLAPSE"
-    out_folder = os.path.join(local_folder, "FATHOM_summaries")
+    out_folder = os.path.join(local_folder, "FATHOM_summaries")    
     map_folder = os.path.join(local_folder, "FATHOM_maps")
     for tF in [out_folder, map_folder]:
         if not os.path.exists(tF):
@@ -149,7 +211,7 @@ def main():
 
     s3_bucket = "wbg-geography01"
     s3_prefix = "FATHOM"
-    return_period = 100
+    return_period = 100    
 
     # Use the S3 client to get a list of VRT files in the specified bucket and prefix
     response = s3_client.list_objects_v2(Bucket=s3_bucket, Prefix=s3_prefix)
@@ -185,23 +247,31 @@ def main():
     pop_file_name = ghs_pop_file.split("_")[-3]
     ghs_r = rasterio.open(ghs_pop_file)        
 
-    scenarios = ['PERCENTILE50'] #vrt_df['scenario'].unique()        
-    years = ['2020'] #vrt_df['year'].unique()
-    depth_thresh = [0,15,50]
+    scenarios = ['PERCENTILE50'] #vrt_df['scenario'].unique()
+    years = [2020]  #vrt_df['year'].unique()
+    depth_thresh = [0,15,50,150]
     
     all_args = []
 
     for tile in tif_files:
-        cur_args = [tile, ghs_pop_file, scenarios[0], years[0], s3_bucket, path_prefix, out_folder, depth_thresh]
-        all_args.append(cur_args)
+        for scenario in scenarios:
+            for year in years:
+                #cur_out_folder = f"s3://{s3_bucket}/{s3_prefix}/v31_scaled_GHS_Pop/{pop_file_name}m/COMBO/"
+                cur_out_folder = os.path.join(out_folder, f"{pop_file_name}m", "COMBO")
+                if not os.path.exists(cur_out_folder):
+                    os.makedirs(cur_out_folder)
+                cur_args = [tile, ghs_pop_file, scenario, year, s3_bucket, path_prefix, cur_out_folder, depth_thresh]
+                all_args.append(cur_args)
         
+    #process_tile(*all_args[0])  # Process the first tile for testing
+
     # Use multiprocessing to process tiles in parallel
     from multiprocessing import Pool, cpu_count
     num_processes = min(cpu_count() - 1, len(all_args))
     with Pool(num_processes) as pool:
         pool.starmap(process_tile, all_args)
-
-def test_file_count(out_folder, s3_path, scenario="PERCENTILE50", year=2020, depth_thresh=[0]):
+    
+def test_file_count(out_folder, s3_path, scenario="PERCENTILE50", year=2020, depth_thresh=[0], copy_to_s3=False):
     """Tests the number of processed files in the output folder against the expected number from S3.
 
     Args:
@@ -212,12 +282,31 @@ def test_file_count(out_folder, s3_path, scenario="PERCENTILE50", year=2020, dep
         depth_thresh (list, optional): List of depth thresholds. Defaults to [0].
     """
     processed_tiles_local = get_list_of_processed_tiles(out_folder=out_folder, scenario=scenario, year=year, depth_thresh=depth_thresh)
+    tPrint(f"Number of processed tiles locally: {len(processed_tiles_local)}")
     processed_tiles_s3 = get_list_of_processed_tiles(s3_path=s3_path, scenario=scenario, year=year, depth_thresh=depth_thresh)
+    tPrint(f"Number of processed tiles on S3: {len(processed_tiles_s3)}")
+
+    if copy_to_s3 and out_folder and s3_path:
+        missing_tiles = [tile for tile in processed_tiles_local if tile not in processed_tiles_s3]
+        if missing_tiles:
+            print(f"Found {len(missing_tiles)} tiles to copy to S3")
+            s3_bucket = s3_path.split('/')[2]
+            prefix = '/'.join(s3_path.split('/')[3:])
+            for tile in tqdm(missing_tiles, desc="Uploading to S3"):
+                local_file_path = os.path.join(out_folder, tile)
+                s3_key = f"{prefix}/{tile}"
+                try:
+                    s3_client.upload_file(local_file_path, s3_bucket, s3_key)                    
+                except Exception as e:
+                    print(f"Failed to upload {tile}: {str(e)}")
+        else:
+            print("All local tiles already exist on S3")      
 
     print(f"Number of processed tiles locally: {len(processed_tiles_local)}")
     print(f"Number of processed tiles on S3: {len(processed_tiles_s3)}")
 
 if __name__ == "__main__":
-    test_file_count(r"C:\WBG\Work\Projects\FATHOM_COLLAPSE\FATHOM_summaries",
-                    r"s3://wbg-geography01/FATHOM/v31_scaled_GHS_Pop/1000m")
+    #test_file_count(r"C:\WBG\Work\Projects\FATHOM_COLLAPSE\FATHOM_summaries",
+    #                r"s3://wbg-geography01/FATHOM/v31_scaled_GHS_Pop/1000m",
+    #                copy_to_s3=True)
     main()
