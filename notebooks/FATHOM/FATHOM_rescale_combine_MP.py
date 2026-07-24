@@ -32,7 +32,7 @@ import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 def process_tile(tile, ghs_pop_file, scenario, year, s3_bucket, path_prefix, out_folder,
-                 depth_thresh = [0, 15, 50, 150]):
+                 out_s3_prefix = None):
     """Processes a single tile for FATHOM flood depth data.
 
     Args:
@@ -43,7 +43,7 @@ def process_tile(tile, ghs_pop_file, scenario, year, s3_bucket, path_prefix, out
         s3_bucket (str): The S3 bucket name.
         path_prefix (str): The path prefix for the S3 bucket.
         out_folder (str): The local output folder.
-        depth_thresh (list, optional): List of depth thresholds. Defaults to [0, 15, 50].
+        out_s3_prefix (str, optional): The S3 prefix for the output files; if set, will copy local files to S3 then delete local files. Defaults to None.
 
     Returns:
         None
@@ -71,78 +71,68 @@ def process_tile(tile, ghs_pop_file, scenario, year, s3_bucket, path_prefix, out
         ghs_data, ghs_meta = rMisc.clipRaster(ghs_r, tile_gdf, None, True)
 
         with rMisc.create_rasterio_inmemory(ghs_meta, ghs_data) as ghs_local:                        
-            #try:
-                fluvial_r = rasterio.open(fluvial_path)
-                fluvial_meta = fluvial_r.meta.copy()    
-                # Stack the rasters together and take the max value across the stack to get the combined flood depth
-                fluvial_data = fluvial_r.read()
-                pluvial_data = rasterio.open(pluvial_path).read()
-                max_depth = np.maximum.reduce([fluvial_data, pluvial_data])
-                try:
-                    coastal_data = rasterio.open(coastal_path).read()
-                    max_depth = np.maximum.reduce([max_depth, coastal_data])
-                except:
-                    pass                            
+            fluvial_r = rasterio.open(fluvial_path)
+            fluvial_meta = fluvial_r.meta.copy()    
+            # Stack the rasters together and take the max value across the stack to get the combined flood depth
+            fluvial_data = fluvial_r.read()
+            pluvial_data = rasterio.open(pluvial_path).read()
+            max_depth = np.maximum.reduce([fluvial_data, pluvial_data])
+            try:
+                coastal_data = rasterio.open(coastal_path).read()
+                max_depth = np.maximum.reduce([max_depth, coastal_data])
+            except:
+                pass                            
 
-                out_file = os.path.join(out_folder, f"{tile[:-4]}_FATHOM_{year}_{scenario}_combo_{pop_file_name}m_proportion.tif")
-                process = True
+            out_file = os.path.join(out_folder, f"{tile[:-4]}_FATHOM_{year}_{scenario}_combo_{pop_file_name}m_proportion.tif")
+            process = True                        
+            if out_s3_prefix:
+                s3_key = f"{out_s3_prefix}/{os.path.basename(out_file)}"
+                try:
+                    s3_client.head_object(Bucket=s3_bucket, Key=s3_key)                    
+                    process = False  # File already exists on S3, skip processing
+                except:
+                    pass  # File does not exist on S3, continue processing
+            else:
                 try:
                     xx = rasterio.open(out_file)
                     process = False
                 except:
                     pass
-                if process:
-                    ghs_meta.update({"dtype": rasterio.float32, "count": 5})  
-                    '''
-                    Band 1: % of cells with no flood risk
-                    Band 2: % of cells with flood risk between 0-15cm
-                    Band 3: % of cells with flood risk between 15-50cm
-                    Band 4: % of cells with flood risk between 50-150cm
-                    Band 5: % of cells with flood risk over 150 cm
-                    '''                  
-                    with rasterio.open(out_file, "w", **ghs_meta) as dest:
-                        i = 0                        
-                        for cDepth in depth_thresh:
-                            i += 1
-                            numerator = np.where(max_depth > cDepth, 1, 0)
-                            denominator = np.where(max_depth > cDepth, 0, 1)
-                            with rMisc.create_rasterio_inmemory(fluvial_meta, numerator[0,:,:]) as fathom_depth:
-                                numerator_scaled, numerator_meta = rMisc.standardizeInputRasters(fathom_depth, ghs_local, resampling_type="sum")
-                            with rMisc.create_rasterio_inmemory(fluvial_meta, denominator[0,:,:]) as fathom_depth:
-                                denominator_scaled, denominator_meta = rMisc.standardizeInputRasters(fathom_depth, ghs_local, resampling_type="sum")
-                            
-                            results = numerator_scaled / (denominator_scaled + numerator_scaled)
-                            if i == 1:
-                                dest.write_band(i, denominator_scaled[0,:,:])
-                                i += 1
-                            dest.write_band(i, results[0,:,:].astype(rasterio.float32))
-                                                                
+            if process:
+                ghs_meta.update({"dtype": rasterio.float32, "count": 5})  
                 '''
-                for cDepth in depth_thresh:
-                    out_file = os.path.join(out_folder, f"{tile[:-4]}_FATHOM_{year}_{scenario}_{cDepth}cm_{pop_file_name}m_proportion.tif")
-                    
-                    process = True
-                    try:
-                        xx = rasterio.open(out_file)
-                        process = False
-                    except:
-                        pass
-                    if process:
-                        numerator = np.where(max_depth > cDepth, 1, 0)
-                        denominator = np.where(max_depth > cDepth, 0, 1)
+                Band 1: % of cells with no flood risk == number of cells = 0
+                Band 2: % of cells with flood risk between 0-15cm == number of cells > 0 and <= 15
+                Band 3: % of cells with flood risk between 15-50cm == number of cells > 15 and <= 50
+                Band 4: % of cells with flood risk between 50-150cm == number of cells > 50 and <= 150
+                Band 5: % of cells with flood risk over 150 cm == number of cells > 150 and < 10000 
+                '''                  
+                with rasterio.open(out_file, "w", **ghs_meta) as dest:
+                    band1 = np.where(max_depth == 0, 1, 0)
+                    band2 = np.where((max_depth > 0) & (max_depth <= 15), 1, 0)
+                    band3 = np.where((max_depth > 15) & (max_depth <= 50), 1, 0)
+                    band4 = np.where((max_depth > 50) & (max_depth <= 150), 1, 0)
+                    band5 = np.where((max_depth > 150) & (max_depth < 10000), 1, 0)
+                    denominator = np.where(max_depth >= 0, 1, 0)
+
+                    with rMisc.create_rasterio_inmemory(fluvial_meta, denominator[0,:,:]) as fathom_depth:
+                        denominator_scaled, denominator_meta = rMisc.standardizeInputRasters(fathom_depth, ghs_local, resampling_type="sum")
+                                            
+                    for i, numerator in enumerate([band1, band2, band3, band4, band5], start=1):
                         with rMisc.create_rasterio_inmemory(fluvial_meta, numerator[0,:,:]) as fathom_depth:
                             numerator_scaled, numerator_meta = rMisc.standardizeInputRasters(fathom_depth, ghs_local, resampling_type="sum")
-                        with rMisc.create_rasterio_inmemory(fluvial_meta, denominator[0,:,:]) as fathom_depth:
-                            denominator_scaled, denominator_meta = rMisc.standardizeInputRasters(fathom_depth, ghs_local, resampling_type="sum")
-                        
+                    
                         results = numerator_scaled / (denominator_scaled + numerator_scaled)
-                        numerator_meta.update({"dtype": rasterio.float32, "count": 1})                    
-                        with rasterio.open(out_file, "w", **numerator_meta) as dest:
-                            dest.write(results.astype(rasterio.float32))
-                                                        
-            except:
-                pass                                                    
-                '''
+                        dest.write_band(i, results[0,:,:].astype(rasterio.float32))
+
+                if out_s3_prefix:
+                    del dest
+                    s3_key = f"{out_s3_prefix}/{os.path.basename(out_file)}"
+                    try:
+                        s3_client.upload_file(out_file, s3_bucket, s3_key)
+                        os.remove(out_file)
+                    except Exception as e:
+                        tPrint(f"Failed to upload {out_file} to S3: {str(e)}")
 
 def get_list_of_processed_tiles(out_folder=None, s3_path=None, 
                                 scenario="PERCENTILE50", year=2020, depth_thresh=[0, 15, 50],
@@ -252,7 +242,7 @@ def main():
     depth_thresh = [0,15,50,150]
     
     all_args = []
-
+    
     for tile in tif_files:
         for scenario in scenarios:
             for year in years:
@@ -260,7 +250,8 @@ def main():
                 cur_out_folder = os.path.join(out_folder, f"{pop_file_name}m", "COMBO")
                 if not os.path.exists(cur_out_folder):
                     os.makedirs(cur_out_folder)
-                cur_args = [tile, ghs_pop_file, scenario, year, s3_bucket, path_prefix, cur_out_folder, depth_thresh]
+                out_s3_prefix = f"FATHOM/v31_scaled_GHS_Pop/{pop_file_name}m/COMBO/{scenario}/{year}"
+                cur_args = [tile, ghs_pop_file, scenario, year, s3_bucket, path_prefix, cur_out_folder, out_s3_prefix]
                 all_args.append(cur_args)
         
     #process_tile(*all_args[0])  # Process the first tile for testing
