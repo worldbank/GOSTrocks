@@ -49,90 +49,94 @@ def process_tile(tile, ghs_pop_file, scenario, year, s3_bucket, path_prefix, out
         None
     """
     with rasterio.Env(GDAL_HTTP_UNSAFESSL='YES'):
-        tPrint(f"Processing tile: {tile} for scenario: {scenario}, year: {year}")
-        pop_file_name = ghs_pop_file.split("_")[-3]
-        fluvial_path = "s3://{bucket}/{path}/{tile}".format(bucket=s3_bucket, path=path_prefix.format(hazard="FLUVIAL", year=year, scenario=scenario), tile=tile)
-        coastal_path = "s3://{bucket}/{path}/{tile}".format(bucket=s3_bucket, path=path_prefix.format(hazard="COASTAL", year=year, scenario=scenario), tile=tile)
-        pluvial_path = "s3://{bucket}/{path}/{tile}".format(bucket=s3_bucket, path=path_prefix.format(hazard="PLUVIAL", year=year, scenario=scenario), tile=tile)
         try:
-            fluvial_r = rasterio.open(fluvial_path)
-        except:
-            tPrint(f"Tile {tile} not found for scenario: {scenario}, year: {year}")
-            return
-        fluvial_meta = fluvial_r.meta.copy()
-        
-        
-        ghs_r = rasterio.open(ghs_pop_file)      
-        # get boundaing box of the raster
-        tile_box = box(*fluvial_r.bounds)
-        # Turn the tile_box shape into a geodataframe and reproject to the same crs as the ghs raster
-        tile_gdf = gpd.GeoDataFrame(geometry=[tile_box], crs=fluvial_r.crs)
-        tile_gdf = tile_gdf.to_crs(ghs_r.crs)
-        ghs_data, ghs_meta = rMisc.clipRaster(ghs_r, tile_gdf, None, True)
-
-        with rMisc.create_rasterio_inmemory(ghs_meta, ghs_data) as ghs_local:                        
-            fluvial_r = rasterio.open(fluvial_path)
-            fluvial_meta = fluvial_r.meta.copy()    
-            # Stack the rasters together and take the max value across the stack to get the combined flood depth
-            fluvial_data = fluvial_r.read()
-            pluvial_data = rasterio.open(pluvial_path).read()
-            max_depth = np.maximum.reduce([fluvial_data, pluvial_data])
+            tPrint(f"Processing tile: {tile} for scenario: {scenario}, year: {year}")
+            pop_file_name = ghs_pop_file.split("_")[-3]
+            fluvial_path = "s3://{bucket}/{path}/{tile}".format(bucket=s3_bucket, path=path_prefix.format(hazard="FLUVIAL", year=year, scenario=scenario), tile=tile)
+            coastal_path = "s3://{bucket}/{path}/{tile}".format(bucket=s3_bucket, path=path_prefix.format(hazard="COASTAL", year=year, scenario=scenario), tile=tile)
+            pluvial_path = "s3://{bucket}/{path}/{tile}".format(bucket=s3_bucket, path=path_prefix.format(hazard="PLUVIAL", year=year, scenario=scenario), tile=tile)
             try:
-                coastal_data = rasterio.open(coastal_path).read()
-                max_depth = np.maximum.reduce([max_depth, coastal_data])
+                fluvial_r = rasterio.open(fluvial_path)
             except:
-                pass                            
+                tPrint(f"Tile {tile} not found for scenario: {scenario}, year: {year}")
+                return
+            fluvial_meta = fluvial_r.meta.copy()
+            
+            
+            ghs_r = rasterio.open(ghs_pop_file)      
+            # get boundaing box of the raster
+            tile_box = box(*fluvial_r.bounds)
+            # Turn the tile_box shape into a geodataframe and reproject to the same crs as the ghs raster
+            tile_gdf = gpd.GeoDataFrame(geometry=[tile_box], crs=fluvial_r.crs)
+            tile_gdf = tile_gdf.to_crs(ghs_r.crs)
+            ghs_data, ghs_meta = rMisc.clipRaster(ghs_r, tile_gdf, None, True)
 
-            out_file = os.path.join(out_folder, f"{tile[:-4]}_FATHOM_{year}_{scenario}_combo_{pop_file_name}m_proportion.tif")
-            process = True                        
-            if out_s3_prefix:
-                s3_key = f"{out_s3_prefix}/{os.path.basename(out_file)}"
+            with rMisc.create_rasterio_inmemory(ghs_meta, ghs_data) as ghs_local:                        
+                fluvial_r = rasterio.open(fluvial_path)
+                fluvial_meta = fluvial_r.meta.copy()    
+                # Stack the rasters together and take the max value across the stack to get the combined flood depth
+                fluvial_data = fluvial_r.read()
+                pluvial_data = rasterio.open(pluvial_path).read()
+                max_depth = np.maximum.reduce([fluvial_data, pluvial_data])
                 try:
-                    s3_client.head_object(Bucket=s3_bucket, Key=s3_key)                    
-                    process = False  # File already exists on S3, skip processing
+                    coastal_data = rasterio.open(coastal_path).read()
+                    max_depth = np.maximum.reduce([max_depth, coastal_data])
                 except:
-                    pass  # File does not exist on S3, continue processing
-            else:
-                try:
-                    xx = rasterio.open(out_file)
-                    process = False
-                except:
-                    pass
-            if process:
-                ghs_meta.update({"dtype": rasterio.float32, "count": 5})  
-                '''
-                Band 1: % of cells with no flood risk == number of cells = 0
-                Band 2: % of cells with flood risk between 0-15cm == number of cells > 0 and <= 15
-                Band 3: % of cells with flood risk between 15-50cm == number of cells > 15 and <= 50
-                Band 4: % of cells with flood risk between 50-150cm == number of cells > 50 and <= 150
-                Band 5: % of cells with flood risk over 150 cm == number of cells > 150 and < 10000 
-                '''                  
-                with rasterio.open(out_file, "w", **ghs_meta) as dest:
-                    band1 = np.where(max_depth == 0, 1, 0)
-                    band2 = np.where((max_depth > 0) & (max_depth <= 15), 1, 0)
-                    band3 = np.where((max_depth > 15) & (max_depth <= 50), 1, 0)
-                    band4 = np.where((max_depth > 50) & (max_depth <= 150), 1, 0)
-                    band5 = np.where((max_depth > 150) & (max_depth < 10000), 1, 0)
-                    denominator = np.where(max_depth >= 0, 1, 0)
+                    pass                            
 
-                    with rMisc.create_rasterio_inmemory(fluvial_meta, denominator[0,:,:]) as fathom_depth:
-                        denominator_scaled, denominator_meta = rMisc.standardizeInputRasters(fathom_depth, ghs_local, resampling_type="sum")
-                                            
-                    for i, numerator in enumerate([band1, band2, band3, band4, band5], start=1):
-                        with rMisc.create_rasterio_inmemory(fluvial_meta, numerator[0,:,:]) as fathom_depth:
-                            numerator_scaled, numerator_meta = rMisc.standardizeInputRasters(fathom_depth, ghs_local, resampling_type="sum")
-                    
-                        results = numerator_scaled / (denominator_scaled + numerator_scaled)
-                        dest.write_band(i, results[0,:,:].astype(rasterio.float32))
-
+                out_file = os.path.join(out_folder, f"{tile[:-4]}_FATHOM_{year}_{scenario}_combo_{pop_file_name}m_proportion.tif")
+                process = True                        
                 if out_s3_prefix:
-                    del dest
                     s3_key = f"{out_s3_prefix}/{os.path.basename(out_file)}"
                     try:
-                        s3_client.upload_file(out_file, s3_bucket, s3_key)
-                        os.remove(out_file)
-                    except Exception as e:
-                        tPrint(f"Failed to upload {out_file} to S3: {str(e)}")
+                        s3_client.head_object(Bucket=s3_bucket, Key=s3_key)                    
+                        process = False  # File already exists on S3, skip processing
+                    except:
+                        pass  # File does not exist on S3, continue processing
+                else:
+                    try:
+                        xx = rasterio.open(out_file)
+                        process = False
+                    except:
+                        pass
+                if process:
+                    ghs_meta.update({"dtype": rasterio.float32, "count": 5})  
+                    '''
+                    Band 1: % of cells with no flood risk == number of cells = 0
+                    Band 2: % of cells with flood risk between 0-15cm == number of cells > 0 and <= 15
+                    Band 3: % of cells with flood risk between 15-50cm == number of cells > 15 and <= 50
+                    Band 4: % of cells with flood risk between 50-150cm == number of cells > 50 and <= 150
+                    Band 5: % of cells with flood risk over 150 cm == number of cells > 150 and < 10000 
+                    '''                  
+                    with rasterio.open(out_file, "w", **ghs_meta) as dest:
+                        band1 = np.where(max_depth == 0, 1, 0)
+                        band2 = np.where((max_depth > 0) & (max_depth <= 15), 1, 0)
+                        band3 = np.where((max_depth > 15) & (max_depth <= 50), 1, 0)
+                        band4 = np.where((max_depth > 50) & (max_depth <= 150), 1, 0)
+                        band5 = np.where((max_depth > 150) & (max_depth < 10000), 1, 0)
+                        denominator = np.where(max_depth >= 0, 1, 0)
+
+                        with rMisc.create_rasterio_inmemory(fluvial_meta, denominator[0,:,:]) as fathom_depth:
+                            denominator_scaled, denominator_meta = rMisc.standardizeInputRasters(fathom_depth, ghs_local, resampling_type="sum")
+                                                
+                        for i, numerator in enumerate([band1, band2, band3, band4, band5], start=1):
+                            with rMisc.create_rasterio_inmemory(fluvial_meta, numerator[0,:,:]) as fathom_depth:
+                                numerator_scaled, numerator_meta = rMisc.standardizeInputRasters(fathom_depth, ghs_local, resampling_type="sum")
+                        
+                            results = numerator_scaled / (denominator_scaled + numerator_scaled)
+                            dest.write_band(i, results[0,:,:].astype(rasterio.float32))
+
+                    if out_s3_prefix:
+                        del dest
+                        s3_key = f"{out_s3_prefix}/{os.path.basename(out_file)}"
+                        try:
+                            s3_client.upload_file(out_file, s3_bucket, s3_key)
+                            os.remove(out_file)
+                        except Exception as e:
+                            tPrint(f"Failed to upload {out_file} to S3: {str(e)}")
+        except Exception as e:
+            tPrint(f"Error processing tile {tile} for scenario: {scenario}, year: {year}: {str(e)}")
+            return
 
 def get_list_of_processed_tiles(out_folder=None, s3_path=None, 
                                 scenario="PERCENTILE50", year=2020, depth_thresh=[0, 15, 50],
@@ -231,8 +235,6 @@ def main():
                 if key.lower().endswith(('.tif', '.tiff')):
                     tif_files.append(key.split('/')[-1])  # Get just the filename
 
-    print(f"Total tiles to process: {len(tif_files)}")
-
     ghs_pop_file = ghs_pop_files[0]  # Use the first GHS population file for this example
     pop_file_name = ghs_pop_file.split("_")[-3]
     ghs_r = rasterio.open(ghs_pop_file)        
@@ -243,14 +245,26 @@ def main():
     
     all_args = []
     
-    for tile in tif_files:
-        for scenario in scenarios:
-            for year in years:
-                #cur_out_folder = f"s3://{s3_bucket}/{s3_prefix}/v31_scaled_GHS_Pop/{pop_file_name}m/COMBO/"
+    for scenario in scenarios:
+        for year in years:
+            # Get a list of processed files in the out s3 prefix
+            out_s3_prefix = f"FATHOM/v31_scaled_GHS_Pop/{pop_file_name}m/COMBO/{scenario}/{year}"
+            cur_processed_tiles = []
+            for page in paginator.paginate(Bucket=s3_bucket, Prefix=out_s3_prefix):
+                if 'Contents' in page:
+                    for obj in page['Contents']:
+                        key = obj['Key']
+                        # Check for .tif or .tiff extensions
+                        if key.lower().endswith(('.tif', '.tiff')):
+                            cur_processed_tiles.append(key.split('/')[-1])  # Get just the filename
+            cur_processed_tiles_set = set(cur_processed_tiles)
+            cur_tif_files = [tile for tile in tif_files if f"{tile[:-4]}_FATHOM_{year}_{scenario}_combo_{pop_file_name}m_proportion.tif" not in cur_processed_tiles_set]
+            print(f"{len(cur_tif_files)} tiles of {len(tif_files)} to process for scenario: {scenario}, year: {year}")
+            for tile in cur_tif_files:
                 cur_out_folder = os.path.join(out_folder, f"{pop_file_name}m", "COMBO")
                 if not os.path.exists(cur_out_folder):
                     os.makedirs(cur_out_folder)
-                out_s3_prefix = f"FATHOM/v31_scaled_GHS_Pop/{pop_file_name}m/COMBO/{scenario}/{year}"
+                
                 cur_args = [tile, ghs_pop_file, scenario, year, s3_bucket, path_prefix, cur_out_folder, out_s3_prefix]
                 all_args.append(cur_args)
         
