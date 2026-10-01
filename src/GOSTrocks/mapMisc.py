@@ -106,7 +106,10 @@ def static_map_vector(
         v_data[map_column] = list(v_data.index)
         v_data["tomap"] = pd.cut(v_data[map_column], 6, labels=[0, 1, 2, 3, 4, 5])
     fig, ax = plt.subplots(figsize=figsize)
-    cm = plt.cm.get_cmap(colormap)
+    try:
+        cm = plt.cm.get_cmap(colormap)
+    except:
+        cm = plt.get_cmap(colormap)
     if reverse_colormap:
         cm = cm.reversed()
     all_labels = []

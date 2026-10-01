@@ -72,7 +72,8 @@ def get_airbus_token(api_token: str, token_endpoint: str = "https://authenticate
 
 def search_airbus_imagery(access_token: str, bbox: str, 
                           search_endpoint: str = "https://search.foundation.api.oneatlas.airbus.com/api/v2/opensearch", 
-                          query_params: dict = None) -> dict:
+                          query_params: dict = None
+                          ) -> dict:
     """
     Search for imagery using the Airbus API with the provided access token and query parameters.
     
@@ -81,6 +82,7 @@ def search_airbus_imagery(access_token: str, bbox: str,
         bbox: The bounding box for the search (format str: "minLon,minLat,maxLon,maxLat")
         search_endpoint: The endpoint URL for searching imagery
         query_params: A dictionary of query parameters for the search
+        
     
     Returns:
         The search results as a dictionary

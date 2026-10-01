@@ -1,6 +1,7 @@
 from io import BytesIO
 import os
 import json
+import ssl
 import urllib
 import boto3
 import rasterio
@@ -201,13 +202,33 @@ def get_fathom_vrts(return_df=False):
     return_df: if True, return a pandas dataframe with the VRT files and their components,
             defaults to False which returns just the list of VRT files
     """
-    vrt_file = os.path.join(
-        os.path.dirname(os.path.realpath(__file__)), "fathom_vrts.txt"
-    )
+    # mute InsecureRequestWarning
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    # search through the S3 bucket s3://wbg-geography01/FATHOM/ for all vrt files
+    s3 = boto3.client("s3", verify=False)
+    bucket = "wbg-geography01"
+    prefix = "FATHOM/"
     all_vrts = []
-    with open(vrt_file, "r") as f:
-        for line in f:
-            all_vrts.append(line.strip())
+    token = None
+    more_results = True
+    while more_results:
+        if token:
+            objects = s3.list_objects_v2(
+                Bucket=bucket,
+                Prefix=prefix,
+                ContinuationToken=token,  # noqa
+                Delimiter="/",  # noqa
+            )
+        else:
+            objects = s3.list_objects_v2(Bucket=bucket, Prefix=prefix)
+        more_results = objects["IsTruncated"]
+        if more_results:
+            token = objects["NextContinuationToken"]  # noqa
+        for res in objects.get("Contents", []):
+            if res["Key"].endswith(".vrt"):
+                all_vrts.append(f"s3://{bucket}/{res['Key']}")    
+    
     if return_df:
         vrt_pd = pd.DataFrame(
             [x.split("-")[4:10] for x in all_vrts],
@@ -311,7 +332,7 @@ def gdf_esri_service(url, layer=0, verify_ssl=True):
     https://medium.com/@jesse.b.nestler/how-to-extract-every-feature-from-an-esri-map-service-using-python-b6e34743574a
     """
     # Look at metadata of url
-    with urllib.request.urlopen(f"{url}/?f=pjson") as service_url:
+    with urllib.request.urlopen(f"{url}/?f=pjson", context=ssl._create_unverified_context()) as service_url:
         service_data = json.loads(service_url.read().decode())
 
     queryable = ["Query" in service_data["capabilities"]]
@@ -327,7 +348,7 @@ def gdf_esri_service(url, layer=0, verify_ssl=True):
             "f": "json",
         }
         count_str = urllib.parse.urlencode(count_query)
-        with urllib.request.urlopen(f"{query_url}?{count_str}") as count_url:
+        with urllib.request.urlopen(f"{query_url}?{count_str}", context=ssl._create_unverified_context()) as count_url:
             count_json = json.loads(count_url.read().decode())
             n_records = count_json["count"]
         if n_records < n_queries:  # We can download all the data in a single query

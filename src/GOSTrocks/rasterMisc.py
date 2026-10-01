@@ -283,7 +283,6 @@ def rasterizeDataFrame(
 
     # Set VALUE field equal to idField
     inD["VALUE"] = 1
-    inD["VALUE"] = inD["VALUE"].astype("int16")
     if idField != "":
         inD["VALUE"] = inD[idField]
 
