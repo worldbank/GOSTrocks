@@ -1,10 +1,10 @@
 affine
 boto3
-botocore
 contextily
 click
-coverage
 geopandas
+google-auth
+google-cloud-storage
 matplotlib
 numexpr>=2.6.8
 numpy
@@ -15,8 +15,12 @@ PyOpenSSL>=23.2
 python-dotenv>=0.5.1
 pycountry
 rasterio
+requests
+rio-vrt>=0.3.1
 s3fs
+s2sphere
 scipy
 seaborn
+shapely
 tqdm
 xarray

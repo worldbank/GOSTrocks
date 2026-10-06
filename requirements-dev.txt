@@ -1,7 +1,8 @@
 docutils>=0.21.2
 jupyter-book>=1
 sphinx
-iPython
+ipython
 standard-imghdr
 sphinxcontrib-apidoc
 pytest
+coverage

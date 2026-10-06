@@ -12,7 +12,7 @@ readme = { file = "README.md", content-type = "text/markdown" }
 license = { file = "LICENSE" }
 keywords = ["gostrocks", "raster", "GOST"]
 dynamic = ["version", "dependencies", "optional-dependencies"]
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 
 authors = [
 	{ name = "Benjamin P. Stewart", email = "ben.gis.stewart@gmail.com" },
@@ -37,6 +37,7 @@ dependencies = { file = ["requirements.txt"] }
 dev = { file = ["requirements-dev.txt"] }
 
 [tool.setuptools_scm]
+fallback_version = "0.0.0.dev0"
 
 [project.urls]
 "Homepage" = "https://github.com/worldbank/GOSTrocks"

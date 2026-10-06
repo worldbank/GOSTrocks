@@ -1,22 +1,191 @@
-from io import BytesIO
-import os
+import functools
+import glob
+import gzip
 import json
+import multiprocessing
+import os
+import shutil
 import ssl
-import urllib
+import tempfile
+import urllib.parse
+import urllib.request
+import warnings
+from io import BytesIO
+from multiprocessing.pool import ThreadPool
+from typing import Any, Callable, Iterable, List, Optional, Tuple
+
 import boto3
+import geopandas as gpd
+import pandas as pd
+import pyproj
 import rasterio
 import requests
-import warnings
-import urllib.request
-import urllib.parse
-
-import pandas as pd
-import geopandas as gpd
-
-from botocore.config import Config
+import s2sphere
+import shapely
+import tqdm.notebook
 from botocore import UNSIGNED
+from botocore.config import Config
+from google.auth import credentials
+from google.cloud import storage
+from IPython import display
+from rasterio.transform import Affine
+from shapely.geometry import Polygon, box
+from shapely.ops import transform
 
 from . import rasterMisc as rMisc
+
+
+def download_google_2_5d(extent, year, out_folder="google_2_5d", crs="EPSG:4326", overwrite=False,
+                         create_vrt=False):
+    """Download Open Buildings 2.5D Temporal v1 tiles intersecting an area.
+
+    Parameters
+    ----------
+    extent : shapely.geometry.Polygon or shapely.geometry.MultiPolygon
+        Area of interest, in the coordinate reference system specified by crs.
+    year : int
+        Dataset year, from 2016 through 2023 inclusive.
+    out_folder : str or os.PathLike, optional
+        Download directory. Cloud object subdirectories are preserved to avoid
+        filename collisions. Existing files are reused unless overwrite is True.
+    crs : str or pyproj.CRS, optional
+        Coordinate reference system of extent; defaults to WGS84 longitude/latitude.
+    overwrite : bool, optional
+        Replace existing downloaded tiles.
+    create_vrt : bool, optional
+        Write google_2_5d.vrt in out_folder without osgeo bindings. Tiles must
+        share a CRS, north-up pixel grid, band types, and no-data values.
+        No VRT is written when no tiles are found. Defaults to False.
+
+    Returns
+    -------
+    list of str
+        Local paths of the intersecting GeoTIFFs, sorted by cloud object name.
+        An empty list indicates no coverage for this area and year.
+
+    Notes
+    -----
+    Uses anonymous access to the public open-buildings-temporal-data bucket.
+    Downloads complete tiles, including all available dataset channels; it does
+    not clip or mosaic them. Tiles can be large. Raster values and native CRSs
+    are preserved. See https://sites.research.google/gr/open-buildings/temporal/.
+    Antimeridian-spanning geometries must be split before calling this function.
+    """
+    if not isinstance(extent, (shapely.geometry.Polygon, shapely.geometry.MultiPolygon)):
+        raise TypeError("extent must be a Shapely Polygon or MultiPolygon")
+    if extent.is_empty or not extent.is_valid:
+        raise ValueError("extent must be nonempty and valid")
+    if isinstance(year, bool) or not isinstance(year, int) or not 2016 <= year <= 2023:
+        raise ValueError("year must be an integer from 2016 through 2023")
+
+    to_wgs84 = pyproj.Transformer.from_crs(crs, "EPSG:4326", always_xy=True)
+    region = transform(to_wgs84.transform, extent)
+    west, south, east, north = region.bounds
+    if not region.is_valid or not (-180 <= west <= east <= 180 and -90 <= south <= north <= 90):
+        raise ValueError("extent must transform to valid WGS84 coordinates")
+    if east - west > 180:
+        raise ValueError("Split antimeridian-spanning extents before downloading")
+
+    covering = s2sphere.RegionCoverer()
+    covering.min_level = 2
+    covering.max_level = 2
+    rectangle = s2sphere.LatLngRect.from_point_pair(
+        s2sphere.LatLng.from_degrees(south, west),
+        s2sphere.LatLng.from_degrees(north, east),
+    )
+    client = storage.Client.create_anonymous_client()
+    bucket_name = "open-buildings-temporal-data"
+    bucket = client.bucket(bucket_name)
+    objects = set()
+    for cell in covering.get_covering(rectangle):
+        prefix = f"v1/manifests/{cell.to_token()}_"
+        for blob in client.list_blobs(bucket_name, prefix=prefix):
+            if f"_{year}_" not in blob.name:
+                continue
+            manifest = json.loads(blob.download_as_bytes())
+            for tileset in manifest["tilesets"]:
+                to_tile_crs = pyproj.Transformer.from_crs(
+                    "EPSG:4326", tileset["crs"], always_xy=True
+                )
+                tile_region = transform(to_tile_crs.transform, region)
+                for source in tileset["sources"]:
+                    affine = source["affineTransform"]
+                    tile_transform = Affine(
+                        affine["scaleX"], affine.get("shearX", 0), affine["translateX"],
+                        affine.get("shearY", 0), affine["scaleY"], affine["translateY"],
+                    )
+                    width = source["dimensions"]["width"]
+                    height = source["dimensions"]["height"]
+                    footprint = Polygon([
+                        tile_transform * corner
+                        for corner in [(0, 0), (width, 0), (width, height), (0, height)]
+                    ])
+                    if not footprint.intersects(tile_region):
+                        continue
+                    for uri in source["uris"]:
+                        full_uri = manifest["uriPrefix"] + uri
+                        parsed = urllib.parse.urlparse(full_uri)
+                        if parsed.scheme != "gs" or parsed.netloc != bucket_name:
+                            raise ValueError(f"Unexpected tile URI: {full_uri}")
+                        object_name = parsed.path.lstrip("/")
+                        parts = object_name.split("/")
+                        if any(part in ("", ".", "..") or "\\" in part or ":" in part for part in parts):
+                            raise ValueError(f"Unsafe tile path: {object_name}")
+                        objects.add(object_name)
+
+    paths = []
+    for object_name in sorted(objects):
+        destination = os.path.join(os.fspath(out_folder), *object_name.split("/"))
+        if overwrite or not os.path.isfile(destination):
+            os.makedirs(os.path.dirname(destination), exist_ok=True)
+            descriptor, temporary_path = tempfile.mkstemp(
+                suffix=".part", dir=os.path.dirname(destination)
+            )
+            os.close(descriptor)
+            try:
+                bucket.blob(object_name).download_to_filename(temporary_path)
+                os.replace(temporary_path, destination)
+            finally:
+                if os.path.exists(temporary_path):
+                    os.remove(temporary_path)
+        paths.append(destination)
+
+    if create_vrt and paths:
+        from rasterio.shutil import copy as copy_raster
+        from rio_vrt import build_vrt
+
+        with rasterio.open(paths[0]) as first_tile:
+            tile_crs = first_tile.crs
+            tile_transform = first_tile.transform
+            tile_types = first_tile.dtypes
+            tile_nodata = first_tile.nodatavals
+            resolution = first_tile.res
+        for path in paths:
+            with rasterio.open(path) as tile:
+                if tile.crs != tile_crs or tile_crs is None:
+                    raise ValueError("VRT tiles must share a CRS; reproject mixed-CRS tiles first")
+                if (tile.transform.b != 0 or tile.transform.d != 0
+                        or tile.transform.a <= 0 or tile.transform.e >= 0
+                        or tile.res != resolution):
+                    raise ValueError("VRT tiles must share a north-up pixel resolution")
+                offsets = (
+                    (tile.transform.c - tile_transform.c) / resolution[0],
+                    (tile.transform.f - tile_transform.f) / resolution[1],
+                )
+                if any(abs(offset - round(offset)) > 1e-6 for offset in offsets):
+                    raise ValueError("VRT tiles must align on the same pixel grid")
+                if tile.dtypes != tile_types or any(
+                    str(actual) != str(expected)
+                    for actual, expected in zip(tile.nodatavals, tile_nodata)
+                ):
+                    raise ValueError("VRT tiles must share band types and no-data values")
+        vrt_path = os.path.join(out_folder, "google_2_5d.vrt")
+        if len(paths) == 1:
+            copy_raster(paths[0], vrt_path, driver="VRT")
+        else:
+            build_vrt(vrt_path, paths, relative=True, mosaic=True, res=resolution)
+    return paths
+
 
 def get_all_wb_iso3():
     """Get a list of all ISO3 codes for countries in the World Bank dataset
@@ -483,3 +652,4 @@ def acled_search(
             raise ValueError(f"ACLED API call failed on page {res.url}")
 
     return pd.concat(all_results)
+

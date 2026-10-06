@@ -21,10 +21,12 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Set up Python ${{ matrix.python-version }} with minconda
         uses: conda-incubator/setup-miniconda@v3
         with:
@@ -38,4 +40,4 @@ jobs:
           pip install .
       - name: Test ${{ env.PACKAGE_NAME }} install
         run: |
-          python -c "import ${PACKAGE_NAME}"
+          python -c "import $PACKAGE_NAME"
